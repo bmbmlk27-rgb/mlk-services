@@ -1,0 +1,50 @@
+:root {
+
+  /* ===== Couleurs ===== */
+
+  --background: #09090B;
+  --surface: #13131A;
+  --surface-light: #1B1B24;
+
+  --primary: #FF7A00;
+  --primary-hover: #ff922e;
+
+  --secondary: #22C55E;
+
+  --white: #FFFFFF;
+  --text: #CFCFD3;
+  --muted: #8D8D97;
+
+  --border: rgba(255,255,255,.08);
+
+  /* ===== Glass ===== */
+
+  --glass: rgba(255,255,255,.05);
+  --glass-border: rgba(255,255,255,.08);
+  --blur: 18px;
+
+  /* ===== Ombres ===== */
+
+  --shadow-lg: 0 20px 60px rgba(0,0,0,.45);
+  --shadow-sm: 0 8px 20px rgba(0,0,0,.20);
+
+  /* ===== Radius ===== */
+
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 30px;
+
+  /* ===== Transition ===== */
+
+  --transition: .35s ease;
+
+  /* ===== Largeur ===== */
+
+  --container: 1280px;
+
+  /* ===== Fonts ===== */
+
+  --title-font: "Sora", sans-serif;
+  --body-font: "Poppins", sans-serif;
+
+}

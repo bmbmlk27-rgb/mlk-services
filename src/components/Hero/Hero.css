@@ -1,0 +1,1033 @@
+/*=========================================================
+                HERO PREMIUM MLK SERVICES
+=========================================================*/
+
+.hero{
+
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:120px 0;
+
+    background:#000;
+
+}
+
+/*=========================================
+            BACKGROUND
+=========================================*/
+
+.hero-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at 12% 18%,
+    rgba(255,140,0,.18),
+    transparent 28%),
+
+    radial-gradient(circle at 88% 12%,
+    rgba(255,170,40,.12),
+    transparent 30%),
+
+    radial-gradient(circle at 50% 88%,
+    rgba(255,123,0,.08),
+    transparent 35%),
+
+    #000;
+
+    z-index:0;
+
+}
+
+.hero-bg::before{
+
+content:"";
+
+position:absolute;
+
+width:700px;
+
+height:700px;
+
+border-radius:50%;
+
+left:-250px;
+
+top:-250px;
+
+background:rgba(255,123,0,.09);
+
+filter:blur(150px);
+
+}
+
+.hero-bg::after{
+
+content:"";
+
+position:absolute;
+
+width:650px;
+
+height:650px;
+
+border-radius:50%;
+
+right:-220px;
+
+bottom:-260px;
+
+background:rgba(255,170,40,.07);
+
+filter:blur(150px);
+
+}
+
+/*=========================================
+            CONTAINER
+=========================================*/
+
+.hero-container{
+
+    position:relative;
+
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:110px;
+
+}
+
+/*=========================================
+                LEFT
+=========================================*/
+
+.hero-content{
+
+    max-width:650px;
+
+}
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 24px;
+
+    border-radius:60px;
+
+    background:rgba(255,140,0,.08);
+
+    border:1px solid rgba(255,140,0,.25);
+
+    color:#ff9800;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    backdrop-filter:blur(20px);
+
+    margin-bottom:30px;
+
+}
+
+.hero-content h1{
+
+    color:white;
+
+    font-size:72px;
+
+    line-height:1.05;
+
+    font-weight:800;
+
+    margin-bottom:30px;
+
+}
+
+.hero-content h1 span{
+
+    background:linear-gradient(
+
+    90deg,
+
+    #ff7b00,
+
+    #ffb84d,
+
+    #ffffff
+
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero-content p{
+
+    color:#bdbdbd;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    max-width:560px;
+
+    margin-bottom:45px;
+
+}
+
+/*=========================================
+                BUTTONS
+=========================================*/
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn-primary{
+
+    padding:20px 42px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    background:linear-gradient(
+    135deg,
+    #ff7b00,
+    #ff9800);
+
+    color:white;
+
+    font-weight:700;
+
+    transition:.35s;
+
+    box-shadow:0 15px 35px rgba(255,123,0,.28);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 25px 45px rgba(255,123,0,.35);
+
+}
+
+.btn-secondary{
+
+    padding:20px 42px;
+
+    border-radius:18px;
+
+    border:2px solid #ff9800;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+}
+
+.btn-secondary:hover{
+
+    background:#ff9800;
+
+    transform:translateY(-6px);
+
+}
+
+/*=========================================
+            HERO RIGHT
+=========================================*/
+
+.hero-visual{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+/*=========================================================
+                IDENTITY CARD
+=========================================================*/
+
+.identity-card{
+
+    position:relative;
+
+    width:380px;
+
+    padding:38px;
+
+    border-radius:34px;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    background:rgba(18,18,18,.82);
+
+    border:1px solid rgba(255,140,0,.18);
+
+    backdrop-filter:blur(28px);
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.45),
+
+        0 0 40px rgba(255,140,0,.08);
+
+    transition:.45s;
+
+}
+
+.identity-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:#ff9800;
+
+    box-shadow:
+
+        0 35px 70px rgba(255,140,0,.20);
+
+}
+
+/*====================================
+        LUMIÈRES
+====================================*/
+
+.identity-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:50%;
+
+    top:-120px;
+
+    left:-100px;
+
+    background:rgba(255,140,0,.10);
+
+    filter:blur(90px);
+
+}
+
+.identity-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    right:-90px;
+
+    bottom:-90px;
+
+    background:rgba(255,255,255,.03);
+
+    filter:blur(80px);
+
+}
+
+/*====================================
+            HALO
+====================================*/
+
+.identity-glow{
+
+    position:absolute;
+
+    left:50%;
+
+    top:-90px;
+
+    transform:translateX(-50%);
+
+    width:300px;
+
+    height:300px;
+
+    border-radius:50%;
+
+    background:#ff9800;
+
+    opacity:.28;
+
+    filter:blur(120px);
+
+    pointer-events:none;
+
+}
+
+/*====================================
+            AVATAR
+====================================*/
+
+.identity-avatar{
+
+    position:relative;
+
+    width:190px;
+
+    height:190px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin:auto;
+
+    border:4px solid rgba(255,140,0,.35);
+
+    box-shadow:
+
+        0 0 35px rgba(255,140,0,.35),
+
+        0 15px 35px rgba(0,0,0,.35);
+
+    z-index:2;
+
+}
+
+/*====================================
+            TITRES
+====================================*/
+
+.identity-card h2{
+
+    margin-top:26px;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:white;
+
+}
+
+.identity-job{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#bdbdbd;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+/*====================================
+        TECH STACK
+====================================*/
+
+.tech-stack{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    margin-top:30px;
+
+}
+
+.tech{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:11px 18px;
+
+    border-radius:40px;
+
+    background:rgba(255,140,0,.08);
+
+    border:1px solid rgba(255,140,0,.18);
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.tech:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#ff9800;
+
+    background:rgba(255,140,0,.15);
+
+    box-shadow:
+
+        0 15px 30px rgba(255,140,0,.20);
+
+}
+
+.tech i{
+
+    font-size:22px;
+
+}
+
+.html i{
+
+    color:#E44D26;
+
+}
+
+.css i{
+
+    color:#2196F3;
+
+}
+
+.js i{
+
+    color:#F7DF1E;
+
+}
+
+.vite{
+
+    color:#b88cff;
+
+}
+
+/*====================================
+        ANIMATION
+====================================*/
+
+@keyframes floatCard{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.identity-card{
+
+    animation:floatCard 6s ease-in-out infinite;
+
+}
+
+
+
+/*=========================================================
+                    ORBITE 3D
+=========================================================*/
+
+.services-orbit{
+
+    position:relative;
+
+    width:600px;
+
+    height:280px;
+
+    margin-top:70px;
+
+    perspective:1800px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/*=========================================
+            CARTES DE L'ORBITE
+=========================================*/
+
+.orbit-item{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:185px;
+
+    height:225px;
+
+    margin-left:-92px;
+
+    margin-top:-112px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    background:rgba(18,18,18,.88);
+
+    border:1px solid rgba(255,140,0,.18);
+
+    backdrop-filter:blur(22px);
+
+    transform-style:preserve-3d;
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.40);
+
+    transition:
+
+        border-color .35s,
+
+        box-shadow .35s,
+
+        transform .35s;
+
+}
+
+.orbit-item:hover{
+
+    border-color:#ff9800;
+
+    box-shadow:
+
+        0 25px 50px rgba(255,140,0,.22);
+
+}
+
+/*=========================================
+                IMAGE
+=========================================*/
+
+.orbit-item img{
+
+    width:110px;
+
+    height:110px;
+
+    object-fit:contain;
+
+    pointer-events:none;
+
+    transition:.4s;
+
+}
+
+.orbit-item:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================================
+                TITRE
+=========================================*/
+
+.orbit-item h3{
+
+    margin-top:20px;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    letter-spacing:.4px;
+
+}
+
+/*=========================================
+            EFFET LUMIÈRE
+=========================================*/
+
+.orbit-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    top:-90px;
+
+    left:-70px;
+
+    background:rgba(255,140,0,.08);
+
+    filter:blur(70px);
+
+}
+
+.orbit-item::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.03);
+
+    pointer-events:none;
+
+}
+
+/*=========================================
+        ANIMATION FLOTTANTE
+=========================================*/
+
+.orbit-item img{
+
+    animation:orbitFloat 3.5s ease-in-out infinite;
+
+}
+
+@keyframes orbitFloat{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+/*=========================================================
+                    RESPONSIVE
+=========================================================*/
+
+@media(max-width:1200px){
+
+.hero-container{
+
+    gap:70px;
+
+}
+
+.hero-content h1{
+
+    font-size:64px;
+
+}
+
+.identity-card{
+
+    width:350px;
+
+}
+
+.services-orbit{
+
+    width:520px;
+
+}
+
+}
+
+@media(max-width:992px){
+
+.hero{
+
+    padding:140px 0 80px;
+
+}
+
+.hero-container{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+    gap:70px;
+
+}
+
+.hero-content{
+
+    margin:auto;
+
+}
+
+.hero-content p{
+
+    margin:auto;
+
+    margin-bottom:45px;
+
+}
+
+.hero-buttons{
+
+    justify-content:center;
+
+}
+
+.identity-card{
+
+    width:350px;
+
+}
+
+.services-orbit{
+
+    width:470px;
+
+    height:240px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+
+    font-size:46px;
+
+}
+
+.hero-content p{
+
+    font-size:16px;
+
+}
+
+.identity-card{
+
+    width:310px;
+
+    padding:30px;
+
+}
+
+.identity-avatar{
+
+    width:165px;
+
+    height:165px;
+
+}
+
+.services-orbit{
+
+    width:360px;
+
+    height:200px;
+
+}
+
+.orbit-item{
+
+    width:145px;
+
+    height:180px;
+
+    margin-left:-72px;
+
+    margin-top:-90px;
+
+}
+
+.orbit-item img{
+
+    width:80px;
+
+    height:80px;
+
+}
+
+.orbit-item h3{
+
+    font-size:16px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.hero{
+
+    padding:120px 0 70px;
+
+}
+
+.hero-content h1{
+
+    font-size:36px;
+
+}
+
+.hero-badge{
+
+    font-size:13px;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.btn-primary,
+
+.btn-secondary{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+.identity-card{
+
+    width:280px;
+
+}
+
+.services-orbit{
+
+    width:290px;
+
+    height:170px;
+
+}
+
+.orbit-item{
+
+    width:120px;
+
+    height:150px;
+
+    margin-left:-60px;
+
+    margin-top:-75px;
+
+}
+
+.orbit-item img{
+
+    width:65px;
+
+    height:65px;
+
+}
+
+.orbit-item h3{
+
+    font-size:14px;
+
+}
+
+}
