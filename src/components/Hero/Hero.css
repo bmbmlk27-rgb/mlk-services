@@ -3,21 +3,14 @@
 =========================================================*/
 
 .hero{
-
     position:relative;
-
     min-height:100vh;
-
     display:flex;
-
     align-items:center;
-
     overflow:hidden;
-
     padding:120px 0;
-
-    background:#000;
-
+    background:var(--background);
+    transition:background .35s ease,color .35s ease;
 }
 
 /*=========================================
@@ -44,7 +37,7 @@
     rgba(255,123,0,.08),
     transparent 35%),
 
-    #000;
+    var(--background);
 
     z-index:0;
 
@@ -154,7 +147,7 @@ filter:blur(150px);
 
 .hero-content h1{
 
-    color:white;
+    color:var(--heading);
 
     font-size:72px;
 
@@ -188,7 +181,7 @@ filter:blur(150px);
 
 .hero-content p{
 
-    color:#bdbdbd;
+    color:var(--text);
 
     font-size:18px;
 
@@ -251,9 +244,9 @@ filter:blur(150px);
 
     border-radius:18px;
 
-    border:2px solid #ff9800;
+    border:2px solid var(--primary)
 
-    color:white;
+    color:var(--heading);;
 
     text-decoration:none;
 
@@ -263,7 +256,8 @@ filter:blur(150px);
 
 .btn-secondary:hover{
 
-    background:#ff9800;
+     background:var(--primary);
+    color:#fff;
 
     transform:translateY(-6px);
 
@@ -306,9 +300,9 @@ filter:blur(150px);
 
     text-align:center;
 
-    background:rgba(18,18,18,.82);
+    background:var(--glass);
 
-    border:1px solid rgba(255,140,0,.18);
+    border:1px solid var(--border);
 
     backdrop-filter:blur(28px);
 
@@ -456,7 +450,7 @@ filter:blur(150px);
 
     font-weight:700;
 
-    color:white;
+    color:var(--heading);
 
 }
 
@@ -466,7 +460,7 @@ filter:blur(150px);
 
     margin-top:10px;
 
-    color:#bdbdbd;
+    color:var(--text);
 
     font-size:15px;
 
@@ -504,11 +498,11 @@ filter:blur(150px);
 
     border-radius:40px;
 
-    background:rgba(255,140,0,.08);
+    background:var(--glass);
 
-    border:1px solid rgba(255,140,0,.18);
+    border:1px solid var(--border);
 
-    color:white;
+    color:var(--heading);
 
     font-size:14px;
 
@@ -654,9 +648,9 @@ filter:blur(150px);
 
     overflow:hidden;
 
-    background:rgba(18,18,18,.88);
+    background:var(--glass);
 
-    border:1px solid rgba(255,140,0,.18);
+    border:1px solid var(--border);
 
     backdrop-filter:blur(22px);
 
@@ -718,7 +712,7 @@ filter:blur(150px);
 
     margin-top:20px;
 
-    color:white;
+    color:var(--heading);
 
     font-size:18px;
 

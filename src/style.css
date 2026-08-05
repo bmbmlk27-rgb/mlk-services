@@ -37,19 +37,27 @@ padding:0;
 
 overflow-x:hidden;
 
-background:#000;
+background:var(--background);
 
-color:var(--white);
+color:var(--text);
 
 font-family:var(--body-font);
+
+transition:
+
+background .35s ease,
+
+color .35s ease;
 
 }
 
 #app{
 
-background:#000;
+background:var(--background);
 
 min-height:100vh;
+
+transition:background .35s ease;
 
 }
 
@@ -77,9 +85,17 @@ position:relative;
 
 padding:120px 0;
 
-background:#000;
+background:var(--background);
+
+color:var(--text);
 
 overflow:hidden;
+
+transition:
+
+background .35s ease,
+
+color .35s ease;
 
 }
 
@@ -285,7 +301,7 @@ width:10px;
 
 ::-webkit-scrollbar-track{
 
-background:#050505;
+background:var(--surface);
 
 }
 
@@ -300,5 +316,22 @@ border-radius:30px;
 ::-webkit-scrollbar-thumb:hover{
 
 background:#ffb347;
+
+}
+
+
+.card,
+.service-card,
+.portfolio-card,
+.contact-form,
+.info-card{
+
+background:var(--surface);
+
+border:1px solid var(--border);
+
+color:var(--text);
+
+transition:var(--transition);
 
 }

@@ -1,50 +1,128 @@
-:root {
+:root{
 
-  /* ===== Couleurs ===== */
+    /* ===========================
+            COULEURS
+    ============================ */
 
-  --background: #09090B;
-  --surface: #13131A;
-  --surface-light: #1B1B24;
+    --background:#09090B;
+    --surface:#13131A;
+    --surface-light:#1B1B24;
 
-  --primary: #FF7A00;
-  --primary-hover: #ff922e;
+    /* Cartes */
 
-  --secondary: #22C55E;
+    --card:#18181F;
+    --card-hover:#21212B;
 
-  --white: #FFFFFF;
-  --text: #CFCFD3;
-  --muted: #8D8D97;
+    /* Texte */
 
-  --border: rgba(255,255,255,.08);
+    --heading:#FFFFFF;
+    --text:#CFCFD3;
+    --muted:#8D8D97;
 
-  /* ===== Glass ===== */
+    /* Couleurs principales */
 
-  --glass: rgba(255,255,255,.05);
-  --glass-border: rgba(255,255,255,.08);
-  --blur: 18px;
+    --primary:#FF7A00;
+    --primary-hover:#ff922e;
 
-  /* ===== Ombres ===== */
+    --secondary:#22C55E;
 
-  --shadow-lg: 0 20px 60px rgba(0,0,0,.45);
-  --shadow-sm: 0 8px 20px rgba(0,0,0,.20);
+    /* Boutons */
 
-  /* ===== Radius ===== */
+    --button-text:#FFFFFF;
 
-  --radius-sm: 12px;
-  --radius: 20px;
-  --radius-lg: 30px;
+    /* Icônes */
 
-  /* ===== Transition ===== */
+    --icon:#FFFFFF;
 
-  --transition: .35s ease;
+    /* Bordures */
 
-  /* ===== Largeur ===== */
+    --border:rgba(255,255,255,.08);
 
-  --container: 1280px;
+    /* Glass */
 
-  /* ===== Fonts ===== */
+    --glass:rgba(255,255,255,.05);
+    --glass-border:rgba(255,255,255,.08);
 
-  --title-font: "Sora", sans-serif;
-  --body-font: "Poppins", sans-serif;
+    --blur:18px;
+
+    /* Ombres */
+
+    --shadow-lg:0 20px 60px rgba(0,0,0,.45);
+    --shadow-sm:0 8px 20px rgba(0,0,0,.20);
+
+    /* Radius */
+
+    --radius-sm:12px;
+    --radius:20px;
+    --radius-lg:30px;
+
+    /* Transition */
+
+    --transition:.35s ease;
+
+    /* Container */
+
+    --container:1280px;
+
+    /* Fonts */
+
+    --title-font:"Sora",sans-serif;
+    --body-font:"Poppins",sans-serif;
+
+}
+
+
+
+/*======================================
+            LIGHT MODE
+=======================================*/
+
+[data-theme="light"]{
+
+    /* Fond */
+
+    --background:#F6F7FB;
+    --surface:#FFFFFF;
+    --surface-light:#F2F2F2;
+
+    /* Cartes */
+
+    --card:#FFFFFF;
+    --card-hover:#F7F7F7;
+
+    /* Texte */
+
+    --heading:#111111;
+    --text:#2D2D2D;
+    --muted:#666666;
+
+    /* Couleurs */
+
+    --primary:#FF7A00;
+    --primary-hover:#E96D00;
+
+    --secondary:#16A34A;
+
+    /* Boutons */
+
+    --button-text:#FFFFFF;
+
+    /* Icônes */
+
+    --icon:#111111;
+
+    /* Bordures */
+
+    --border:rgba(0,0,0,.10);
+
+    /* Glass */
+
+    --glass:rgba(255,255,255,.70);
+    --glass-border:rgba(0,0,0,.08);
+
+    /* Ombres */
+
+    --shadow-lg:0 20px 60px rgba(0,0,0,.12);
+    --shadow-sm:0 8px 20px rgba(0,0,0,.08);
 
 }

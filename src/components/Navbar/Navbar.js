@@ -52,19 +52,21 @@ return `
 
         <!-- Bouton -->
 
-        <a href="#contact" class="navbar-btn">
+        <div class="navbar-actions">
 
-            Commencer
+    <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">
+        <i class="fas fa-moon"></i>
+    </button>
 
-        </a>
+    <a href="#contact" class="navbar-btn">
+        Commencer
+    </a>
 
-        <!-- Mobile -->
+    <button class="mobile-menu" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+    </button>
 
-        <button class="mobile-menu">
-
-            <i class="fas fa-bars"></i>
-
-        </button>
+</div>
 
     </div>
 
