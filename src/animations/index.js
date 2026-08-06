@@ -11,8 +11,6 @@ import { avatarAnimation } from "./avatar.js";
 import { preloaderAnimation } from "./preloader.js";
 import { cursorAnimation } from "./cursor.js";
 
-import { initScrollAnimations } from "./scroll.js";
-
 export function initAnimations() {
 
     preloaderAnimation();
@@ -27,7 +25,5 @@ export function initAnimations() {
     contactAnimation();
     footerAnimation();
     cursorAnimation();
-
-    initScrollAnimations();
 
 }

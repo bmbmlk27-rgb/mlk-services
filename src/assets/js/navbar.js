@@ -10,6 +10,19 @@ export default function initNavbar() {
     // MENU MOBILE
     // ===========================
 
+    const closeMenu = () => {
+
+        if (!nav || !menuBtn) return;
+
+        nav.classList.remove("active");
+        document.body.classList.remove("menu-open");
+
+        const icon = menuBtn.querySelector("i");
+        icon?.classList.remove("fa-xmark");
+        icon?.classList.add("fa-bars");
+
+    };
+
     if(menuBtn && nav){
 
         menuBtn.addEventListener("click", ()=>{
@@ -22,13 +35,13 @@ export default function initNavbar() {
 
             if(nav.classList.contains("active")){
 
-                icon.classList.remove("fa-bars");
-                icon.classList.add("fa-xmark");
+                icon?.classList.remove("fa-bars");
+                icon?.classList.add("fa-xmark");
 
             }else{
 
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
+                icon?.classList.remove("fa-xmark");
+                icon?.classList.add("fa-bars");
 
             }
 
@@ -40,18 +53,7 @@ export default function initNavbar() {
 
     navLinks.forEach(link=>{
 
-        link.addEventListener("click",()=>{
-
-            nav.classList.remove("active");
-
-            document.body.classList.remove("menu-open");
-
-            const icon = menuBtn.querySelector("i");
-
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-
-        });
+        link.addEventListener("click", closeMenu);
 
     });
 
@@ -59,7 +61,13 @@ export default function initNavbar() {
     // THEME
     // ===========================
 
-    const savedTheme = localStorage.getItem("theme");
+    let savedTheme;
+
+    try {
+        savedTheme = localStorage.getItem("theme");
+    } catch {
+        savedTheme = null;
+    }
 
     if(savedTheme){
 
@@ -77,7 +85,11 @@ export default function initNavbar() {
 
         document.documentElement.setAttribute("data-theme",next);
 
-        localStorage.setItem("theme",next);
+        try {
+            localStorage.setItem("theme",next);
+        } catch {
+            // Le changement reste fonctionnel si le stockage est indisponible.
+        }
 
         updateIcon(next);
 
@@ -98,5 +110,11 @@ export default function initNavbar() {
         }
 
     }
+
+    document.addEventListener("keydown", (event) => {
+
+        if (event.key === "Escape") closeMenu();
+
+    });
 
 }

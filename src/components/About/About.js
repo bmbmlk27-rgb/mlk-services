@@ -1,4 +1,5 @@
 import "./About.css";
+import avatar from "../../assets/images/avatar/avatar.png";
 
 export default function About() {
 
@@ -85,7 +86,7 @@ Discutons de votre projet
 
 <img
 
-src="/src/assets/images/avatar/avatar.png"
+src="${avatar}"
 
 alt="MLK"
 

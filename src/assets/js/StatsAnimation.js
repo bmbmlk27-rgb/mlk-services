@@ -16,6 +16,8 @@ if(!entry.isIntersecting || played) return;
 
 played=true;
 
+observer.disconnect();
+
 animateGraph();
 
 animateCounters();
@@ -120,7 +122,8 @@ onUpdate(){
 
 const deg=obj.progress*3.6;
 
-circle.style.background=`conic-gradient(#ff9800 ${deg}deg, rgba(255,255,255,.08) ${deg}deg)`;
+// Les variables gardent la jauge coherente apres un changement de theme.
+circle.style.background=`conic-gradient(var(--primary) ${deg}deg, var(--surface-light) ${deg}deg)`;
 
 text.textContent=Math.floor(obj.progress)+"%";
 

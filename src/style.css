@@ -4,20 +4,9 @@
 
 @import "./assets/css/reset.css";
 @import "./assets/css/variables.css";
-@import "./assets/css/animations.css";
 @import "./assets/css/responsive.css";
 
-/* Sections */
-
-@import "./assets/css/sections/navbar.css";
-@import "./assets/css/sections/hero.css";
-@import "./assets/css/sections/about.css";
-@import "./assets/css/sections/services.css";
-@import "./assets/css/sections/portfolio.css";
-@import "./assets/css/sections/pronostics.css";
-@import "./assets/css/sections/faq.css";
-@import "./assets/css/sections/contact.css";
-@import "./assets/css/sections/footer.css";
+/* Les styles de section sont importes directement par leurs composants. */
 
 /*==================================================
                 BASE

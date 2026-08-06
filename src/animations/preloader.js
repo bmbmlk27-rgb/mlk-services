@@ -2,7 +2,7 @@ import gsap from "gsap";
 
 export function preloaderAnimation(){
 
-window.addEventListener("load",()=>{
+const hidePreloader = () => {
 
 const tl=gsap.timeline();
 
@@ -32,6 +32,14 @@ display:"none"
 
 });
 
-});
+};
+
+// Le cache peut charger le module apres l'evenement load : dans ce cas,
+// on execute l'animation immediatement pour ne jamais bloquer la page.
+if (document.readyState === "complete") {
+    hidePreloader();
+} else {
+    window.addEventListener("load", hidePreloader, { once: true });
+}
 
 }
