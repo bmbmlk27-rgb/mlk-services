@@ -1,0 +1,102 @@
+/*
+ * Garde-fous responsive communs. Ils evitent les debordements des visuels
+ * decoratifs sans modifier la composition des sections sur grand ecran.
+ */
+:where(.container) {
+    width: min(92%, var(--container));
+}
+
+:where(.hero-visual, .about-right, .pronostics-left, .services-orbit) {
+    max-width: 100%;
+}
+
+:where(
+    .identity-card,
+    .about-card,
+    .winwin-card,
+    .services-orbit,
+    .hero-carousel,
+    .orbit-item,
+    .contact-form
+) {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 88px;
+    }
+
+    section {
+        padding-block: clamp(72px, 12vw, 96px);
+    }
+
+    .section-title {
+        margin-inline: auto;
+    }
+
+    .hero-buttons,
+    .buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-buttons :is(.btn-primary, .btn-secondary),
+    .buttons .btn,
+    .about-btn,
+    .navbar-btn {
+        min-height: 48px;
+    }
+
+    .contact-form :is(input, textarea, button) {
+        max-width: 100%;
+    }
+
+    .g-recaptcha {
+        transform-origin: left center;
+    }
+}
+
+@media (max-width: 390px) {
+    .g-recaptcha {
+        transform: scale(.88);
+        margin-bottom: -20px;
+    }
+
+    .hero-buttons :is(.btn-primary, .btn-secondary),
+    .buttons .btn,
+    .about-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Les interactions couteuses ne sont pas utiles sur ecran tactile. */
+@media (hover: none) {
+    .service-card:hover,
+    .portfolio-card:hover,
+    .winwin-card:hover,
+    .contact-form:hover,
+    .info-card:hover,
+    .identity-card:hover,
+    .orbit-item:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .service-btn:hover,
+    .btn:hover,
+    button:hover,
+    .winwin-btn:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
