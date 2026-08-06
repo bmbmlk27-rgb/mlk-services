@@ -1,4 +1,5 @@
 import "./style.css";
+import "./assets/css/theme.css";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -71,4 +72,3 @@ initStatsAnimation();
 initContact();
 
 initNavbar();
-

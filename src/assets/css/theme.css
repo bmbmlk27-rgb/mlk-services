@@ -1,0 +1,103 @@
+/*
+ * Couche de compatibilite du theme : les composants historiques conservent
+ * leurs dimensions et effets, tandis que leurs couleurs deviennent lisibles
+ * en mode clair. Les couleurs de marque restent volontairement inchangees.
+ */
+[data-theme="light"] .animated-bg {
+    background: linear-gradient(135deg, #f6f7fb, #fff8f0, #f6f7fb);
+}
+
+[data-theme="light"] .animated-bg span:nth-child(even) {
+    background: #fff;
+}
+
+[data-theme="light"] :is(
+    .about-card,
+    .why-card,
+    .stat-card,
+    .faq-item,
+    .contact-form,
+    .info-card,
+    .identity-card,
+    .orbit-item,
+    .process-card,
+    .winwin-card
+) {
+    background-color: var(--card);
+    color: var(--text);
+    border-color: var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+[data-theme="light"] :is(
+    .about,
+    .services,
+    .pronostics,
+    .whychoose,
+    .stats,
+    .faq,
+    .contact,
+    .footer,
+    .hero
+) {
+    background-color: var(--background);
+    color: var(--text);
+}
+
+[data-theme="light"] :is(
+    .about h2,
+    .about h3,
+    .services h2,
+    .services h3,
+    .pronostics h2,
+    .pronostics h3,
+    .whychoose h2,
+    .whychoose h3,
+    .stats h2,
+    .stats h3,
+    .faq h2,
+    .contact h2,
+    .contact h3,
+    .footer h2,
+    .footer h3,
+    .hero h1,
+    .hero h2,
+    .process h2,
+    .process h3
+) {
+    color: var(--heading);
+}
+
+[data-theme="light"] :is(
+    .about p,
+    .services p,
+    .pronostics p,
+    .whychoose p,
+    .stats p,
+    .faq p,
+    .contact p,
+    .footer p,
+    .hero p,
+    .process p,
+    .feature,
+    .advantages
+) {
+    color: var(--text);
+}
+
+[data-theme="light"] :is(.identity-card, .orbit-item, .process-card) {
+    background: var(--surface);
+}
+
+[data-theme="light"] .progress-circle {
+    background: conic-gradient(var(--primary) 0deg, var(--surface-light) 0deg);
+}
+
+[data-theme="light"] #preloader {
+    background: var(--background);
+}
+
+[data-theme="light"] .loader-title,
+[data-theme="light"] .loader-text {
+    color: var(--heading);
+}

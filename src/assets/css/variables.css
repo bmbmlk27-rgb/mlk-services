@@ -18,6 +18,7 @@
     --heading:#FFFFFF;
     --text:#CFCFD3;
     --muted:#8D8D97;
+    --white:var(--heading);
 
     /* Couleurs principales */
 
@@ -29,6 +30,7 @@
     /* Boutons */
 
     --button-text:#FFFFFF;
+    --on-accent:#FFFFFF;
 
     /* Icônes */
 
@@ -95,6 +97,7 @@
     --heading:#111111;
     --text:#2D2D2D;
     --muted:#666666;
+    --white:var(--heading);
 
     /* Couleurs */
 
@@ -106,6 +109,7 @@
     /* Boutons */
 
     --button-text:#FFFFFF;
+    --on-accent:#FFFFFF;
 
     /* Icônes */
 
