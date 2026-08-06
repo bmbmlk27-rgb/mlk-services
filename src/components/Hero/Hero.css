@@ -246,11 +246,6 @@ filter:blur(150px);
 
     border:2px solid var(--primary)
 
-    color:var(--heading);;
-
-    text-decoration:none;
-
-    transition:.35s;
 
 }
 

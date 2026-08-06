@@ -3,15 +3,10 @@
 ==================================================*/
 
 .pronostics{
-
-position:relative;
-
-padding:140px 0;
-
-background:#000;
-
-overflow:hidden;
-
+    position:relative;
+    padding:140px 0;
+    background:var(--background);
+    overflow:hidden;
 }
 
 /*==============================
@@ -34,7 +29,7 @@ height:700px;
 
 border-radius:50%;
 
-background:rgb(10, 10, 10);
+background:rgba(255,122,0,.08);
 
 filter:blur(180px);
 
@@ -114,9 +109,9 @@ max-width:470px;
 
 padding:45px;
 
-background:rgba(15,15,15,.92);
-
-border:1px solid rgb(3, 3, 3);
+background:var(--surface);
+border:1px solid var(--border);
+box-shadow:var(--shadow-lg);
 
 border-radius:32px;
 
@@ -154,7 +149,7 @@ height:320px;
 
 border-radius:50%;
 
-background:rgb(0, 0, 0);
+background:rgba(255,122,0,.08);
 
 filter:blur(120px);
 
@@ -220,7 +215,7 @@ letter-spacing:2px;
 
 font-weight:700;
 
-color:#ff9800;
+color:var(--primary);
 
 }
 
@@ -256,7 +251,7 @@ font-size:17px;
 
 line-height:1.8;
 
-color:#c5c5c5;
+color:var(--text);
 
 margin-bottom:35px;
 
@@ -288,11 +283,11 @@ width:max-content;
 
 border-radius:50px;
 
-background:rgb(5, 5, 5);
+background:var(--glass);
 
-border:1px solid rgba(255,140,0,.20);
+border:1px solid var(--border);
 
-color:#ff9800;
+color:var(--primary);
 
 font-weight:700;
 
@@ -310,7 +305,7 @@ font-weight:800;
 
 line-height:1.15;
 
-color:#fff;
+color:var(--white);
 
 margin-bottom:28px;
 
@@ -322,7 +317,7 @@ font-size:18px;
 
 line-height:1.9;
 
-color:#bdbdbd;
+color:var(--text);
 
 margin-bottom:35px;
 
@@ -354,13 +349,13 @@ gap:14px;
 
 padding:18px 22px;
 
-background:rgba(15,15,15,.90);
+background:var(--surface);
 
-border:1px solid rgba(255,140,0,.15);
+border:1px solid var(--border);
 
 border-radius:18px;
 
-color:#fff;
+color:var(--white);
 
 font-weight:600;
 
@@ -386,7 +381,7 @@ box-shadow:
 
 font-size:22px;
 
-color:#ff9800;
+color:var(--primary);
 
 }
 
@@ -408,17 +403,9 @@ padding:18px 34px;
 
 border-radius:18px;
 
-background:linear-gradient(
+background:linear-gradient(135deg,var(--primary),var(--primary-hover));
 
-135deg,
-
-#ff7b00,
-
-#ff9800
-
-);
-
-color:#fff;
+color:var(--white);
 
 text-decoration:none;
 
