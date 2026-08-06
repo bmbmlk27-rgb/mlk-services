@@ -1,4 +1,8 @@
 import "./WhyChoose.css";
+const features = [["fas fa-gem", "Design Premium", "Une image soign?e qui inspire confiance d?s le premier regard."], ["fas fa-code", "D?veloppement moderne", "Des solutions rapides, fiables et pens?es pour ?voluer avec vous."], ["fas fa-mobile-screen-button", "Optimis? Mobile", "Votre site reste efficace sur tous les ?crans, l? o? vos clients vous d?couvrent."], ["fas fa-bolt", "Livraison rapide", "Un processus clair pour avancer vite sans perdre en qualit?."], ["fas fa-headset", "Support d?di?", "Nous restons disponibles avant, pendant et apr?s la livraison."], ["fas fa-sliders", "Solutions personnalis?es", "Chaque projet est construit autour de vos objectifs, de votre audience et de votre budget."]];
+export default function WhyChoose() { return `<section class="whychoose" id="whychoose"><div class="container"><div class="section-title"><span>POURQUOI MLK SERVICES</span><h2>Le partenaire pour <span>faire avancer votre projet.</span></h2><p>Vous ne payez pas seulement un design : vous investissez dans une solution claire, performante et adapt?e ? vos r?sultats.</p></div><div class="why-grid">${features.map(([icon, title, text]) => `<article class="why-card"><div class="why-icon"><i class="${icon}"></i></div><h3>${title}</h3><p>${text}</p></article>`).join("")}</div><div class="section-cta"><a href="#contact" class="btn-primary">D?velopper mon activit?</a></div></div></section>`; }
+/*
+import "./WhyChoose.css";
 
 const features = [
 
@@ -25,6 +29,7 @@ icon:"<i class='fas fa-chart-line'></i>",
 title:"Résultats Concrets",
 text:"Nos solutions sont pensées pour améliorer votre visibilité, développer votre activité et atteindre vos objectifs."
 }
+
 
 ];
 
@@ -99,3 +104,4 @@ ${item.text}
 `;
 
 }
+*/
