@@ -1,6 +1,44 @@
 import "./Hero.css";
 import HeroParticles from "./HeroParticles";
 import Orbit from "./Orbit/Orbit";
+import avatar from "../../assets/images/avatar/avatar.png";
+
+export default function Hero() {
+    return `
+<section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="particles">${HeroParticles()}</div>
+    <div class="container hero-container">
+        <div class="hero-content">
+            <span class="hero-badge">Agence digitale & croissance en ligne</span>
+            <h1>D?veloppez votre pr?sence digitale.<br><span>G?n?rez plus de clients.</span></h1>
+            <p>MLK SERVICES accompagne les entreprises, cr?ateurs de contenu et parieurs sportifs avec des solutions digitales modernes : cr?ation de sites web, d?veloppement web, croissance TikTok, mon?tisation et pronostics sportifs Premium.</p>
+            <ul class="hero-services" aria-label="Nos services cl?s">
+                <li>Sites Web</li><li>TikTok</li><li>Mon?tisation</li><li>E-commerce</li><li>Pronostics</li><li>Marketing Digital</li>
+            </ul>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Cr?er mon site</a>
+                <a href="#services" class="btn-secondary">D?velopper mon activit?</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="identity-card">
+                <div class="identity-glow"></div>
+                <img src="${avatar}" alt="MLK Services" class="identity-avatar">
+                <h2>MLK</h2><span class="identity-job">Cr?ateur de solutions digitales</span>
+                <div class="tech-stack">
+                    <div class="tech html"><i class="fab fa-html5"></i>HTML5</div><div class="tech css"><i class="fab fa-css3-alt"></i>CSS3</div><div class="tech js"><i class="fab fa-js"></i>JavaScript</div><div class="tech vite">? Vite</div>
+                </div>
+            </div>
+            ${Orbit()}
+        </div>
+    </div>
+</section>`;
+}
+/*
+import "./Hero.css";
+import HeroParticles from "./HeroParticles";
+import Orbit from "./Orbit/Orbit";
 
 import avatar from "../../assets/images/avatar/avatar.png";
 
@@ -123,3 +161,4 @@ return `
 `;
 
 }
+*/

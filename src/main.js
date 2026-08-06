@@ -1,5 +1,6 @@
 import "./style.css";
 import "./assets/css/theme.css";
+import "./assets/css/marketing.css";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 

@@ -1,0 +1,22 @@
+/* Styles de conversion ajoutes sans modifier l'identite visuelle existante. */
+.hero-services { display: flex; flex-wrap: wrap; gap: 10px; margin: -20px 0 36px; padding: 0; list-style: none; }
+.hero-services li { color: var(--heading); font-weight: 600; font-size: 14px; }
+.hero-services li::before { content: "?"; color: var(--primary); margin-right: 6px; }
+.service-benefits { display: grid; gap: 8px; margin: 20px 0; padding: 0; list-style: none; color: var(--text); }
+.service-benefits li::before { content: "?"; color: var(--primary); margin-right: 8px; }
+.service-proof { color: var(--heading) !important; font-weight: 600; font-size: .93rem; }
+.section-cta { display: flex; justify-content: center; margin-top: 45px; }
+.why-grid { grid-template-columns: repeat(3, 1fr); }
+.process-card { position: relative; }
+.process-card:not(:last-child)::after { content: "?"; position: absolute; right: -22px; top: 50%; color: var(--primary); font-size: 28px; font-weight: 800; }
+
+/* Les fleches materialisent le parcours, sans encombrer la grille mobile. */
+@media (max-width: 1200px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-card:not(:last-child)::after { display: none; }
+}
+
+@media (max-width: 768px) {
+  .hero-services { justify-content: center; margin-bottom: 30px; }
+  .why-grid { grid-template-columns: 1fr; }
+}
