@@ -1,120 +1,287 @@
-export default function initNavbar() {
+export default function initNavbar(){
 
-    const menuBtn = document.querySelector(".mobile-menu");
-    const nav = document.querySelector(".navbar-nav");
-    const navLinks = document.querySelectorAll(".nav-menu a");
-    const themeBtn = document.getElementById("theme-toggle");
-    const themeIcon = themeBtn?.querySelector("i");
 
-    // ===========================
-    // MENU MOBILE
-    // ===========================
+const menuBtn =
+document.querySelector(".mobile-menu");
 
-    const closeMenu = () => {
 
-        if (!nav || !menuBtn) return;
+const nav =
+document.querySelector(".navbar-nav");
 
-        nav.classList.remove("active");
-        document.body.classList.remove("menu-open");
 
-        const icon = menuBtn.querySelector("i");
-        icon?.classList.remove("fa-xmark");
-        icon?.classList.add("fa-bars");
+const links =
+document.querySelectorAll(".nav-menu a");
 
-    };
 
-    if(menuBtn && nav){
+const themeBtn =
+document.getElementById("theme-toggle");
 
-        menuBtn.addEventListener("click", ()=>{
 
-            nav.classList.toggle("active");
+const themeIcon =
+themeBtn?.querySelector("i");
 
-            document.body.classList.toggle("menu-open");
 
-            const icon = menuBtn.querySelector("i");
 
-            if(nav.classList.contains("active")){
+// =======================
+// MENU MOBILE
+// =======================
 
-                icon?.classList.remove("fa-bars");
-                icon?.classList.add("fa-xmark");
 
-            }else{
+function closeMenu(){
 
-                icon?.classList.remove("fa-xmark");
-                icon?.classList.add("fa-bars");
 
-            }
+if(!nav) return;
 
-        });
 
-    }
+nav.classList.remove("active");
 
-    // Fermer après clic
+document.body.classList.remove(
+"menu-open"
+);
 
-    navLinks.forEach(link=>{
 
-        link.addEventListener("click", closeMenu);
+const icon =
+menuBtn?.querySelector("i");
 
-    });
 
-    // ===========================
-    // THEME
-    // ===========================
+icon?.classList.remove(
+"fa-xmark"
+);
 
-    let savedTheme;
 
-    try {
-        savedTheme = localStorage.getItem("theme");
-    } catch {
-        savedTheme = null;
-    }
+icon?.classList.add(
+"fa-bars"
+);
 
-    if(savedTheme){
 
-        document.documentElement.setAttribute("data-theme",savedTheme);
+}
 
-        updateIcon(savedTheme);
 
-    }
 
-    themeBtn?.addEventListener("click",()=>{
+if(menuBtn && nav){
 
-        const current = document.documentElement.getAttribute("data-theme");
 
-        const next = current === "light" ? "dark" : "light";
+menuBtn.addEventListener(
+"click",
+()=>{
 
-        document.documentElement.setAttribute("data-theme",next);
 
-        try {
-            localStorage.setItem("theme",next);
-        } catch {
-            // Le changement reste fonctionnel si le stockage est indisponible.
-        }
+const active =
+nav.classList.toggle(
+"active"
+);
 
-        updateIcon(next);
 
-    });
+document.body.classList.toggle(
+"menu-open",
+active
+);
 
-    function updateIcon(theme){
 
-        if(!themeIcon) return;
 
-        if(theme==="light"){
+const icon =
+menuBtn.querySelector("i");
 
-            themeIcon.className="fas fa-sun";
 
-        }else{
 
-            themeIcon.className="fas fa-moon";
+if(active){
 
-        }
 
-    }
+icon.classList.remove(
+"fa-bars"
+);
 
-    document.addEventListener("keydown", (event) => {
 
-        if (event.key === "Escape") closeMenu();
+icon.classList.add(
+"fa-xmark"
+);
 
-    });
+
+
+}else{
+
+
+icon.classList.remove(
+"fa-xmark"
+);
+
+
+icon.classList.add(
+"fa-bars"
+);
+
+
+}
+
+
+});
+
+
+}
+
+
+
+// fermeture après clic
+
+links.forEach(link=>{
+
+
+link.addEventListener(
+"click",
+closeMenu
+);
+
+
+});
+
+
+
+// clic extérieur
+
+document.addEventListener(
+"click",
+(e)=>{
+
+
+if(
+nav?.classList.contains("active")
+&&
+!nav.contains(e.target)
+&&
+!menuBtn.contains(e.target)
+
+){
+
+closeMenu();
+
+}
+
+
+});
+
+
+
+// ESC
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+
+if(e.key==="Escape"){
+
+closeMenu();
+
+}
+
+
+});
+
+
+
+
+// =======================
+// THEME
+// =======================
+
+
+let theme =
+"dark";
+
+
+try{
+
+
+theme =
+localStorage.getItem("theme")
+||
+"dark";
+
+
+}catch(e){}
+
+
+
+document.documentElement.dataset.theme =
+theme;
+
+
+
+updateIcon(theme);
+
+
+
+themeBtn?.addEventListener(
+"click",
+()=>{
+
+
+const current =
+document.documentElement.dataset.theme;
+
+
+
+const next =
+current==="dark"
+?
+"light"
+:
+"dark";
+
+
+
+document.documentElement.dataset.theme =
+next;
+
+
+
+try{
+
+localStorage.setItem(
+"theme",
+next
+);
+
+}catch(e){}
+
+
+
+updateIcon(next);
+
+
+
+});
+
+
+
+
+function updateIcon(theme){
+
+
+if(!themeIcon)
+return;
+
+
+
+if(theme==="light"){
+
+
+themeIcon.className =
+"fas fa-sun";
+
+
+}else{
+
+
+themeIcon.className =
+"fas fa-moon";
+
+
+}
+
+
+}
+
+
 
 }

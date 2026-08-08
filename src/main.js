@@ -32,9 +32,7 @@ import { initOrbit } from "./components/Hero/Orbit/orbitAnimation.js";
 import { initScrollAnimations } from "./animations/scrollAnimations.js";
 import initNavbar from "./assets/js/navbar";
 
-
 document.querySelector("#app").innerHTML = `
-
 ${Preloader()}
 ${Background()}
 ${Cursor()}
@@ -52,8 +50,11 @@ ${Contact()}
 ${Footer()}
 
 ${WhatsApp()}
-
 `;
+
+// =========================
+// INITIALISATION
+// =========================
 
 initFAQ();
 
@@ -67,6 +68,24 @@ initScrollAnimations();
 
 initStatsAnimation();
 
-initContact();
-
 initNavbar();
+
+// =========================
+// ATTENDRE LE CHARGEMENT DE reCAPTCHA
+// =========================
+
+const waitForRecaptcha = () => {
+
+    if (typeof window.grecaptcha !== "undefined") {
+
+        initContact();
+
+    } else {
+
+        setTimeout(waitForRecaptcha, 300);
+
+    }
+
+};
+
+waitForRecaptcha();

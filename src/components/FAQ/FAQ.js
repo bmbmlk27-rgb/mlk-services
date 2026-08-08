@@ -1,48 +1,178 @@
 import "./FAQ.css";
 
+
 const faqs = [
-    {
-        question: "💻 Sites web sur mesure",
-        answer: "Nous développons des sites vitrines, boutiques en ligne, landing pages et applications web entièrement personnalisés selon vos besoins."
-    },
-    {
-        question: "📱 Accompagnement TikTok",
-        answer: "Nous accompagnons la création de comptes, la croissance de la visibilité, la monétisation et les stratégies de contenu."
-    },
-    {
-        question: "⚽ Pronostics Premium",
-        answer: "Nos communautés reçoivent régulièrement des analyses détaillées, des matchs sélectionnés et des conseils."
-    },
-    {
-        question: "🤖 Solutions d'Intelligence Artificielle",
-        answer: "Nous intégrons des outils d'IA pour accélérer le développement, améliorer les contenus et proposer des solutions innovantes."
-    },
-    {
-        question: "📞 Nous contacter",
-        answer: "Contactez MLK SERVICES via WhatsApp, Telegram ou directement avec le formulaire de contact."
-    }
+
+{
+icon:"fas fa-code",
+question:"Création de sites web",
+answer:
+"Nous réalisons des sites vitrines, boutiques en ligne, landing pages et applications web modernes adaptés à votre activité."
+},
+
+
+{
+icon:"fab fa-tiktok",
+question:"Accompagnement TikTok",
+answer:
+"Nous aidons à créer, développer et optimiser vos comptes TikTok grâce à des stratégies de visibilité et de croissance."
+},
+
+
+{
+icon:"fas fa-futbol",
+question:"Pronostics Premium",
+answer:
+"Notre communauté bénéficie d'analyses sportives, de sélections de matchs et d'un accompagnement Premium."
+},
+
+
+{
+icon:"fas fa-robot",
+question:"Solutions Intelligence Artificielle",
+answer:
+"Nous intégrons des outils d'intelligence artificielle pour automatiser certaines tâches et améliorer vos performances digitales."
+},
+
+
+{
+icon:"fas fa-headset",
+question:"Comment nous contacter ?",
+answer:
+"Vous pouvez nous contacter via WhatsApp, Telegram ou le formulaire disponible dans la section contact."
+}
+
 ];
 
-export default function FAQ() {
-    return `
+
+
+export default function FAQ(){
+
+
+return `
+
+
 <section class="faq" id="faq">
-    <div class="container">
-        <div class="section-title">
-            <span>FAQ</span>
-            <h2>Informations <span>essentielles</span></h2>
-            <p>Retrouvez les informations utiles sur nos services, nos pronostics et notre accompagnement.</p>
-        </div>
-        <div class="faq-list">
-            ${faqs.map((item) => `
-                <div class="faq-item">
-                    <button class="faq-question" type="button">
-                        <span>${item.question}</span>
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="faq-answer"><p>${item.answer}</p></div>
-                </div>`).join("")}
-        </div>
-        <div class="section-cta"><a href="#contact" class="btn-primary">Parler de mon projet</a></div>
-    </div>
-</section>`;
+
+
+<div class="container">
+
+
+
+<div class="section-title">
+
+
+<span>
+FAQ
+</span>
+
+
+<h2>
+
+Questions 
+<span>
+fréquentes
+</span>
+
+</h2>
+
+
+
+<p>
+
+Les réponses aux questions les plus courantes concernant nos services.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="faq-list">
+
+
+${faqs.map(item=>`
+
+
+<div class="faq-item">
+
+
+
+<button 
+class="faq-question"
+type="button">
+
+
+<span>
+
+
+<i class="${item.icon}"></i>
+
+${item.question}
+
+
+</span>
+
+
+
+<i class="fas fa-plus"></i>
+
+
+
+</button>
+
+
+
+
+<div class="faq-answer">
+
+
+<p>
+
+${item.answer}
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+`).join("")}
+
+
+
+</div>
+
+
+
+
+<div class="section-cta">
+
+
+<a href="#contact" class="btn-primary">
+
+Parler de mon projet
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+`;
+
 }

@@ -1,137 +1,216 @@
 import "./Services.css";
+
 import web from "../../assets/images/services/web.jpeg";
 import ia from "../../assets/images/services/ai.jpeg";
 import tiktok from "../../assets/images/services/tiktok.jpeg";
 import football from "../../assets/images/services/football.jpeg";
+
 
 const services = [
-  { image: web, title: "Sites Web & E-commerce", description: "Nous cr?ons des sites professionnels, vitrines et boutiques en ligne con?us pour rassurer, pr?senter votre offre et recevoir des demandes.", benefits: ["Une pr?sence cr?dible 24h/24", "Plus de contacts et de ventes", "Une exp?rience fluide sur mobile"], proof: "Un site pens? pour transformer chaque visite en opportunit?." },
-  { image: ia, title: "Applications & Identit? digitale", description: "Nous d?veloppons des applications web et une identit? digitale qui simplifient vos processus et rendent votre marque m?morable.", benefits: ["Outils adapt?s ? votre activit?", "Une marque plus professionnelle", "Solutions ?volutives et modernes"], proof: "Vous obtenez une solution personnalis?e, pas un mod?le g?n?rique." },
-  { image: tiktok, title: "Croissance & Mon?tisation TikTok", description: "Nous cr?ons et g?rons vos comptes TikTok, puis mettons en place une strat?gie pour d?velopper votre audience et vos revenus.", benefits: ["Plus de vues et d'engagement", "Des abonn?s qualifi?s", "Une strat?gie de mon?tisation claire"], proof: "Votre contenu sert un objectif concret : visibilit?, communaut? et revenus." },
-  { image: football, title: "Pronostics Sportifs Premium", description: "Acc?dez ? une communaut? Premium, ? des analyses s?lectionn?es et au code promo WinWin officiel MLK225.", benefits: ["Analyses et conseils r?guliers", "Communaut? VIP active", "Acc?s simple via WhatsApp et Telegram"], proof: "Un accompagnement structur? pour mieux suivre vos paris sportifs." }
+
+{
+    image:web,
+    title:"Sites Web & E-commerce",
+
+    description:
+    "Nous créons des sites web professionnels, des sites vitrines modernes et des boutiques en ligne performantes qui renforcent votre crédibilité, présentent votre activité et transforment vos visiteurs en clients potentiels.",
+
+    benefits:[
+        "Une présence professionnelle disponible 24h/24",
+        "Plus de visibilité, de contacts et d'opportunités",
+        "Une expérience rapide et parfaitement adaptée au mobile"
+    ],
+
+    proof:
+    "Votre site devient un véritable outil de croissance pour développer votre activité."
+},
+
+
+{
+    image:ia,
+    title:"Applications & Identité digitale",
+
+    description:
+    "Nous développons des applications web sur mesure et construisons une identité digitale forte afin de simplifier vos processus, valoriser votre marque et améliorer votre présence en ligne.",
+
+    benefits:[
+        "Des outils adaptés à vos besoins",
+        "Une image de marque plus professionnelle",
+        "Des solutions modernes et évolutives"
+    ],
+
+    proof:
+    "Chaque solution est pensée autour de vos objectifs, votre audience et votre évolution."
+},
+
+
+{
+    image:tiktok,
+    title:"Croissance & Monétisation TikTok",
+
+    description:
+    "Nous vous accompagnons dans le développement de votre présence TikTok avec une stratégie adaptée pour augmenter votre visibilité, construire une communauté et exploiter votre potentiel de monétisation.",
+
+    benefits:[
+        "Plus de visibilité et d'engagement",
+        "Une audience mieux ciblée",
+        "Une stratégie claire pour développer vos revenus"
+    ],
+
+    proof:
+    "Votre contenu devient un véritable levier de communication et de croissance."
+},
+
+
+{
+    image:football,
+    title:"Pronostics Sportifs Premium",
+
+    description:
+    "Rejoignez notre communauté Premium et profitez d'analyses sportives, de sélections étudiées et du code promo officiel WinWin MLK225.",
+
+    benefits:[
+        "Des analyses et conseils réguliers",
+        "Une communauté VIP active",
+        "Un accès rapide via WhatsApp et Telegram"
+    ],
+
+    proof:
+    "Un accompagnement structuré pour suivre vos pronostics dans les meilleures conditions."
+}
+
 ];
 
-export default function Services() {
-  return `
-<section class="services" id="services"><div class="container">
-  <div class="section-title"><span>NOS SERVICES</span><h2>Des solutions con?ues pour <span>faire grandir votre activit?.</span></h2><p>Choisissez l'accompagnement adapt? ? votre objectif : vendre en ligne, gagner en visibilit?, mon?tiser votre audience ou rejoindre notre communaut? Premium.</p></div>
-  <div class="services-grid">${services.map((service) => `<article class="service-card"><div class="service-image"><img src="${service.image}" alt="${service.title}" loading="lazy"></div><div class="service-content"><h3>${service.title}</h3><p>${service.description}</p><ul class="service-benefits">${service.benefits.map((benefit) => `<li>${benefit}</li>`).join("")}</ul><p class="service-proof">${service.proof}</p><a href="#contact" class="service-btn">Discuter de mon projet <i class="fas fa-arrow-right"></i></a></div></article>`).join("")}</div>
-  <div class="section-cta"><a href="#contact" class="btn-primary">Commencer maintenant</a></div>
-</div></section>`;
-}
-/*
-import "./Services.css";
 
-import web from "../../assets/images/services/web.jpeg";
-import ia from "../../assets/images/services/ai.jpeg";
-import tiktok from "../../assets/images/services/tiktok.jpeg";
-import football from "../../assets/images/services/football.jpeg";
+export default function Services(){
 
-export default function Services() {
-
-    const cards = [
-
-        {
-            image: web,
-            title: "Création de Sites Web",
-            description:
-                "Sites vitrines, e-commerce, landing pages et applications web modernes, rapides, sécurisées et entièrement responsives."
-        },
-
-        {
-            image: ia,
-            title: "Intelligence Artificielle",
-            description:
-                "Intégration d'IA, automatisation, assistants intelligents et solutions innovantes pour développer votre activité."
-        },
-
-        {
-            image: tiktok,
-            title: "TikTok & Réseaux Sociaux",
-            description:
-                "Création de comptes, développement de la visibilité, abonnés, vues, monétisation et stratégies de croissance."
-        },
-
-        {
-            image: football,
-            title: "Pronostics Sportifs",
-            description:
-                "Analyses professionnelles, pronostics quotidiens, communauté privée et accompagnement premium."
-        }
-
-    ];
-
-    return `
+return `
 
 <section class="services" id="services">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-title">
 
-            <span>NOS SERVICES</span>
+<div class="section-title">
 
-            <h2>
+<span>NOS SERVICES</span>
 
-                Des solutions conçues pour
 
-                <span>votre réussite.</span>
+<h2>
 
-            </h2>
+Des solutions digitales pensées pour
 
-            <p>
+<span>développer votre réussite.</span>
 
-                MLK Services accompagne les entreprises, créateurs de contenu
-                et particuliers avec des solutions digitales modernes,
-                performantes et adaptées à leurs objectifs.
+</h2>
 
-            </p>
 
-        </div>
+<p>
 
-        <div class="services-grid">
+MLK Services transforme vos idées en solutions digitales modernes.
+Nous aidons les entrepreneurs, entreprises et créateurs de contenu
+à gagner en visibilité, améliorer leur image et développer leur activité.
 
-            ${cards.map(card => `
+</p>
 
-                <div class="service-card">
 
-                    <div class="service-image">
+</div>
 
-                        <img
-                            src="${card.image}"
-                            alt="${card.title}"
-                            loading="lazy"
-                        >
 
-                    </div>
 
-                    <div class="service-content">
+<div class="services-grid">
 
-                        <h3>${card.title}</h3>
 
-                        <p>${card.description}</p>
+${services.map(service => `
 
-                        <a href="#contact" class="service-btn">
 
-                            Commencer
+<article class="service-card">
 
-                            <i class="fas fa-arrow-right"></i>
 
-                        </a>
+<div class="service-image">
 
-                    </div>
+<img 
+src="${service.image}"
+alt="${service.title}"
+loading="lazy">
 
-                </div>
+</div>
 
-            `).join("")}
 
-        </div>
 
-    </div>
+<div class="service-content">
+
+
+<h3>${service.title}</h3>
+
+
+
+<p>
+
+${service.description}
+
+</p>
+
+
+
+<ul class="service-benefits">
+
+${service.benefits.map(benefit=>`
+
+<li>
+
+<i class="fas fa-check-circle"></i>
+
+${benefit}
+
+</li>
+
+`).join("")}
+
+</ul>
+
+
+
+<p class="service-proof">
+
+${service.proof}
+
+</p>
+
+
+
+</div>
+
+
+</article>
+
+
+`).join("")}
+
+
+</div>
+
+
+
+<div class="section-cta">
+
+<a href="#contact" class="btn-primary">
+
+Parlons de votre projet
+
+<i class="fas fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+
+
+</div>
+
 
 </section>
 
 `;
 
 }
-*/

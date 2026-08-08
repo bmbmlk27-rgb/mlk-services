@@ -127,6 +127,18 @@ text-align:left;
 }
 
 .faq-question span{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+
+.faq-question span i{
+    color:var(--primary);
+    font-size:20px;
+}
+
+.faq-question span{
 
 padding-right:20px;
 

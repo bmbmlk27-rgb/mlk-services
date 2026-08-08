@@ -21,18 +21,21 @@ return `
 
 <h2>
 
-Construisons ensemble votre
+Votre partenaire pour développer une
 
-<span>présence digitale.</span>
+<span>présence digitale performante.</span>
 
 </h2>
 
 <p>
 
-Chez MLK Services, nous accompagnons les entrepreneurs,
-les créateurs de contenu et les entreprises dans leur
-transformation numérique. Notre objectif est de créer
-des solutions modernes, performantes et adaptées à vos besoins.
+Chez <strong>MLK Services</strong>, nous accompagnons les entrepreneurs, les entreprises et les créateurs de contenu dans leur développement digital grâce à des solutions modernes, innovantes et adaptées à leurs objectifs. Notre mission est de transformer vos idées en projets concrets qui renforcent votre image, développent votre visibilité et vous permettent d'atteindre davantage de clients.
+
+</p>
+
+<p>
+
+Nous ne créons pas simplement des sites internet. Nous construisons une véritable stratégie digitale en combinant développement web, Intelligence Artificielle, réseaux sociaux, marketing digital et accompagnement personnalisé afin de vous aider à faire évoluer durablement votre activité.
 
 </p>
 
@@ -42,7 +45,7 @@ des solutions modernes, performantes et adaptées à vos besoins.
 
 <i class="fas fa-globe"></i>
 
-<span>Création de sites Web modernes</span>
+<span>Sites web professionnels & E-commerce</span>
 
 </div>
 
@@ -64,9 +67,25 @@ des solutions modernes, performantes et adaptées à vos besoins.
 
 <div class="feature">
 
+<i class="fas fa-chart-line"></i>
+
+<span>Marketing Digital & Développement de votre visibilité</span>
+
+</div>
+
+<div class="feature">
+
+<i class="fas fa-handshake"></i>
+
+<span>Accompagnement personnalisé tout au long du projet</span>
+
+</div>
+
+<div class="feature">
+
 <i class="fas fa-futbol"></i>
 
-<span>Pronostics sportifs</span>
+<span>Communauté Pronostics Premium</span>
 
 </div>
 
@@ -74,7 +93,7 @@ des solutions modernes, performantes et adaptées à vos besoins.
 
 <a href="#contact" class="about-btn">
 
-Discutons de votre projet
+Parler de mon projet
 
 </a>
 
@@ -88,7 +107,7 @@ Discutons de votre projet
 
 src="${avatar}"
 
-alt="MLK"
+alt="MLK Services"
 
 >
 
@@ -96,7 +115,7 @@ alt="MLK"
 
 <p>
 
-Développeur Web • IA • Marketing Digital
+Développement Web • Intelligence Artificielle • Marketing Digital
 
 </p>
 

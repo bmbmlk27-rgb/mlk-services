@@ -227,7 +227,7 @@ box-shadow:
 
 position:relative;
 
-height:400px;
+height:260px;
 
 display:flex;
 
@@ -235,11 +235,14 @@ justify-content:center;
 
 align-items:center;
 
-padding:50px;
+padding:30px;
 
 overflow:hidden;
 
+background:rgba(255,140,0,.03);
+
 }
+
 
 .service-image::before{
 
@@ -247,31 +250,32 @@ content:"";
 
 position:absolute;
 
-top:-140px;
+top:-100px;
 
 left:50%;
 
 transform:translateX(-50%);
 
-width:280px;
+width:220px;
 
-height:280px;
+height:220px;
 
-background:rgba(255,123,0,.12);
+border-radius:50%;
 
-filter:blur(90px);
+background:rgba(255,123,0,.15);
 
-pointer-events:none;
+filter:blur(80px);
 
 }
+
 
 .service-image img{
 
 position:relative;
 
-width:1000px;
+width:220px;
 
-height:1000px;
+height:220px;
 
 object-fit:contain;
 
@@ -281,19 +285,13 @@ z-index:2;
 
 }
 
-.service-card:hover .service-image img{
-
-transform:scale(1.08);
-
-}
-
 /*==============================
         CONTENT
 ==============================*/
 
 .service-content{
 
-padding:35px;
+padding:30px;
 
 display:flex;
 
@@ -303,31 +301,31 @@ flex:1;
 
 }
 
+
 .service-content h3{
 
-font-size:28px;
+font-size:25px;
 
-font-weight:700;
+font-weight:750;
 
 color:var(--heading);
 
-margin-bottom:18px;
+margin-bottom:15px;
 
 line-height:1.3;
 
 }
 
+
 .service-content p{
 
 color:var(--text);
 
-font-size:16px;
+font-size:15px;
 
-line-height:1.9;
+line-height:1.8;
 
-margin-bottom:30px;
-
-flex:1;
+margin-bottom:22px;
 
 }
 
@@ -539,17 +537,17 @@ font-size:16px;
 
 .service-image{
 
-height:220px;
+height:200px;
 
-padding:20px;
+padding:15px;
 
 }
 
 .service-image img{
 
-width:160px;
+width:150px;
 
-height:160px;
+height:150px;
 
 }
 
@@ -651,3 +649,87 @@ font-size:15px;
 
 }
 
+
+.service-benefits{
+
+list-style:none;
+
+padding:0;
+
+margin:0 0 20px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+
+.service-benefits li{
+
+display:flex;
+
+align-items:flex-start;
+
+gap:10px;
+
+font-size:14px;
+
+line-height:1.5;
+
+color:var(--text);
+
+}
+
+
+.service-benefits i{
+
+color:#ff9800;
+
+margin-top:4px;
+
+}
+
+.service-proof{
+
+padding:16px;
+
+border-radius:14px;
+
+background:rgba(255,140,0,.06);
+
+border-left:3px solid var(--primary);
+
+font-size:14px !important;
+
+font-weight:600;
+
+}
+
+
+.section-cta{
+
+display:flex;
+
+justify-content:center;
+
+margin-top:70px;
+
+}
+
+
+.section-cta .btn-primary{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:17px 35px;
+
+border-radius:18px;
+
+}
