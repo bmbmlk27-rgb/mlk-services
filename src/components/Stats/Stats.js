@@ -1,188 +1,458 @@
 import "./Stats.css";
-const stats = [{ value: 100000, suffix: "+", title: "Vues g?n?r?es", description: "Une visibilit? amplifi?e pour les contenus et campagnes accompagn?s." }, { value: 50, suffix: "+", title: "Clients accompagn?s", description: "Entrepreneurs, cr?ateurs et entreprises suivis dans leur croissance." }, { value: 20, suffix: "+", title: "Sites r?alis?s", description: "Des exp?riences web con?ues pour convertir et rassurer." }, { value: 98, suffix: "%", title: "Clients satisfaits", description: "Un accompagnement r?actif du premier ?change ? la livraison." }];
-export default function Stats() { return `<section class="stats" id="stats"><div class="container"><div class="section-title"><span>NOS R?SULTATS</span><h2>Des r?sultats qui <span>parlent.</span></h2><p>Des chiffres concrets pour illustrer l'impact de notre accompagnement digital.</p></div><div class="stats-grid">${stats.map((stat) => `<article class="stat-card"><div class="counter" data-target="${stat.value}" data-suffix="${stat.suffix}">0</div><h3>${stat.title}</h3><p>${stat.description}</p></article>`).join("")}</div><div class="section-cta"><a href="#contact" class="btn-primary">Obtenir des r?sultats</a></div></div></section>`; }
-/*
-import "./Stats.css";
 
 export default function Stats() {
-
-const stats = [
-
-{
-type:"graph",
-title:"Projets réalisés",
-description:"Sites web, applications et solutions digitales.",
-value:120,
-suffix:"+"
-},
-
-{
-type:"circle",
-title:"Satisfaction",
-description:"Clients satisfaits.",
-value:98,
-suffix:"%"
-},
-
-{
-type:"counter",
-title:"Communauté",
-description:"Clients et membres.",
-value:250,
-suffix:"+"
-},
-
-{
-type:"counter",
-title:"Disponibilité",
-description:"Support technique.",
-value:24,
-suffix:"/7"
-}
-
-];
-
-return `
+    return `
 
 <section class="stats" id="stats">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-title">
+        <!-- =========================
+             HEADER
+        ========================== -->
 
-<span>
+        <div class="section-title stats-title">
 
-NOS RÉSULTATS
+            <span>NOS RÉSULTATS</span>
 
-</span>
+            <h2>
+                Des résultats qui
+                <span>parlent.</span>
+            </h2>
 
-<h2>
+            <p>
+                Des chiffres concrets pour illustrer l'impact
+                de notre accompagnement digital.
+            </p>
 
-Des chiffres qui
+        </div>
 
-<span>parlent.</span>
 
-</h2>
+        <!-- =========================
+             KPI CARDS
+        ========================== -->
 
-<p>
+        <div class="stats-cards">
 
-Chaque projet est réalisé avec exigence afin d'offrir des résultats performants.
+            <div class="stat-card">
 
-</p>
+                <div class="stat-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
 
-</div>
+                <div class="stat-content">
 
-<div class="stats-grid">
+                    <strong
+                        class="counter"
+                        data-target="100000"
+                        data-suffix="+"
+                    >
+                        0
+                    </strong>
 
-${stats.map(stat=>`
+                    <h3>Vues générées</h3>
 
-<div class="stat-card">
+                    <p>
+                        Une visibilité amplifiée pour les contenus
+                        et campagnes accompagnés.
+                    </p>
 
-${
-stat.type==="graph"
+                </div>
 
-?
+            </div>
 
-`
 
-<div class="graph-box">
+            <div class="stat-card">
 
-<svg
-class="graph-svg"
-viewBox="0 0 220 120">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
 
-<path
+                <div class="stat-content">
 
-class="graph-line"
+                    <strong
+                        class="counter"
+                        data-target="50"
+                        data-suffix="+"
+                    >
+                        0
+                    </strong>
 
-d="M10 105 L55 82 L95 92 L145 45 L210 15"/>
+                    <h3>Clients accompagnés</h3>
 
-</svg>
+                    <p>
+                        Entrepreneurs, créateurs et entreprises
+                        suivis dans leur croissance.
+                    </p>
 
-<div
+                </div>
 
-class="counter"
+            </div>
 
-data-target="${stat.value}"
 
-data-suffix="${stat.suffix}">
+            <div class="stat-card">
 
-0
+                <div class="stat-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
 
-</div>
+                <div class="stat-content">
 
-</div>
+                    <strong
+                        class="counter"
+                        data-target="20"
+                        data-suffix="+"
+                    >
+                        0
+                    </strong>
 
-`
+                    <h3>Sites réalisés</h3>
 
-:
+                    <p>
+                        Des expériences web conçues pour
+                        convertir et rassurer.
+                    </p>
 
-stat.type==="circle"
+                </div>
 
-?
+            </div>
 
-`
 
-<div
+            <div class="stat-card">
 
-class="progress-circle"
+                <div class="stat-icon">
+                    <i class="fas fa-star"></i>
+                </div>
 
-data-progress="${stat.value}">
+                <div class="stat-content">
 
-<div class="progress-value">
+                    <strong
+                        class="counter"
+                        data-target="98"
+                        data-suffix="%"
+                    >
+                        0
+                    </strong>
 
-0%
+                    <h3>Clients satisfaits</h3>
 
-</div>
+                    <p>
+                        Un accompagnement réactif du premier
+                        échange à la livraison.
+                    </p>
 
-</div>
+                </div>
 
-`
+            </div>
 
-:
+        </div>
 
-`
 
-<div
+        <!-- =========================
+             DASHBOARD
+        ========================== -->
 
-class="counter"
+        <div class="stats-dashboard">
 
-data-target="${stat.value}"
 
-data-suffix="${stat.suffix}">
+            <!-- GRAPH -->
+            <div class="stats-chart">
 
-0
+                <div class="dashboard-header">
 
-</div>
+                    <div>
 
-`
+                        <span class="dashboard-label">
+                            PERFORMANCE
+                        </span>
 
-}
+                        <h3>
+                            Évolution de la visibilité
+                        </h3>
 
+                    </div>
 
-<h3>
+                    <div class="dashboard-badge">
+                        <i class="fas fa-arrow-trend-up"></i>
+                        Croissance
+                    </div>
 
-${stat.title}
+                </div>
 
-</h3>
 
-<p>
+                <div class="chart-area">
 
-${stat.description}
+                    <div class="chart-y">
 
-</p>
+                        <span>100K</span>
+                        <span>75K</span>
+                        <span>50K</span>
+                        <span>25K</span>
+                        <span>0</span>
 
-</div>
+                    </div>
 
-`).join("")}
 
-</div>
+                    <div class="chart">
 
-</div>
+                        <div class="chart-grid">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+
+                        <svg
+                            class="chart-svg"
+                            viewBox="0 0 700 260"
+                            preserveAspectRatio="none"
+                        >
+
+                            <defs>
+
+                                <linearGradient
+                                    id="statsGradient"
+                                    x1="0"
+                                    y1="0"
+                                    x2="0"
+                                    y2="1"
+                                >
+
+                                    <stop
+                                        offset="0%"
+                                        stop-opacity=".35"
+                                    />
+
+                                    <stop
+                                        offset="100%"
+                                        stop-opacity="0"
+                                    />
+
+                                </linearGradient>
+
+                            </defs>
+
+
+                            <path
+                                class="chart-fill"
+                                d="
+                                M0 220
+                                C80 205 100 185 160 190
+                                C220 195 250 150 310 160
+                                C370 170 390 120 450 125
+                                C510 130 540 85 590 90
+                                C630 95 660 55 700 40
+                                L700 260
+                                L0 260
+                                Z
+                                "
+                            ></path>
+
+
+                            <path
+                                class="chart-line"
+                                d="
+                                M0 220
+                                C80 205 100 185 160 190
+                                C220 195 250 150 310 160
+                                C370 170 390 120 450 125
+                                C510 130 540 85 590 90
+                                C630 95 660 55 700 40
+                                "
+                            ></path>
+
+
+                            <circle
+                                cx="700"
+                                cy="40"
+                                r="7"
+                                class="chart-point"
+                            ></circle>
+
+                        </svg>
+
+
+                        <div class="chart-months">
+
+                            <span>Jan</span>
+                            <span>Fév</span>
+                            <span>Mar</span>
+                            <span>Avr</span>
+                            <span>Mai</span>
+                            <span>Juin</span>
+                            <span>Juil</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERFORMANCE -->
+            <div class="stats-performance">
+
+                <div class="dashboard-header">
+
+                    <div>
+
+                        <span class="dashboard-label">
+                            INDICATEURS
+                        </span>
+
+                        <h3>
+                            Performance MLK
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="performance-list">
+
+
+                    <div class="performance-item">
+
+                        <div class="performance-top">
+
+                            <span>
+                                Visibilité
+                            </span>
+
+                            <strong>92%</strong>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <span
+                                data-progress="92"
+                            ></span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="performance-item">
+
+                        <div class="performance-top">
+
+                            <span>
+                                Satisfaction
+                            </span>
+
+                            <strong>98%</strong>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <span
+                                data-progress="98"
+                            ></span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="performance-item">
+
+                        <div class="performance-top">
+
+                            <span>
+                                Projets livrés
+                            </span>
+
+                            <strong>90%</strong>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <span
+                                data-progress="90"
+                            ></span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="performance-item">
+
+                        <div class="performance-top">
+
+                            <span>
+                                Accompagnement
+                            </span>
+
+                            <strong>95%</strong>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <span
+                                data-progress="95"
+                            ></span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <div class="stats-cta">
+
+            <div>
+
+                <span>
+                    <i class="fas fa-chart-line"></i>
+                    Prêt à développer votre visibilité ?
+                </span>
+
+                <h3>
+                    Transformons vos objectifs
+                    en résultats concrets.
+                </h3>
+
+            </div>
+
+            <a
+                href="#contact"
+                class="stats-btn"
+            >
+
+                Obtenir des résultats
+
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
-`;
-
+    `;
 }
-*/

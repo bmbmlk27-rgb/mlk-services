@@ -28,7 +28,7 @@ import Contact from "./components/Contact/Contact.js";
 import Footer from "./components/Footer/Footer.js";
 import Cursor from "./components/Cursor/Cursor.js";
 
-import { initOrbit } from "./components/Hero/Orbit/orbitAnimation.js";
+
 import { initScrollAnimations } from "./animations/scrollAnimations.js";
 import initNavbar from "./assets/js/navbar";
 
@@ -62,7 +62,7 @@ initLenis();
 
 initAnimations();
 
-initOrbit();
+
 
 initScrollAnimations();
 

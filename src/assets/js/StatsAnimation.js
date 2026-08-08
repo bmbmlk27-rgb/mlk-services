@@ -1,134 +1,216 @@
-import gsap from "gsap";
+export function initStatsAnimation() {
 
-export function initStatsAnimation(){
+    const statsSection = document.querySelector("#stats");
 
-const section=document.querySelector(".stats");
+    if (!statsSection) return;
 
-if(!section) return;
+    const counters = statsSection.querySelectorAll(".counter");
+    const progressBars = statsSection.querySelectorAll(".progress span");
+    const chartLine = statsSection.querySelector(".chart-line");
+    const chartFill = statsSection.querySelector(".chart-fill");
 
-let played=false;
+    let animated = false;
 
-const observer=new IntersectionObserver((entries)=>{
 
-entries.forEach(entry=>{
+    /* =========================
+       ANIMATION DES COMPTEURS
+    ========================== */
 
-if(!entry.isIntersecting || played) return;
+    function animateCounters() {
 
-played=true;
+        counters.forEach(counter => {
 
-observer.disconnect();
+            const target = Number(
+                counter.dataset.target || 0
+            );
 
-animateGraph();
+            const suffix =
+                counter.dataset.suffix || "";
 
-animateCounters();
+            const duration = 1800;
 
-animateCircle();
+            const startTime = performance.now();
 
-});
+            function update(currentTime) {
 
-},{threshold:.3});
+                const elapsed =
+                    currentTime - startTime;
 
-observer.observe(section);
+                const progress =
+                    Math.min(elapsed / duration, 1);
 
-}
+                // Easing
+                const eased =
+                    1 - Math.pow(1 - progress, 3);
 
-/*==========================
-      COURBE
-==========================*/
+                const value =
+                    Math.floor(target * eased);
 
-function animateGraph(){
+                counter.textContent =
+                    value.toLocaleString("fr-FR") + suffix;
 
-const line=document.querySelector(".graph-line");
+                if (progress < 1) {
 
-if(!line) return;
+                    requestAnimationFrame(update);
 
-const length=line.getTotalLength();
+                } else {
 
-line.style.strokeDasharray=length;
+                    counter.textContent =
+                        target.toLocaleString("fr-FR") + suffix;
 
-line.style.strokeDashoffset=length;
+                }
 
-gsap.to(line,{
+            }
 
-strokeDashoffset:0,
+            requestAnimationFrame(update);
 
-duration:2.5,
+        });
 
-ease:"power3.out"
+    }
 
-});
 
-}
+    /* =========================
+       BARRES DE PERFORMANCE
+    ========================== */
 
-/*==========================
-      COMPTEURS
-==========================*/
+    function animateProgressBars() {
 
-function animateCounters(){
+        progressBars.forEach(bar => {
 
-document.querySelectorAll(".counter").forEach(counter=>{
+            const value =
+                Number(bar.dataset.progress || 0);
 
-const target=Number(counter.dataset.target);
+            bar.style.width = "0%";
 
-const suffix=counter.dataset.suffix||"";
+            requestAnimationFrame(() => {
 
-const obj={value:0};
+                setTimeout(() => {
 
-gsap.to(obj,{
+                    bar.style.width =
+                        `${value}%`;
 
-value:target,
+                }, 150);
 
-duration:2,
+            });
 
-ease:"power2.out",
+        });
 
-onUpdate(){
+    }
 
-counter.textContent=Math.floor(obj.value)+suffix;
 
-}
+    /* =========================
+       ANIMATION DU GRAPHIQUE
+    ========================== */
 
-});
+    function animateChart() {
 
-});
+        if (chartLine) {
 
-}
+            const length =
+                chartLine.getTotalLength();
 
-/*==========================
-      CERCLE
-==========================*/
+            chartLine.style.strokeDasharray =
+                length;
 
-function animateCircle(){
+            chartLine.style.strokeDashoffset =
+                length;
 
-const circle=document.querySelector(".progress-circle");
+            requestAnimationFrame(() => {
 
-if(!circle) return;
+                setTimeout(() => {
 
-const value=Number(circle.dataset.progress);
+                    chartLine.style.strokeDashoffset =
+                        "0";
 
-const text=circle.querySelector(".progress-value");
+                }, 200);
 
-const obj={progress:0};
+            });
 
-gsap.to(obj,{
+        }
 
-progress:value,
 
-duration:2,
+        if (chartFill) {
 
-ease:"power2.out",
+            chartFill.style.opacity = "0";
 
-onUpdate(){
+            setTimeout(() => {
 
-const deg=obj.progress*3.6;
+                chartFill.style.opacity = "1";
 
-// Les variables gardent la jauge coherente apres un changement de theme.
-circle.style.background=`conic-gradient(var(--primary) ${deg}deg, var(--surface-light) ${deg}deg)`;
+            }, 500);
 
-text.textContent=Math.floor(obj.progress)+"%";
+        }
 
-}
+    }
 
-});
+
+    /* =========================
+       DÉCLENCHEMENT AU SCROLL
+    ========================== */
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (
+                        entry.isIntersecting &&
+                        !animated
+                    ) {
+
+                        animated = true;
+
+                        statsSection.classList.add(
+                            "stats-visible"
+                        );
+
+                        animateCounters();
+
+                        animateProgressBars();
+
+                        animateChart();
+
+                        observer.unobserve(
+                            statsSection
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.25
+            }
+        );
+
+
+    observer.observe(statsSection);
+
+
+    /* =========================
+       FALLBACK
+       Si IntersectionObserver
+       n'est pas disponible
+    ========================== */
+
+    if (
+        !("IntersectionObserver" in window)
+    ) {
+
+        animated = true;
+
+        statsSection.classList.add(
+            "stats-visible"
+        );
+
+        animateCounters();
+
+        animateProgressBars();
+
+        animateChart();
+
+    }
 
 }

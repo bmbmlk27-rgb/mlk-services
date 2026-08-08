@@ -1,11 +1,11 @@
 import "./Hero.css";
 import HeroParticles from "./HeroParticles";
-import Orbit from "./Orbit/Orbit";
 import avatar from "../../assets/images/avatar/avatar.png";
 
 export default function Hero() {
     return `
 <section class="hero" id="hero">
+
     <div class="hero-bg"></div>
 
     <div class="particles">
@@ -22,23 +22,56 @@ export default function Hero() {
 
             <h1>
                 Développez votre entreprise grâce à une présence digitale professionnelle.<br>
-                <span>Attirez plus de clients. Renforcez votre image. Accélérez votre croissance.</span>
+                <span>
+                    Attirez plus de clients. Renforcez votre image. Accélérez votre croissance.
+                </span>
             </h1>
 
             <p>
-                <strong>MLK Services</strong> accompagne les entrepreneurs, les entreprises et les créateurs de contenu dans leur transformation digitale grâce à des solutions modernes et performantes. Nous créons des sites web professionnels, développons votre visibilité sur les réseaux sociaux, intégrons des solutions d'Intelligence Artificielle et vous aidons à développer durablement votre activité.
+                <strong>MLK Services</strong> accompagne les entrepreneurs,
+                les entreprises et les créateurs de contenu dans leur transformation
+                digitale grâce à des solutions modernes et performantes.
+                Nous créons des sites web professionnels, développons votre visibilité
+                sur les réseaux sociaux, intégrons des solutions d'Intelligence
+                Artificielle et vous aidons à développer durablement votre activité.
             </p>
 
             <ul class="hero-services" aria-label="Nos domaines d'expertise">
-                <li><i class="fas fa-check-circle"></i> Sites Web Professionnels</li>
-                <li><i class="fas fa-check-circle"></i> E-commerce</li>
-                <li><i class="fas fa-check-circle"></i> Développement TikTok</li>
-                <li><i class="fas fa-check-circle"></i> Intelligence Artificielle</li>
-                <li><i class="fas fa-check-circle"></i> Marketing Digital</li>
-                <li><i class="fas fa-check-circle"></i> Pronostics Premium</li>
+
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    Sites Web Professionnels
+                </li>
+
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    E-commerce
+                </li>
+
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    Développement TikTok
+                </li>
+
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    Intelligence Artificielle
+                </li>
+
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    Marketing Digital
+                </li>
+
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    Pronostics Premium
+                </li>
+
             </ul>
 
             <div class="hero-buttons">
+
                 <a href="#contact" class="btn-primary">
                     Démarrer mon projet
                 </a>
@@ -46,6 +79,7 @@ export default function Hero() {
                 <a href="#services" class="btn-secondary">
                     Découvrir nos services
                 </a>
+
             </div>
 
             <div class="hero-trust">
@@ -74,6 +108,11 @@ export default function Hero() {
 
         </div>
 
+
+        <!-- =========================
+             VISUEL HERO
+        ========================== -->
+
         <div class="hero-visual">
 
             <div class="identity-card">
@@ -86,11 +125,14 @@ export default function Hero() {
                     class="identity-avatar"
                 >
 
-                <h2>MLK Services</h2>
+                <h2>
+                    MLK Services
+                </h2>
 
                 <span class="identity-job">
                     Développement Web • IA • Marketing Digital
                 </span>
+
 
                 <div class="tech-stack">
 
@@ -117,11 +159,10 @@ export default function Hero() {
 
             </div>
 
-            ${Orbit()}
-
         </div>
 
     </div>
 
-</section>`;
+</section>
+`;
 }
