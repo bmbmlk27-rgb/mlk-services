@@ -1,287 +1,147 @@
-export default function initNavbar(){
+export function initNavbar() {
 
+    /* =========================
+       MENU MOBILE
+    ========================= */
 
-const menuBtn =
-document.querySelector(".mobile-menu");
+    const menuButton =
+        document.querySelector("#mlk-menu-toggle");
 
+    const mobileMenu =
+        document.querySelector("#mlk-mobile-menu");
 
-const nav =
-document.querySelector(".navbar-nav");
+    const mobileLinks =
+        document.querySelectorAll(".mobile-nav-link");
 
+    if (menuButton && mobileMenu) {
 
-const links =
-document.querySelectorAll(".nav-menu a");
+        menuButton.addEventListener("click", () => {
 
+            const isOpen =
+                mobileMenu.classList.toggle("open");
 
-const themeBtn =
-document.getElementById("theme-toggle");
+            menuButton.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
 
+        });
 
-const themeIcon =
-themeBtn?.querySelector("i");
+        mobileLinks.forEach(link => {
 
+            link.addEventListener("click", () => {
 
+                mobileMenu.classList.remove("open");
 
-// =======================
-// MENU MOBILE
-// =======================
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
+            });
 
-function closeMenu(){
+        });
 
+    }
 
-if(!nav) return;
 
+    /* =========================
+       THÈME LIGHT / DARK
+    ========================= */
 
-nav.classList.remove("active");
+    const themeButton =
+        document.querySelector("#theme-toggle");
 
-document.body.classList.remove(
-"menu-open"
-);
+    const themeKnob =
+        document.querySelector(".liquid-knob");
 
+    const themeLabel =
+        document.querySelector(".theme-label");
 
-const icon =
-menuBtn?.querySelector("i");
+    if (!themeButton) return;
 
 
-icon?.classList.remove(
-"fa-xmark"
-);
+    /* Récupérer le thème sauvegardé */
 
+    const savedTheme =
+        localStorage.getItem("mlk-theme") || "dark";
 
-icon?.classList.add(
-"fa-bars"
-);
 
+    applyTheme(savedTheme);
 
-}
 
+    /* Cliquer sur le bouton */
 
+    themeButton.addEventListener("click", () => {
 
-if(menuBtn && nav){
+        const currentTheme =
+            document.documentElement.dataset.theme;
 
+        const newTheme =
+            currentTheme === "light"
+                ? "dark"
+                : "light";
 
-menuBtn.addEventListener(
-"click",
-()=>{
+        applyTheme(newTheme);
 
+        localStorage.setItem(
+            "mlk-theme",
+            newTheme
+        );
 
-const active =
-nav.classList.toggle(
-"active"
-);
+    });
 
 
-document.body.classList.toggle(
-"menu-open",
-active
-);
+    function applyTheme(theme) {
 
+        document.documentElement.dataset.theme =
+            theme;
 
 
-const icon =
-menuBtn.querySelector("i");
+        if (theme === "light") {
 
+            if (themeKnob) {
 
+                themeKnob.style.transform =
+                    "translateX(48px)";
 
-if(active){
+            }
 
+            if (themeLabel) {
 
-icon.classList.remove(
-"fa-bars"
-);
+                themeLabel.textContent =
+                    "Dark";
 
+            }
 
-icon.classList.add(
-"fa-xmark"
-);
+            themeButton.setAttribute(
+                "aria-label",
+                "Activer le thème sombre"
+            );
 
+        } else {
 
+            if (themeKnob) {
 
-}else{
+                themeKnob.style.transform =
+                    "translateX(0)";
 
+            }
 
-icon.classList.remove(
-"fa-xmark"
-);
+            if (themeLabel) {
 
+                themeLabel.textContent =
+                    "Light";
 
-icon.classList.add(
-"fa-bars"
-);
+            }
 
+            themeButton.setAttribute(
+                "aria-label",
+                "Activer le thème clair"
+            );
 
-}
+        }
 
-
-});
-
-
-}
-
-
-
-// fermeture après clic
-
-links.forEach(link=>{
-
-
-link.addEventListener(
-"click",
-closeMenu
-);
-
-
-});
-
-
-
-// clic extérieur
-
-document.addEventListener(
-"click",
-(e)=>{
-
-
-if(
-nav?.classList.contains("active")
-&&
-!nav.contains(e.target)
-&&
-!menuBtn.contains(e.target)
-
-){
-
-closeMenu();
-
-}
-
-
-});
-
-
-
-// ESC
-
-document.addEventListener(
-"keydown",
-(e)=>{
-
-
-if(e.key==="Escape"){
-
-closeMenu();
-
-}
-
-
-});
-
-
-
-
-// =======================
-// THEME
-// =======================
-
-
-let theme =
-"dark";
-
-
-try{
-
-
-theme =
-localStorage.getItem("theme")
-||
-"dark";
-
-
-}catch(e){}
-
-
-
-document.documentElement.dataset.theme =
-theme;
-
-
-
-updateIcon(theme);
-
-
-
-themeBtn?.addEventListener(
-"click",
-()=>{
-
-
-const current =
-document.documentElement.dataset.theme;
-
-
-
-const next =
-current==="dark"
-?
-"light"
-:
-"dark";
-
-
-
-document.documentElement.dataset.theme =
-next;
-
-
-
-try{
-
-localStorage.setItem(
-"theme",
-next
-);
-
-}catch(e){}
-
-
-
-updateIcon(next);
-
-
-
-});
-
-
-
-
-function updateIcon(theme){
-
-
-if(!themeIcon)
-return;
-
-
-
-if(theme==="light"){
-
-
-themeIcon.className =
-"fas fa-sun";
-
-
-}else{
-
-
-themeIcon.className =
-"fas fa-moon";
-
-
-}
-
-
-}
-
-
+    }
 
 }

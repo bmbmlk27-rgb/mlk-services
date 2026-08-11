@@ -1,168 +1,164 @@
 import "./Hero.css";
-import HeroParticles from "./HeroParticles";
-import avatar from "../../assets/images/avatar/avatar.png";
+import avatar from "../../assets/images/avatar.jpeg";
 
 export default function Hero() {
     return `
-<section class="hero" id="hero">
+    <section class="hero" id="accueil">
 
-    <div class="hero-bg"></div>
+        <!-- BACKGROUND -->
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-overlay"></div>
+        </div>
 
-    <div class="particles">
-        ${HeroParticles()}
-    </div>
+        <!-- MAIN -->
+        <div class="hero-container">
 
-    <div class="container hero-container">
+            <!-- TEXTE -->
+            <div class="hero-content">
 
-        <div class="hero-content">
+                <div class="hero-label">
+                    <span></span>
+                    <p>MLK SERVICES</p>
+                </div>
 
-            <span class="hero-badge">
-                🚀 Agence digitale • Création Web • IA • Marketing Digital
+                <h1 class="hero-title">
+                    CRÉEZ.
+                    <br>
+                    <span>DÉVELOPPEZ.</span>
+                    <br>
+                    DOMINEZ.
+                </h1>
+
+                <p class="hero-description">
+                    Nous créons des solutions digitales modernes pour
+                    développer votre présence en ligne, améliorer votre
+                    visibilité et donner vie à vos projets.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="#services" class="hero-btn hero-btn-main">
+                        <span>Découvrir nos services</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                    <a href="#contact" class="hero-btn hero-btn-outline">
+                        Nous contacter
+                    </a>
+
+                </div>
+
+                <!-- TECHNOLOGIES -->
+                <div class="hero-tech">
+
+                    <span class="hero-tech-title">
+                        TECHNOLOGIES
+                    </span>
+
+                    <div class="hero-tech-list">
+
+                        <div class="hero-tech-item html">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML</span>
+                        </div>
+
+                        <div class="hero-tech-item css">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS</span>
+                        </div>
+
+                        <div class="hero-tech-item js">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="hero-tech-item vite">
+                            <strong>V</strong>
+                            <span>Vite</span>
+                        </div>
+
+                        <div class="hero-tech-item gsap">
+                            <i class="fas fa-bolt"></i>
+                            <span>GSAP</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE -->
+            <div class="hero-visual">
+
+                <div class="hero-image">
+
+                    <img
+                        src="${avatar}"
+                        alt="MLK Services"
+                    >
+
+                    <div class="hero-image-gradient"></div>
+
+                    <div class="hero-image-top">
+                        <span>01</span>
+                    </div>
+
+                    <div class="hero-image-bottom">
+
+                        <span>MLK SERVICES</span>
+
+                        <span>DIGITAL EXPERIENCE</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGOS FLOTTANTS -->
+
+                <div class="floating-logo floating-html">
+                    <i class="fab fa-html5"></i>
+                </div>
+
+                <div class="floating-logo floating-css">
+                    <i class="fab fa-css3-alt"></i>
+                </div>
+
+                <div class="floating-logo floating-js">
+                    <i class="fab fa-js"></i>
+                </div>
+
+                <div class="floating-logo floating-vite">
+                    V
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTTOM -->
+
+        <div class="hero-bottom">
+
+            <div class="scroll-label">
+                <span class="scroll-circle"></span>
+                SCROLL TO EXPLORE
+            </div>
+
+            <div class="scroll-line">
+                <span></span>
+            </div>
+
+            <span class="hero-year">
+                2026
             </span>
 
-            <h1>
-                Développez votre entreprise grâce à une présence digitale professionnelle.<br>
-                <span>
-                    Attirez plus de clients. Renforcez votre image. Accélérez votre croissance.
-                </span>
-            </h1>
-
-            <p>
-                <strong>MLK Services</strong> accompagne les entrepreneurs,
-                les entreprises et les créateurs de contenu dans leur transformation
-                digitale grâce à des solutions modernes et performantes.
-                Nous créons des sites web professionnels, développons votre visibilité
-                sur les réseaux sociaux, intégrons des solutions d'Intelligence
-                Artificielle et vous aidons à développer durablement votre activité.
-            </p>
-
-            <ul class="hero-services" aria-label="Nos domaines d'expertise">
-
-                <li>
-                    <i class="fas fa-check-circle"></i>
-                    Sites Web Professionnels
-                </li>
-
-                <li>
-                    <i class="fas fa-check-circle"></i>
-                    E-commerce
-                </li>
-
-                <li>
-                    <i class="fas fa-check-circle"></i>
-                    Développement TikTok
-                </li>
-
-                <li>
-                    <i class="fas fa-check-circle"></i>
-                    Intelligence Artificielle
-                </li>
-
-                <li>
-                    <i class="fas fa-check-circle"></i>
-                    Marketing Digital
-                </li>
-
-                <li>
-                    <i class="fas fa-check-circle"></i>
-                    Pronostics Premium
-                </li>
-
-            </ul>
-
-            <div class="hero-buttons">
-
-                <a href="#contact" class="btn-primary">
-                    Démarrer mon projet
-                </a>
-
-                <a href="#services" class="btn-secondary">
-                    Découvrir nos services
-                </a>
-
-            </div>
-
-            <div class="hero-trust">
-
-                <div class="trust-item">
-                    <i class="fas fa-laptop-code"></i>
-                    <span>Sites modernes</span>
-                </div>
-
-                <div class="trust-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span>100 % Responsive</span>
-                </div>
-
-                <div class="trust-item">
-                    <i class="fas fa-headset"></i>
-                    <span>Support personnalisé</span>
-                </div>
-
-                <div class="trust-item">
-                    <i class="fas fa-rocket"></i>
-                    <span>Solutions performantes</span>
-                </div>
-
-            </div>
-
         </div>
 
-
-        <!-- =========================
-             VISUEL HERO
-        ========================== -->
-
-        <div class="hero-visual">
-
-            <div class="identity-card">
-
-                <div class="identity-glow"></div>
-
-                <img
-                    src="${avatar}"
-                    alt="MLK Services"
-                    class="identity-avatar"
-                >
-
-                <h2>
-                    MLK Services
-                </h2>
-
-                <span class="identity-job">
-                    Développement Web • IA • Marketing Digital
-                </span>
-
-
-                <div class="tech-stack">
-
-                    <div class="tech html">
-                        <i class="fab fa-html5"></i>
-                        HTML5
-                    </div>
-
-                    <div class="tech css">
-                        <i class="fab fa-css3-alt"></i>
-                        CSS3
-                    </div>
-
-                    <div class="tech js">
-                        <i class="fab fa-js"></i>
-                        JavaScript
-                    </div>
-
-                    <div class="tech vite">
-                        ⚡ Vite
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-`;
+    </section>
+    `;
 }

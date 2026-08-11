@@ -1,45 +1,111 @@
 import "./Preloader.css";
 
-export default function Preloader(){
+export default function Preloader() {
 
-return `
+    setTimeout(() => {
 
-<div id="preloader">
+        const preloader = document.getElementById("mlk-preloader");
 
-    <div class="loader-content">
+        if (!preloader) return;
 
-        <div class="loader-logo">
+        setTimeout(() => {
 
-            MLK
+            preloader.classList.add("finished");
+
+            setTimeout(() => {
+
+                document.body.classList.add("mlk-site-ready");
+
+                setTimeout(() => {
+                    preloader.remove();
+                }, 800);
+
+            }, 500);
+
+        }, 7000);
+
+    }, 0);
+
+
+    return `
+
+        <div class="mlk-preloader" id="mlk-preloader">
+
+            <div class="mlk-intro-scene">
+
+                <!-- SPIRALE -->
+
+                <div class="mlk-spiral">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <!-- EXPLOSION -->
+
+                <div class="mlk-explosion">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <!-- TEXTE BIENVENUE -->
+
+                <div class="mlk-welcome">
+
+                    <span>
+                        BIENVENUE CHEZ
+                    </span>
+
+                    <strong>
+                        MLK SERVICE ✨
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOADING -->
+
+            <div class="mlk-loading">
+
+                <div class="mlk-loading-text">
+                    Chargement
+                </div>
+
+                <div class="mlk-loading-line">
+                    <span></span>
+                </div>
+
+                <div class="mlk-loading-percent">
+                    0%
+                </div>
+
+            </div>
 
         </div>
 
-        <h1 class="loader-title">
-
-            Bienvenue chez
-
-            <span>MLK Services</span>
-
-        </h1>
-
-        <p class="loader-text">
-
-            Développez votre visibilité.
-
-            Dominez le digital.
-
-        </p>
-
-        <div class="loader-bar">
-
-            <div class="loader-progress"></div>
-
-        </div>
-
-    </div>
-
-</div>
-
-`;
+    `;
 
 }

@@ -27,10 +27,12 @@ import Stats from "./components/Stats/Stats.js";
 import Contact from "./components/Contact/Contact.js";
 import Footer from "./components/Footer/Footer.js";
 import Cursor from "./components/Cursor/Cursor.js";
+import { initNavbar } from "./assets/js/navbar.js";
 
+document.body.classList.add("mlk-site-ready");
 
 import { initScrollAnimations } from "./animations/scrollAnimations.js";
-import initNavbar from "./assets/js/navbar";
+
 
 document.querySelector("#app").innerHTML = `
 ${Preloader()}
