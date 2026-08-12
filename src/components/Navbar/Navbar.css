@@ -1,816 +1,196 @@
-/* =========================================================
-   MLK SERVICES — LIQUID GLASS NAVBAR
-   ========================================================= */
-
-.mlk-navbar {
-
-    position: fixed;
-
-    top: 20px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: min(1120px, calc(100% - 40px));
-
-    height: 70px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 7px 9px 7px 18px;
-
-    z-index: 99999;
-
-    border-radius: 9999px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.15),
-            rgba(255,255,255,0.055)
-        );
-
-    border: 1px solid rgba(255,255,255,0.22);
-
-    backdrop-filter:
-        blur(25px)
-        saturate(180%);
-
-    -webkit-backdrop-filter:
-        blur(25px)
-        saturate(180%);
-
-    box-shadow:
-
-        0 18px 45px rgba(0,0,0,0.25),
-
-        inset 0 1px 1px
-        rgba(255,255,255,0.30),
-
-        inset 0 -1px 1px
-        rgba(255,255,255,0.04);
-
+/* ===== NAVBAR LIQUID GLASS ===== */
+.navbar {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-navbar);
+  width: auto;
+  max-width: calc(100vw - 2rem);
 }
 
-
-/* =========================================================
-   REFLET DU VERRE
-   ========================================================= */
-
-.mlk-navbar::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 1px;
-
-    border-radius: inherit;
-
-    background:
-        linear-gradient(
-            115deg,
-            rgba(255,255,255,0.18),
-            transparent 25%,
-            transparent 72%,
-            rgba(255,255,255,0.04)
-        );
-
-    pointer-events: none;
-
+.navbar__capsule {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.8rem;
+  border-radius: var(--radius-full);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: all 0.4s ease;
+  gap: 2rem;
 }
 
-
-/* =========================================================
-   LOGO
-   ========================================================= */
-
-.mlk-brand {
-
-    position: relative;
-
-    z-index: 2;
-
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.mlk-brand img {
+.navbar__logo img {
+  height: 2.2rem;
+  width: auto;
+  display: block;
+}
 
+.navbar__logo-text {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+/* Navigation desktop */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.navbar__link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.navbar__link i {
+  font-size: 0.9em;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.navbar__link:hover,
+.navbar__link.active {
+  color: var(--text);
+  background: rgba(128,128,128,0.1);
+}
+
+.navbar__link:hover i,
+.navbar__link.active i {
+  opacity: 1;
+}
+
+/* Bouton thème */
+.navbar__theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.navbar__theme-btn:hover {
+  background: rgba(128,128,128,0.15);
+  transform: scale(1.05);
+}
+
+/* Bouton hamburger (mobile) */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile active */
+.navbar__hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.navbar__hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar__capsule {
+    padding: 0.6rem 1.2rem;
+    gap: 1rem;
     width: 100%;
-    height: 100%;
+  }
 
-    object-fit: contain;
-
-    transition:
-        transform 0.35s ease;
-
-}
-
-.mlk-brand:hover img {
-
-    transform: scale(1.08);
-
-}
-
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
-.mlk-nav {
-
-    position: relative;
-
-    z-index: 2;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 5px;
-
-    flex: 1;
-
-    margin: 0 20px;
-
-}
-
-.mlk-nav-link {
-
-    position: relative;
-
-    min-width: 82px;
-
-    padding: 9px 12px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 4px;
-
-    color: rgba(255,255,255,0.65);
-
-    text-decoration: none;
-
-    font-family:
-        Inter,
-        Arial,
-        sans-serif;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    letter-spacing: 0.2px;
-
-    border-radius: 999px;
-
-    transition:
-        color 0.3s ease,
-        background 0.3s ease,
-        transform 0.3s ease;
-
-}
-
-.mlk-nav-link i {
-
-    font-size: 15px;
-
-    font-weight: 400;
-
-}
-
-.mlk-nav-link:hover {
-
-    color: #ffffff;
-
-    background:
-        rgba(255,255,255,0.07);
-
-    transform: translateY(-1px);
-
-}
-
-.mlk-nav-link.active {
-
-    color: #ffffff;
-
-    background:
-        rgba(255,255,255,0.10);
-
-}
-
-
-/* =========================================================
-   ACTIONS
-   ========================================================= */
-
-.mlk-navbar-actions {
-
-    position: relative;
-
-    z-index: 3;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-}
-
-
-/* =========================================================
-   LIQUID THEME SWITCH
-   ========================================================= */
-
-.liquid-theme-toggle {
-
-    position: relative;
-
-    width: 106px;
-    height: 46px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: flex-end;
-
-    padding: 5px;
-
-    border: 1px solid
-        rgba(255,255,255,0.16);
-
-    border-radius: 9999px;
-
-    background:
-        rgba(255,255,255,0.09);
-
-    backdrop-filter:
-        blur(15px);
-
-    -webkit-backdrop-filter:
-        blur(15px);
-
-    cursor: pointer;
-
-    overflow: hidden;
-
-}
-
-.liquid-knob {
-
-    position: absolute;
-
-    left: 5px;
-
-    width: 36px;
-    height: 36px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            rgba(255,255,255,0.98),
-            rgba(255,255,255,0.42) 35%,
-            rgba(255,255,255,0.12) 72%,
-            rgba(255,255,255,0.04)
-        );
-
-    border: 1px solid
-        rgba(255,255,255,0.60);
-
-    box-shadow:
-
-        inset 4px 4px 10px
-        rgba(255,255,255,0.38),
-
-        inset -4px -5px 10px
-        rgba(0,0,0,0.12),
-
-        0 5px 14px
-        rgba(0,0,0,0.22);
-
-    transition:
-        transform 0.5s
-        cubic-bezier(.22,1,.36,1);
-
-}
-
-.liquid-knob i {
-
-    color: #ffffff;
-
-    font-size: 14px;
-
-    filter:
-        drop-shadow(
-            0 1px 3px
-            rgba(0,0,0,0.25)
-        );
-
-}
-
-.theme-label {
-
-    padding-right: 11px;
-
-    color: #ffffff;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-}
-
-
-/* =========================================================
-   BOUTON MENU MOBILE
-   ========================================================= */
-
-.mlk-menu-toggle {
-
+  .navbar__links {
     display: none;
-
-    width: 44px;
-    height: 44px;
-
-    border: 1px solid
-        rgba(255,255,255,0.15);
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,0.08);
-
-    align-items: center;
-    justify-content: center;
-
+    position: absolute;
+    top: calc(100% + 0.8rem);
+    left: 0;
+    right: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.5rem;
+    box-shadow: var(--glass-shadow);
     flex-direction: column;
+    padding: 1rem 1.5rem;
+    gap: 0.3rem;
+  }
 
-    gap: 4px;
-
-    cursor: pointer;
-
-}
-
-.mlk-menu-toggle span {
-
-    width: 16px;
-    height: 1.5px;
-
-    background: #ffffff;
-
-    border-radius: 10px;
-
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
-
-}
-
-
-/* =========================================================
-   MENU MOBILE
-   ========================================================= */
-
-.mlk-mobile-menu {
-
-    position: fixed;
-
-    top: 94px;
-    left: 50%;
-
-    transform:
-        translate(-50%, -15px)
-        scale(0.96);
-
-    width:
-        min(420px, calc(100% - 24px));
-
-    padding: 14px;
-
-    z-index: 99998;
-
-    border-radius: 28px;
-
-    background:
-        rgba(15,15,18,0.72);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.18);
-
-    backdrop-filter:
-        blur(28px)
-        saturate(180%);
-
-    -webkit-backdrop-filter:
-        blur(28px)
-        saturate(180%);
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,0.35);
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.35s ease,
-        transform 0.35s ease,
-        visibility 0.35s ease;
-
-}
-
-.mlk-mobile-menu.open {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-
-    transform:
-        translate(-50%, 0)
-        scale(1);
-
-}
-
-.mlk-mobile-menu nav {
-
+  .navbar__links.open {
     display: flex;
+  }
 
-    flex-direction: column;
+  .navbar__link {
+    justify-content: flex-start;
+    padding: 0.7rem 1rem;
+    width: 100%;
+    font-size: var(--text-base);
+  }
 
-    gap: 5px;
-
-}
-
-.mobile-nav-link {
-
+  .navbar__hamburger {
     display: flex;
+  }
 
-    align-items: center;
-
-    gap: 14px;
-
-    padding: 15px;
-
-    color:
-        rgba(255,255,255,0.75);
-
-    text-decoration: none;
-
-    border-radius: 16px;
-
-    font-family:
-        Inter,
-        Arial,
-        sans-serif;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    transition:
-        background 0.25s ease,
-        color 0.25s ease;
-
+  .navbar__theme-btn {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
-.mobile-nav-link i {
-
-    width: 20px;
-
-    text-align: center;
-
-}
-
-.mobile-nav-link:hover {
-
-    color: #ffffff;
-
-    background:
-        rgba(255,255,255,0.09);
-
-}
-
-
-/* =========================================================
-   TABLETTE
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    .mlk-nav {
-
-        gap: 0;
-
-        margin: 0 10px;
-
-    }
-
-    .mlk-nav-link {
-
-        min-width: 68px;
-
-        padding-left: 7px;
-        padding-right: 7px;
-
-    }
-
-    .mlk-nav-link span {
-
-        font-size: 9px;
-
-    }
-
-    .liquid-theme-toggle {
-
-        width: 92px;
-
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 720px) {
-
-    .mlk-navbar {
-
-        top: 12px;
-
-        width:
-            calc(100% - 24px);
-
-        height: 62px;
-
-        padding:
-            6px 7px 6px 13px;
-
-    }
-
-    .mlk-brand {
-
-        width: 40px;
-        height: 40px;
-
-    }
-
-    .mlk-nav {
-
-        display: none;
-
-    }
-
-    .liquid-theme-toggle {
-
-        width: 82px;
-        height: 40px;
-
-    }
-
-    .liquid-knob {
-
-        width: 31px;
-        height: 31px;
-
-    }
-
-    .theme-label {
-
-        padding-right: 9px;
-
-    }
-
-    .mlk-menu-toggle {
-
-        display: flex;
-
-    }
-
-}
-
-
-/* =========================================================
-   PETITS TÉLÉPHONES
-   ========================================================= */
-
-@media (max-width: 400px) {
-
-    .mlk-navbar {
-
-        width:
-            calc(100% - 16px);
-
-    }
-
-    .liquid-theme-toggle {
-
-        width: 76px;
-
-    }
-
-    .theme-label {
-
-        font-size: 9px;
-
-    }
-
-}
-
-
-/* =========================================================
-   THEME LIGHT
-   ========================================================= */
-
-:root[data-theme="light"] {
-
-    color-scheme: light;
-
-}
-
-
-/* Navbar claire */
-
-:root[data-theme="light"] .mlk-navbar {
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.72),
-            rgba(255,255,255,0.38)
-        );
-
-    border-color:
-        rgba(0,0,0,0.12);
-
-    box-shadow:
-
-        0 18px 45px
-        rgba(0,0,0,0.12),
-
-        inset 0 1px 1px
-        rgba(255,255,255,0.9);
-
-}
-
-
-/* Navigation */
-
-:root[data-theme="light"] .mlk-nav-link {
-
-    color:
-        rgba(0,0,0,0.58);
-
-}
-
-:root[data-theme="light"] .mlk-nav-link:hover {
-
-    color: #000000;
-
-    background:
-        rgba(0,0,0,0.06);
-
-}
-
-:root[data-theme="light"] .mlk-nav-link.active {
-
-    color: #000000;
-
-    background:
-        rgba(0,0,0,0.08);
-
-}
-
-
-/* Theme switch */
-
-:root[data-theme="light"] .liquid-theme-toggle {
-
-    background:
-        rgba(0,0,0,0.08);
-
-    border-color:
-        rgba(0,0,0,0.12);
-
-}
-
-
-/* Texte Light / Dark */
-
-:root[data-theme="light"] .theme-label {
-
-    color: #000000;
-
-}
-
-
-/* Soleil */
-
-:root[data-theme="light"] .liquid-knob i {
-
-    color: #000000;
-
-}
-
-
-/* Bouton menu mobile */
-
-:root[data-theme="light"] .mlk-menu-toggle {
-
-    background:
-        rgba(0,0,0,0.06);
-
-    border-color:
-        rgba(0,0,0,0.12);
-
-}
-
-:root[data-theme="light"] .mlk-menu-toggle span {
-
-    background: #000000;
-
-}
-
-
-/* Menu mobile */
-
-:root[data-theme="light"] .mlk-mobile-menu {
-
-    background:
-        rgba(255,255,255,0.78);
-
-    border-color:
-        rgba(0,0,0,0.12);
-
-}
-
-:root[data-theme="light"] .mobile-nav-link {
-
-    color:
-        rgba(0,0,0,0.68);
-
-}
-
-:root[data-theme="light"] .mobile-nav-link:hover {
-
-    color: #000000;
-
-    background:
-        rgba(0,0,0,0.06);
-
-}
-
-/* Navbar cachée pendant l'introduction */
-.mlk-navbar {
-    opacity: 0;
-    visibility: hidden;
-    transform: translate(-50%, -30px);
-    transition:
-        opacity 0.7s ease,
-        transform 0.7s ease,
-        visibility 0.7s ease;
-}
-
-/* Navbar affichée après l'introduction */
-body.mlk-site-ready .mlk-navbar {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, 0);
+/* Safe area sur iPhone */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .navbar {
+    top: calc(1.5rem + env(safe-area-inset-top));
+  }
 }

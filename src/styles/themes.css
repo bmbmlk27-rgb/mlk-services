@@ -1,0 +1,51 @@
+/* ===== THÈMES ===== */
+:root {
+  --bg: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #111111;
+  --text: #ffffff;
+  --text-muted: rgba(255,255,255,0.65);
+  --border: rgba(255,255,255,0.12);
+  --border-light: rgba(255,255,255,0.06);
+  --glass-bg: rgba(10,10,10,0.7);
+  --glass-border: rgba(255,255,255,0.1);
+  --glass-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  --button-primary-bg: #ffffff;
+  --button-primary-text: #050505;
+  --button-secondary-bg: transparent;
+  --button-secondary-text: #ffffff;
+  --button-secondary-border: rgba(255,255,255,0.2);
+  --overlay: rgba(0,0,0,0.4);
+  --grid-color: rgba(255,255,255,0.015);
+  --noise-opacity: 0.03;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-secondary: #f8f8f8;
+  --bg-tertiary: #f0f0f0;
+  --text: #080808;
+  --text-muted: rgba(0,0,0,0.60);
+  --border: rgba(0,0,0,0.12);
+  --border-light: rgba(0,0,0,0.06);
+  --glass-bg: rgba(255,255,255,0.7);
+  --glass-border: rgba(0,0,0,0.08);
+  --glass-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  --button-primary-bg: #080808;
+  --button-primary-text: #ffffff;
+  --button-secondary-bg: transparent;
+  --button-secondary-text: #080808;
+  --button-secondary-border: rgba(0,0,0,0.2);
+  --overlay: rgba(0,0,0,0.2);
+  --grid-color: rgba(0,0,0,0.02);
+  --noise-opacity: 0.02;
+}
+
+/* Transition douce uniquement sur le body, pas sur tous les enfants */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Pas de transition globale sur tous les enfants -> supprime le flash blanc */

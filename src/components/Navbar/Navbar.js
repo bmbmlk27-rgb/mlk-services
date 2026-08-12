@@ -1,110 +1,123 @@
-import "./Navbar.css";
-
-export default function Navbar() {
-
-    return `
-
-    <header class="mlk-navbar">
-
-        <a href="#accueil" class="mlk-brand" aria-label="MLK Services">
-            <img 
-                src="/src/assets/images/logo.png" 
-                alt="MLK Services"
-            >
+export function createNavbar() {
+  const navbarHTML = `
+    <nav class="navbar" role="navigation" aria-label="Navigation principale">
+      <div class="navbar__capsule">
+        <!-- Logo -->
+        <a href="#hero" class="navbar__logo" aria-label="MLK SERVICES - Accueil">
+          <img src="/src/assets/images/logo.png" alt="MLK SERVICES Logo" />
+          <span class="navbar__logo-text">MLK</span>
         </a>
 
-        <nav class="mlk-nav">
+        <!-- Liens de navigation (ancres) -->
+        <ul class="navbar__links" id="navLinks">
+          <li><a href="#hero" class="navbar__link active"><i class="fa-solid fa-house"></i> Accueil</a></li>
+          <li><a href="#services" class="navbar__link"><i class="fa-solid fa-briefcase"></i> Services</a></li>
+          <li><a href="#about" class="navbar__link"><i class="fa-solid fa-user"></i> À propos</a></li>
+          <li><a href="#pronostics" class="navbar__link"><i class="fa-solid fa-futbol"></i> Pronostics</a></li>
+          <li><a href="#contact" class="navbar__link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
 
-            <a href="#accueil" class="mlk-nav-link active">
-                <i class="fa-solid fa-house"></i>
-                <span>Accueil</span>
-            </a>
+        <!-- Bouton thème -->
+        <button class="navbar__theme-btn" id="themeToggle" aria-label="Changer le thème clair/sombre">
+          <i class="fa-solid fa-moon"></i>
+        </button>
 
-            <a href="#about" class="mlk-nav-link">
-                <i class="fa-solid fa-user"></i>
-                <span>À propos</span>
-            </a>
+        <!-- Hamburger mobile -->
+        <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  `;
 
-            <a href="#services" class="mlk-nav-link">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Services</span>
-            </a>
+  const app = document.getElementById('app');
+  if (!app) return;
+  app.insertAdjacentHTML('afterbegin', navbarHTML);
 
-            <a href="#pronostics" class="mlk-nav-link">
-                <i class="fa-solid fa-chart-pie"></i>
-                <span>Pronostics</span>
-            </a>
+  // --- Gestion du thème ---
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    updateThemeIcon();
+    themeBtn.addEventListener('click', () => {
+      window.toggleTheme();
+      updateThemeIcon();
+    });
+  }
 
-            <a href="#contact" class="mlk-nav-link">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Contact</span>
-            </a>
+  // --- Menu mobile ---
+  const hamburger = document.getElementById('hamburgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
 
-        </nav>
+    // Fermer le menu au clic sur un lien
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Défilement fluide vers l'ancre
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId.startsWith('#')) {
+          e.preventDefault();
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+        // Fermer le menu mobile
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-        <div class="mlk-navbar-actions">
+    // Fermer si clic à l'extérieur
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
-            <button 
-                class="liquid-theme-toggle"
-                id="theme-toggle"
-                type="button"
-                aria-label="Changer le thème"
-            >
-                <span class="liquid-knob">
-                    <i class="fa-solid fa-sun"></i>
-                </span>
+  // --- Mise à jour de l'élément actif au scroll ---
+  updateActiveOnScroll();
+  window.addEventListener('scroll', updateActiveOnScroll);
+}
 
-                <span class="theme-label">Light</span>
-            </button>
+// Met à jour l'icône du bouton thème
+function updateThemeIcon() {
+  const icon = document.querySelector('#themeToggle i');
+  if (!icon) return;
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  icon.className = isLight ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+}
 
-            <button
-                class="mlk-menu-toggle"
-                id="mlk-menu-toggle"
-                type="button"
-                aria-label="Ouvrir le menu"
-                aria-expanded="false"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+// Met à jour le lien actif selon la section visible
+function updateActiveOnScroll() {
+  const sections = ['hero', 'services', 'about', 'pronostics', 'contact'];
+  const links = document.querySelectorAll('.navbar__link');
+  let current = 'hero';
 
-        </div>
+  sections.forEach(id => {
+    const section = document.getElementById(id);
+    if (section) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom >= 150) {
+        current = id;
+      }
+    }
+  });
 
-    </header>
-
-    <div class="mlk-mobile-menu" id="mlk-mobile-menu">
-
-        <nav>
-
-            <a href="#accueil" class="mobile-nav-link">
-                <i class="fa-solid fa-house"></i>
-                <span>Accueil</span>
-            </a>
-
-            <a href="#about" class="mobile-nav-link">
-                <i class="fa-solid fa-user"></i>
-                <span>À propos</span>
-            </a>
-
-            <a href="#services" class="mobile-nav-link">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Services</span>
-            </a>
-
-            <a href="#pronostics" class="mobile-nav-link">
-                <i class="fa-solid fa-chart-pie"></i>
-                <span>Pronostics</span>
-            </a>
-
-            <a href="#contact" class="mobile-nav-link">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Contact</span>
-            </a>
-
-        </nav>
-
-    </div>
-
-    `;
+  links.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
+  });
 }

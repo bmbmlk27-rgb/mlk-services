@@ -1,0 +1,119 @@
+/* ===== INTRO / LOADER ===== */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-intro);
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.intro-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Spirale */
+.spiral-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.spiral {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--text-muted);
+  opacity: 0;
+  animation: spiralOut 1.2s ease-out forwards;
+}
+
+.spiral:nth-child(1) { animation-delay: 0s; }
+.spiral:nth-child(2) { animation-delay: 0.15s; }
+.spiral:nth-child(3) { animation-delay: 0.3s; }
+.spiral:nth-child(4) { animation-delay: 0.45s; }
+.spiral:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes spiralOut {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Message de bienvenue */
+.welcome-message {
+  font-family: var(--font-secondary);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+.welcome-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loader final */
+.loader-final {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: var(--space-lg);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.loader-final.visible {
+  opacity: 1;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text);
+  animation: bounceDot 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounceDot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40% { transform: scale(1.3); opacity: 1; }
+}
+
+/* Skip option (discrète) */
+.skip-intro {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  z-index: 10;
+}
+
+.skip-intro:hover {
+  color: var(--text);
+}

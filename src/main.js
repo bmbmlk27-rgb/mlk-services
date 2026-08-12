@@ -1,93 +1,71 @@
-import "./style.css";
-import "./assets/css/theme.css";
-import "./assets/css/marketing.css";
+// ===== STYLES GLOBAUX =====
+import './styles/variables.css';
+import './styles/reset.css';
+import './styles/themes.css';
+import './styles/global.css';
+import './styles/animations.css';
 
-import "@fortawesome/fontawesome-free/css/all.min.css";
+// ===== COMPOSANTS =====
+import { createNavbar } from './components/Navbar/Navbar.js';
+import './components/Navbar/Navbar.css';
 
-import { initLenis } from "./libs/lenis.js";
-import { initAnimations } from "./animations/index.js";
+import { initIntro } from './components/Loader/Loader.js';
+import './components/Loader/Loader.css';
 
-import { initFAQ } from "./assets/js/faq.js";
-import { initContact } from "./assets/js/contact.js";
-import { initStatsAnimation } from "./assets/js/StatsAnimation.js";
+import { createHero } from './components/Hero/Hero.js';
+import './components/Hero/Hero.css';
 
-import WhatsApp from "./components/WhatsApp/WhatsApp.js";
+import { createServices } from './components/Services/Services.js';
+import './components/Services/Services.css';
 
-import Background from "./components/Background/Background.js";
-import Preloader from "./components/Preloader/Preloader.js";
-import Navbar from "./components/Navbar/Navbar.js";
-import Hero from "./components/Hero/Hero.js";
-import About from "./components/About/About.js";
-import Services from "./components/Services/Services.js";
-import Process from "./components/Process/Process.js";
-import Pronostics from "./components/Pronostics/Pronostics.js";
-import WhyChoose from "./components/WhyChoose/WhyChoose.js";
-import FAQ from "./components/FAQ/FAQ.js";
-import Stats from "./components/Stats/Stats.js";
-import Contact from "./components/Contact/Contact.js";
-import Footer from "./components/Footer/Footer.js";
-import Cursor from "./components/Cursor/Cursor.js";
-import { initNavbar } from "./assets/js/navbar.js";
+import { createAbout } from './components/About/About.js';
+import './components/About/About.css';
 
-document.body.classList.add("mlk-site-ready");
+import { createPronostics } from './components/Pronostics/Pronostics.js';
+import './components/Pronostics/Pronostics.css';
 
-import { initScrollAnimations } from "./animations/scrollAnimations.js";
+import { createContact } from './components/Contact/Contact.js';
+import './components/Contact/Contact.css';
 
+import { createFooter } from './components/Footer/Footer.js';
+import './components/Footer/Footer.css';
 
-document.querySelector("#app").innerHTML = `
-${Preloader()}
-${Background()}
-${Cursor()}
+// ----- GESTION DU THÈME -----
+function initTheme() {
+  const saved = localStorage.getItem('mlk-theme');
+  document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+}
 
-${Navbar()}
-${Hero()}
-${About()}
-${Services()}
-${Process()}
-${Pronostics()}
-${WhyChoose()}
-${FAQ()}
-${Stats()}
-${Contact()}
-${Footer()}
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('mlk-theme', next);
+}
+window.toggleTheme = toggleTheme;
 
-${WhatsApp()}
-`;
+// ----- INITIALISATION UNIQUE -----
+let initialized = false;
 
-// =========================
-// INITIALISATION
-// =========================
+document.addEventListener('DOMContentLoaded', () => {
+  if (initialized) {
+    console.warn('MLK Services déjà initialisé.');
+    return;
+  }
+  initialized = true;
 
-initFAQ();
+  initTheme();
+  createNavbar();
+  initIntro();
+  createHero();
+  createServices();
+  createAbout();
+  createPronostics();
+  createContact();
+  createFooter();
+});
 
-initLenis();
-
-initAnimations();
-
-
-
-initScrollAnimations();
-
-initStatsAnimation();
-
-initNavbar();
-
-// =========================
-// ATTENDRE LE CHARGEMENT DE reCAPTCHA
-// =========================
-
-const waitForRecaptcha = () => {
-
-    if (typeof window.grecaptcha !== "undefined") {
-
-        initContact();
-
-    } else {
-
-        setTimeout(waitForRecaptcha, 300);
-
-    }
-
-};
-
-waitForRecaptcha();
+// ----- HMR VITE -----
+if (import.meta.hot) {
+  import.meta.hot.accept();
+}

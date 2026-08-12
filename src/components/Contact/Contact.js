@@ -1,393 +1,123 @@
-import "./Contact.css";
-
-export default function Contact() {
-
-    return `
-
-    <section class="contact" id="contact">
-
-        <div class="container">
-
-            <div class="section-title contact-title">
-
-                <span>CONTACT</span>
-
-                <h2>
-                    Parlons de votre
-                    <span>projet</span>
-                </h2>
-
-                <p>
-                    Une idée, un projet ou une question ?
-                    Envoyez-nous un message et l'équipe MLK Services
-                    vous répondra rapidement.
-                </p>
-
+export function createContact() {
+  const contactHTML = `
+    <section class="contact-section" id="contact">
+      <div class="contact-container">
+        <!-- Informations -->
+        <div class="contact-info">
+          <span class="contact-subtitle">CONTACT</span>
+          <h2 class="contact-title">Parlons de votre projet</h2>
+          <p class="contact-description">
+            Une idée, un projet, une question ? Contactez-moi et je vous répondrai dans les plus brefs délais.
+          </p>
+          <div class="contact-methods">
+            <!-- Email -->
+            <a href="mailto:contact@mlkservices.com" class="contact-method" aria-label="Envoyer un email">
+              <div class="contact-method-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="contact-method-text">
+                <strong>Email</strong>
+                <span>contact@mlkservices.com</span>
+              </div>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/22500000000" target="_blank" rel="noopener" class="contact-method" aria-label="Discuter sur WhatsApp">
+              <div class="contact-method-icon">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div class="contact-method-text">
+                <strong>WhatsApp</strong>
+                <span>+225 00 00 00 00</span>
+              </div>
+            </a>
+            <!-- Téléphone -->
+            <a href="tel:+22500000000" class="contact-method" aria-label="Appeler">
+              <div class="contact-method-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="contact-method-text">
+                <strong>Téléphone</strong>
+                <span>+225 00 00 00 00</span>
+              </div>
+            </a>
+            <!-- Localisation -->
+            <div class="contact-method">
+              <div class="contact-method-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="contact-method-text">
+                <strong>Localisation</strong>
+                <span>Abidjan, Côte d'Ivoire</span>
+              </div>
             </div>
-
-            <div class="contact-wrapper">
-
-                <!-- ========================= -->
-                <!-- INFORMATIONS -->
-                <!-- ========================= -->
-
-                <div class="contact-info">
-
-                    <div class="contact-intro">
-
-                        <div class="contact-badge">
-                            <i class="fas fa-comments"></i>
-                            <span>Disponible pour vous</span>
-                        </div>
-
-                        <h3>
-                            Construisons quelque chose
-                            <span>de remarquable.</span>
-                        </h3>
-
-                        <p>
-                            Que ce soit pour un site web, les réseaux sociaux,
-                            les pronostics ou une collaboration, contactez MLK Services.
-                        </p>
-
-                    </div>
-
-
-                    <!-- TELEPHONE -->
-
-                    <a
-                        href="tel:+2250787913032"
-                        class="info-card"
-                    >
-
-                        <div class="info-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-
-                        <div class="info-content">
-
-                            <span>Téléphone</span>
-
-                            <strong>
-                                +225 07 87 91 30 32
-                            </strong>
-
-                            <small>
-                                Appel direct
-                            </small>
-
-                        </div>
-
-                        <i class="fas fa-arrow-up-right-from-square info-arrow"></i>
-
-                    </a>
-
-
-                    <!-- WHATSAPP -->
-
-                    <a
-                        href="https://wa.me/2250787913032"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="info-card whatsapp-card"
-                    >
-
-                        <div class="info-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-
-                        <div class="info-content">
-
-                            <span>WhatsApp</span>
-
-                            <strong>
-                                Discussion directe
-                            </strong>
-
-                            <small>
-                                Réponse rapide
-                            </small>
-
-                        </div>
-
-                        <i class="fas fa-arrow-up-right-from-square info-arrow"></i>
-
-                    </a>
-
-
-                    <!-- EMAIL -->
-
-                    <a
-                        href="mailto:bmbmlk27@gmail.com"
-                        class="info-card"
-                    >
-
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-
-                        <div class="info-content">
-
-                            <span>Email</span>
-
-                            <strong>
-                                bmbmlk27@gmail.com
-                            </strong>
-
-                            <small>
-                                Pour vos projets professionnels
-                            </small>
-
-                        </div>
-
-                        <i class="fas fa-arrow-up-right-from-square info-arrow"></i>
-
-                    </a>
-
-
-                    <!-- LOCALISATION -->
-
-                    <div class="info-card">
-
-                        <div class="info-icon">
-                            <i class="fas fa-location-dot"></i>
-                        </div>
-
-                        <div class="info-content">
-
-                            <span>Localisation</span>
-
-                            <strong>
-                                Côte d'Ivoire
-                            </strong>
-
-                            <small>
-                                Abidjan
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- REPONSE RAPIDE -->
-
-                    <div class="response-box">
-
-                        <div class="response-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Réponse rapide
-                            </strong>
-
-                            <p>
-                                Nous essayons de répondre
-                                à chaque demande le plus rapidement possible.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ========================= -->
-                <!-- FORMULAIRE -->
-                <!-- ========================= -->
-
-                <div class="contact-form-card">
-
-                    <div class="form-header">
-
-                        <div class="form-icon">
-                            <i class="fas fa-paper-plane"></i>
-                        </div>
-
-                        <div>
-
-                            <span>
-                                NOUVEAU MESSAGE
-                            </span>
-
-                            <h3>
-                                Envoyez-nous un message
-                            </h3>
-
-                        </div>
-
-                    </div>
-
-
-                    <form
-                        class="contact-form"
-                        id="contact-form"
-                    >
-
-                        <!-- NOM -->
-
-                        <div class="form-group">
-
-                            <label for="contact-name">
-                                Votre nom
-                            </label>
-
-                            <div class="input-wrapper">
-
-                                <i class="fas fa-user"></i>
-
-                                <input
-                                    id="contact-name"
-                                    type="text"
-                                    name="name"
-                                    placeholder="Entrez votre nom"
-                                    autocomplete="name"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- EMAIL -->
-
-                        <div class="form-group">
-
-                            <label for="contact-email">
-                                Votre adresse email
-                            </label>
-
-                            <div class="input-wrapper">
-
-                                <i class="fas fa-envelope"></i>
-
-                                <input
-                                    id="contact-email"
-                                    type="email"
-                                    name="email"
-                                    placeholder="exemple@email.com"
-                                    autocomplete="email"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- SUJET -->
-
-                        <div class="form-group">
-
-                            <label for="contact-subject">
-                                Sujet
-                            </label>
-
-                            <div class="input-wrapper">
-
-                                <i class="fas fa-tag"></i>
-
-                                <input
-                                    id="contact-subject"
-                                    type="text"
-                                    name="subject"
-                                    placeholder="Objet de votre demande"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- MESSAGE -->
-
-                        <div class="form-group">
-
-                            <label for="contact-message">
-                                Votre message
-                            </label>
-
-                            <div class="textarea-wrapper">
-
-                                <i class="fas fa-message"></i>
-
-                                <textarea
-                                    id="contact-message"
-                                    name="message"
-                                    rows="6"
-                                    placeholder="Décrivez votre projet ou votre demande..."
-                                    required
-                                ></textarea>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- RECAPTCHA -->
-
-                        <div class="captcha-container">
-
-                            <div
-                                id="contact-recaptcha"
-                                class="g-recaptcha"
-                                data-sitekey="6LcejXotAAAAAIxOSZ8kCoCWn86LZTDOPhrThHz6"
-                            ></div>
-
-                        </div>
-
-
-                        <!-- STATUS -->
-
-                        <div
-                            id="contact-status"
-                            class="contact-status"
-                            aria-live="polite"
-                        ></div>
-
-
-                        <!-- BOUTON -->
-
-                        <button
-                            type="submit"
-                            class="contact-submit"
-                        >
-
-                            <span>
-                                Envoyer le message
-                            </span>
-
-                            <i class="fas fa-paper-plane"></i>
-
-                        </button>
-
-
-                        <div class="form-security">
-
-                            <i class="fas fa-shield-halved"></i>
-
-                            <span>
-                                Formulaire sécurisé • Vos informations restent confidentielles
-                            </span>
-
-                        </div>
-
-                    </form>
-
-                </div>
-
-            </div>
-
+          </div>
         </div>
 
+        <!-- Formulaire -->
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name" class="form-label">Nom complet</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Votre nom" required />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="vous@exemple.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject" class="form-label">Sujet</label>
+            <input type="text" id="subject" name="subject" class="form-input" placeholder="Type de projet" />
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Décrivez votre projet..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fa-solid fa-paper-plane"></i> Envoyer le message
+          </button>
+        </form>
+      </div>
     </section>
+  `;
 
-    `;
+  const app = document.getElementById('app');
+  if (app) {
+    app.insertAdjacentHTML('beforeend', contactHTML);
+    initContactReveal();
+    initFormHandler();
+  }
+}
 
+function initContactReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.contact-info, .contact-form').forEach(el => observer.observe(el));
+}
+
+function initFormHandler() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Simple feedback (à remplacer par un vrai envoi)
+    const btn = form.querySelector('.submit-btn');
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Message envoyé !';
+    btn.style.background = '#25D366';
+    btn.style.color = '#fff';
+    btn.style.pointerEvents = 'none';
+    setTimeout(() => {
+      btn.innerHTML = originalHTML;
+      btn.style.background = '';
+      btn.style.color = '';
+      btn.style.pointerEvents = '';
+    }, 3000);
+    form.reset();
+  });
 }

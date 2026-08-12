@@ -1,134 +1,58 @@
-import "./About.css";
-import avatar from "../../assets/images/avatar/avatar.png";
-
-export default function About() {
-
-return `
-
-<section class="about" id="about">
-
-<div class="container">
-
-<div class="about-grid">
-
-<div class="about-left">
-
-<span class="section-tag">
-
-À PROPOS
-
-</span>
-
-<h2>
-
-Votre partenaire pour développer une
-
-<span>présence digitale performante.</span>
-
-</h2>
-
-<p>
-
-Chez <strong>MLK Services</strong>, nous accompagnons les entrepreneurs, les entreprises et les créateurs de contenu dans leur développement digital grâce à des solutions modernes, innovantes et adaptées à leurs objectifs. Notre mission est de transformer vos idées en projets concrets qui renforcent votre image, développent votre visibilité et vous permettent d'atteindre davantage de clients.
-
-</p>
-
-<p>
-
-Nous ne créons pas simplement des sites internet. Nous construisons une véritable stratégie digitale en combinant développement web, Intelligence Artificielle, réseaux sociaux, marketing digital et accompagnement personnalisé afin de vous aider à faire évoluer durablement votre activité.
-
-</p>
-
-<div class="about-features">
-
-<div class="feature">
-
-<i class="fas fa-globe"></i>
-
-<span>Sites web professionnels & E-commerce</span>
-
-</div>
-
-<div class="feature">
-
-<i class="fas fa-robot"></i>
-
-<span>Solutions basées sur l'Intelligence Artificielle</span>
-
-</div>
-
-<div class="feature">
-
-<i class="fab fa-tiktok"></i>
-
-<span>Développement TikTok & Réseaux sociaux</span>
-
-</div>
-
-<div class="feature">
-
-<i class="fas fa-chart-line"></i>
-
-<span>Marketing Digital & Développement de votre visibilité</span>
-
-</div>
-
-<div class="feature">
-
-<i class="fas fa-handshake"></i>
-
-<span>Accompagnement personnalisé tout au long du projet</span>
-
-</div>
-
-<div class="feature">
-
-<i class="fas fa-futbol"></i>
-
-<span>Communauté Pronostics Premium</span>
-
-</div>
-
-</div>
-
-<a href="#contact" class="about-btn">
-
-Parler de mon projet
-
-</a>
-
-</div>
-
-<div class="about-right">
-
-<div class="about-card">
-
-<img
-
-src="${avatar}"
-
-alt="MLK Services"
-
->
-
-<h3>MLK Services</h3>
-
-<p>
-
-Développement Web • Intelligence Artificielle • Marketing Digital
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-`;
-
+export function createAbout() {
+  const aboutHTML = `
+    <section class="about-section" id="about">
+      <div class="about-container">
+        <!-- Grande photo à gauche -->
+        <img src="/src/assets/images/avatar.jpeg" alt="MLK" class="about-image" loading="lazy" />
+
+        <!-- Texte à droite -->
+        <div class="about-content">
+          <span class="about-subtitle">À PROPOS</span>
+          <h2 class="about-title">MLK SERVICES</h2>
+          <div class="about-keywords">
+            <span>Création</span>
+            <span>Digital</span>
+            <span>Visibilité</span>
+            <span>Performance</span>
+          </div>
+          <p class="about-description">
+            Je suis MLK, développeur web et consultant digital. Passionné par les nouvelles technologies, 
+            j’accompagne les entrepreneurs, les marques et les particuliers dans la création et l’optimisation 
+            de leur présence en ligne. Mon objectif : vous aider à atteindre vos ambitions grâce à des solutions 
+            digitales modernes, performantes et sur mesure.
+          </p>
+          <p class="about-description">
+            Basé en Côte d’Ivoire, je combine expertise technique et vision stratégique pour offrir 
+            des services de qualité, adaptés aux réalités du marché africain et international.
+          </p>
+          <ul class="about-values">
+            <li>Approche personnalisée : chaque projet est unique</li>
+            <li>Respect des délais et transparence</li>
+            <li>Veille technologique permanente</li>
+            <li>Accompagnement de A à Z</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  `;
+
+  const app = document.getElementById('app');
+  if (app) {
+    app.insertAdjacentHTML('beforeend', aboutHTML);
+    // Animation au scroll
+    initAboutReveal();
+  }
+}
+
+function initAboutReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  const container = document.querySelector('.about-container');
+  if (container) observer.observe(container);
 }
