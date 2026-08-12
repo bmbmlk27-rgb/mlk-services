@@ -41,21 +41,92 @@
   --noise-opacity: 0.02;
 }
 
-/* Transition fluide mais rapide sur body */
+/* Transition sur body uniquement, rapide et sans surcharge */
 body {
   background-color: var(--bg);
   color: var(--text);
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Transition ciblée pour les sections/containers */
-section, footer, .navbar__capsule, .glass-effect, .service-section, .pronostics-section, .contact-card, .footer {
-  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+/* Éléments avec transition de fond et bordure, mais limités */
+.navbar__capsule,
+.footer,
+.hero,
+.services-page,
+.pronostics-section,
+.about-section,
+.contact-section,
+.service-section,
+.promo-banner,
+.pronostics-sport,
+.pronostics-bots,
+.contact-card {
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Boutons et liens avec transition légère */
-.btn, .chip, .navbar__link, .footer__links a, .service-cta, .footer__social a {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+/* Boutons et liens : transitions courtes */
+.btn,
+.chip,
+.navbar__link,
+.footer__links a,
+.service-cta,
+.footer__social a,
+.navbar__theme-btn {
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease,
+              transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Aucune transition sur les icônes ou éléments fixes pour éviter les retards */
+/* Pour Safari : préfixes pour le glassmorphism */
+@supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+  .navbar__capsule,
+  .glass-effect {
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+
+/* Désactiver les transitions sur les icônes et éléments décoratifs pour éviter les saccades */
+i,
+.icon,
+.sport-icon-float,
+.tech-logo,
+.floating-cube,
+.social-orb i,
+.gear-3d,
+.wrench {
+  transition: none;
+}
+
+/* ---------- Optimisations mobiles ---------- */
+@media (max-width: 768px) {
+  /* Réduire encore la durée des transitions pour fluidité */
+  body,
+  .navbar__capsule,
+  .footer,
+  .hero,
+  .services-page,
+  .pronostics-section,
+  .about-section,
+  .contact-section,
+  .service-section,
+  .promo-banner,
+  .pronostics-sport,
+  .pronostics-bots,
+  .contact-card,
+  .btn,
+  .chip,
+  .navbar__link,
+  .footer__links a,
+  .service-cta,
+  .footer__social a,
+  .navbar__theme-btn {
+    transition-duration: 0.1s !important;
+  }
+
+  /* Désactiver backdrop-filter sur mobile si performance insuffisante */
+  .navbar__capsule {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--bg-tertiary); /* fallback opaque pour lisibilité */
+  }
+}

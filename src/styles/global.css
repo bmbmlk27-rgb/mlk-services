@@ -2,8 +2,11 @@
 body {
   position: relative;
   background-color: var(--bg);
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
+/* Grille légère */
 body::before {
   content: '';
   position: fixed;
@@ -19,6 +22,7 @@ body::before {
   z-index: -2;
 }
 
+/* Bruit subtil */
 body::after {
   content: '';
   position: fixed;
@@ -34,13 +38,15 @@ body::after {
   z-index: -1;
 }
 
+/* Liens */
 a {
-  transition: color var(--transition-fast);
+  transition: color 0.2s ease;
 }
 a:hover {
   color: var(--text);
 }
 
+/* Conteneur principal */
 .container {
   width: 100%;
   max-width: 1400px;
@@ -50,6 +56,7 @@ a:hover {
   padding-right: var(--space-md);
 }
 
+/* Boutons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -60,10 +67,13 @@ a:hover {
   font-weight: 500;
   font-size: var(--text-sm);
   letter-spacing: 0.02em;
-  transition: all var(--transition-smooth);
+  transition: background-color 0.2s ease, color 0.2s ease,
+              transform 0.2s ease, box-shadow 0.2s ease,
+              border-color 0.2s ease;
   white-space: nowrap;
   position: relative;
   overflow: hidden;
+  will-change: transform;
 }
 
 .btn-primary {
@@ -87,6 +97,7 @@ a:hover {
   transform: translateY(-2px);
 }
 
+/* Lien fléché */
 .arrow-link {
   display: inline-flex;
   align-items: center;
@@ -95,14 +106,55 @@ a:hover {
   font-size: var(--text-sm);
   letter-spacing: 0.02em;
   color: var(--text);
-  transition: gap var(--transition-fast);
+  transition: gap 0.2s ease;
 }
 .arrow-link i {
-  transition: transform var(--transition-fast);
+  transition: transform 0.2s ease;
 }
 .arrow-link:hover {
   gap: 0.8rem;
 }
 .arrow-link:hover i {
   transform: translateX(4px);
+}
+
+/* Pour Safari et Chrome mobile */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* ===== OPTIMISATIONS MOBILES ===== */
+@media (max-width: 768px) {
+  /* Réduire la taille de la grille et le bruit pour fluidité */
+  body::before {
+    background-size: 40px 40px;
+  }
+  body::after {
+    opacity: calc(var(--noise-opacity) * 0.5); /* bruit plus discret */
+  }
+
+  /* Accélérer les transitions pour un rendu plus réactif */
+  .btn,
+  .arrow-link {
+    transition-duration: 0.15s;
+  }
+
+  /* Éviter les ombres trop lourdes sur mobile */
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+}
+
+/* Pour les utilisateurs qui préfèrent réduire les animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
