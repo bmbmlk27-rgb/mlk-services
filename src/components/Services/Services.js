@@ -1,5 +1,5 @@
-import { createWebSection } from '../Web/Web.js';
-import { createTikTokSection } from '../TikTok/TikTok.js';
+import { createWebSection } from '../web/web.js';
+import { createTikTokSection } from '../tiktok/tiktok.js';
 import { createSurMesureSection } from '../SurMesure/SurMesure.js';
 
 export function createServices() {
