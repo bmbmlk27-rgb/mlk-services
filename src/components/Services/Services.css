@@ -332,26 +332,24 @@
   align-items: center;
 }
 
-/* Clé à molette en arrière-plan */
 .wrench {
   position: absolute;
-  font-size: 9rem;               /* Taille augmentée (ancien 5rem) */
+  font-size: 9rem;
   color: var(--text);
-  opacity: 0.15;                 /* Plus discret pour être en arrière */
+  opacity: 0.15;
   transform: rotate(-30deg);
-  z-index: 0;                    /* Derrière les engrenages */
+  z-index: 0;
   animation: floatWrench 6s infinite ease-in-out;
-  pointer-events: none;          /* Ne gêne pas le survol */
+  pointer-events: none;
 }
 
-/* Engrenages au premier plan */
 .gear-3d {
   width: 80px;
   height: 80px;
   border: 8px dashed var(--text-muted);
   border-radius: 50%;
   position: absolute;
-  z-index: 1;                   /* Devant la clé */
+  z-index: 1;
   animation: spinGear 8s linear infinite;
 }
 
@@ -395,5 +393,84 @@
   }
   .service-visual {
     min-height: 300px;
+  }
+}
+
+/* ===== OPTIMISATION MOBILE ===== */
+@media (max-width: 768px) {
+  .service-section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .service-visual {
+    min-height: 250px;
+  }
+
+  /* Désactive les effets 3D lourds au survol */
+  .laptop-scene,
+  .social-scene,
+  .mechanic-scene {
+    transform: none !important;
+  }
+
+  .laptop-scene:hover,
+  .social-scene:hover,
+  .mechanic-scene:hover {
+    transform: none !important;
+  }
+
+  /* Accélère les animations décoratives */
+  .laptop-scene,
+  .social-scene,
+  .mechanic-scene,
+  .tech-float,
+  .tiktok-float,
+  .heart-float,
+  .eye-float,
+  .bar,
+  .wrench,
+  .gear-3d {
+    animation-duration: 3s !important;
+  }
+
+  /* Réduit les tailles pour éviter tout débordement */
+  .laptop-scene {
+    width: 280px;
+    height: 200px;
+  }
+  .laptop-base {
+    width: 280px;
+  }
+  .laptop-keyboard {
+    width: 260px;
+  }
+  .laptop-screen {
+    width: 260px;
+    height: 160px;
+  }
+  .social-scene {
+    width: 250px;
+    height: 250px;
+  }
+  .mechanic-scene {
+    width: 250px;
+    height: 250px;
+  }
+  .gear-3d {
+    width: 60px;
+    height: 60px;
+  }
+  .gear-3d.gear2 {
+    width: 50px;
+    height: 50px;
+  }
+  .gear-3d.gear3 {
+    width: 40px;
+    height: 40px;
+  }
+  .wrench {
+    font-size: 6rem;
   }
 }

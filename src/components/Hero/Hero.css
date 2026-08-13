@@ -107,24 +107,22 @@
 /* ===== LOGOS FLOTTANTS (avec Font Awesome / texte) ===== */
 .tech-logo {
   position: absolute;
-  font-size: 3rem; /* Ajuste la taille */
-  color: inherit; /* Sera surchargé par chaque type */
+  font-size: 3rem;
+  color: inherit;
   z-index: 3;
   pointer-events: none;
   opacity: 0.9;
   transition: opacity 0.3s;
 }
 
-/* Couleurs officielles */
-.tech-logo.html { color: #E34F26; }  /* Orange HTML */
-.tech-logo.css { color: #1572B6; }   /* Bleu CSS */
-.tech-logo.js { color: #F7DF1E; }    /* Jaune JS */
+.tech-logo.html { color: #E34F26; }
+.tech-logo.css { color: #1572B6; }
+.tech-logo.js { color: #F7DF1E; }
 .tech-logo.vite {
   font-family: var(--font-secondary);
   font-weight: 700;
   font-size: 2.5rem;
-  color: #646CFF;                    /* Violet Vite */
-  background: none;
+  color: #646CFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,7 +133,6 @@
   line-height: 1;
 }
 
-/* Positions + animations */
 .tech-logo.html {
   top: 10%;
   left: -10%;
@@ -193,7 +190,6 @@
     height: 2.5rem;
   }
 
-  /* Repositionnement mobile */
   .tech-logo.html {
     top: 5%;
     left: 5%;
@@ -240,5 +236,27 @@
     font-size: 1.8rem;
     width: 2.2rem;
     height: 2.2rem;
+  }
+
+  /* Désactive les animations d'entrée pour un affichage immédiat */
+  .hero__title .line,
+  .hero__description,
+  .hero__actions {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  /* Désactive la transition sur l'image */
+  .hero__image {
+    transition: none !important;
+  }
+
+  /* Raccourcit les animations flottantes */
+  .tech-logo.html,
+  .tech-logo.css,
+  .tech-logo.js,
+  .tech-logo.vite {
+    animation-duration: 3s !important;
   }
 }

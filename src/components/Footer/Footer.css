@@ -164,3 +164,22 @@
     text-align: center;
   }
 }
+
+/* ===== OPTIMISATION MOBILE (instantané) ===== */
+@media (max-width: 768px) {
+  .footer__social a,
+  .footer__links li a,
+  .footer__bottom,
+  .footer__credit i {
+    transition: none !important;
+  }
+
+  .footer__social a:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .footer__links li a:hover {
+    padding-left: 0;
+  }
+}

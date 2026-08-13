@@ -1,50 +1,43 @@
+// Remplacez par votre clé publique EmailJS
+const EMAILJS_PUBLIC_KEY = "VOTRE_PUBLIC_KEY_ICI";
+const EMAILJS_SERVICE_ID = "service_4lh8o9u";
+const EMAILJS_TEMPLATE_ID = "template_dsl4u2i";
+
 export function createContact() {
   const contactHTML = `
     <section class="contact-section" id="contact">
       <div class="contact-container">
-        <!-- Informations -->
+        <!-- Colonne gauche : informations -->
         <div class="contact-info">
           <span class="contact-subtitle">CONTACT</span>
           <h2 class="contact-title">Parlons de votre projet</h2>
           <p class="contact-description">
-            Une idée, un projet, une question ? Contactez-moi et je vous répondrai dans les plus brefs délais.
+            Une question, un devis, une collaboration ? Remplissez le formulaire ou contactez-moi directement.
           </p>
           <div class="contact-methods">
-            <!-- Email -->
-            <a href="mailto:contact@mlkservices.com" class="contact-method" aria-label="Envoyer un email">
-              <div class="contact-method-icon">
-                <i class="fa-solid fa-envelope"></i>
-              </div>
+            <a href="mailto:bmbmlk27@gmail.com" class="contact-method">
+              <div class="contact-method-icon"><i class="fa-solid fa-envelope"></i></div>
               <div class="contact-method-text">
                 <strong>Email</strong>
-                <span>contact@mlkservices.com</span>
+                <span>bmbmlk27@gmail.com</span>
               </div>
             </a>
-            <!-- WhatsApp -->
-            <a href="https://wa.me/22500000000" target="_blank" rel="noopener" class="contact-method" aria-label="Discuter sur WhatsApp">
-              <div class="contact-method-icon">
-                <i class="fa-brands fa-whatsapp"></i>
-              </div>
-              <div class="contact-method-text">
-                <strong>WhatsApp</strong>
-                <span>+225 00 00 00 00</span>
-              </div>
-            </a>
-            <!-- Téléphone -->
-            <a href="tel:+22500000000" class="contact-method" aria-label="Appeler">
-              <div class="contact-method-icon">
-                <i class="fa-solid fa-phone"></i>
-              </div>
+            <a href="tel:+2250787913032" class="contact-method">
+              <div class="contact-method-icon"><i class="fa-solid fa-phone"></i></div>
               <div class="contact-method-text">
                 <strong>Téléphone</strong>
-                <span>+225 00 00 00 00</span>
+                <span>+225 07 87 91 30 32</span>
               </div>
             </a>
-            <!-- Localisation -->
-            <div class="contact-method">
-              <div class="contact-method-icon">
-                <i class="fa-solid fa-location-dot"></i>
+            <a href="https://wa.me/2250787913032" target="_blank" rel="noopener" class="contact-method">
+              <div class="contact-method-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div class="contact-method-text">
+                <strong>WhatsApp</strong>
+                <span>+225 07 87 91 30 32</span>
               </div>
+            </a>
+            <div class="contact-method">
+              <div class="contact-method-icon"><i class="fa-solid fa-location-dot"></i></div>
               <div class="contact-method-text">
                 <strong>Localisation</strong>
                 <span>Abidjan, Côte d'Ivoire</span>
@@ -53,28 +46,41 @@ export function createContact() {
           </div>
         </div>
 
-        <!-- Formulaire -->
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-group">
-            <label for="name" class="form-label">Nom complet</label>
-            <input type="text" id="name" name="name" class="form-input" placeholder="Votre nom" required />
-          </div>
-          <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="vous@exemple.com" required />
-          </div>
-          <div class="form-group">
-            <label for="subject" class="form-label">Sujet</label>
-            <input type="text" id="subject" name="subject" class="form-input" placeholder="Type de projet" />
-          </div>
-          <div class="form-group">
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="Décrivez votre projet..." required></textarea>
-          </div>
-          <button type="submit" class="submit-btn">
-            <i class="fa-solid fa-paper-plane"></i> Envoyer le message
-          </button>
-        </form>
+        <!-- Colonne droite : formulaire -->
+        <div class="contact-form" id="contactForm">
+          <form id="formContact">
+            <div class="form-group">
+              <label for="name" class="form-label">Nom complet</label>
+              <input type="text" id="name" name="name" class="form-input" required placeholder="Votre nom" />
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-input" required placeholder="Votre email" />
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-label">Téléphone</label>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="Votre numéro (optionnel)" />
+            </div>
+            <div class="form-group">
+              <label for="project" class="form-label">Type de projet</label>
+              <select id="project" name="project" class="form-input">
+                <option value="Web">Création de site web</option>
+                <option value="TikTok / Réseaux sociaux">TikTok / Réseaux sociaux</option>
+                <option value="Pronostics / Sport">Pronostics / Sport</option>
+                <option value="Autre">Autre demande</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-textarea" required placeholder="Décrivez votre projet..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <span>Envoyer le message</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <p id="formStatus" style="margin-top: 1rem; font-size: var(--text-sm); text-align: center;"></p>
+          </form>
+        </div>
       </div>
     </section>
   `;
@@ -82,42 +88,66 @@ export function createContact() {
   const app = document.getElementById('app');
   if (app) {
     app.insertAdjacentHTML('beforeend', contactHTML);
-    initContactReveal();
-    initFormHandler();
+    initContactForm();
   }
 }
 
-function initContactReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-      }
-    });
-  }, { threshold: 0.1 });
+function initContactForm() {
+  // Initialiser EmailJS si disponible
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }
 
-  document.querySelectorAll('.contact-info, .contact-form').forEach(el => observer.observe(el));
-}
+  const form = document.getElementById('formContact');
+  const status = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn');
 
-function initFormHandler() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    // Simple feedback (à remplacer par un vrai envoi)
-    const btn = form.querySelector('.submit-btn');
-    const originalHTML = btn.innerHTML;
-    btn.innerHTML = '<i class="fa-solid fa-check"></i> Message envoyé !';
-    btn.style.background = '#25D366';
-    btn.style.color = '#fff';
-    btn.style.pointerEvents = 'none';
-    setTimeout(() => {
-      btn.innerHTML = originalHTML;
-      btn.style.background = '';
-      btn.style.color = '';
-      btn.style.pointerEvents = '';
-    }, 3000);
-    form.reset();
+
+    // Récupérer les champs
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const project = document.getElementById('project').value;
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      status.textContent = 'Veuillez remplir tous les champs obligatoires.';
+      status.style.color = '#ff4757';
+      return;
+    }
+
+    // Désactiver le bouton pendant l'envoi
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>Envoi en cours...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      phone: phone,
+      project: project,
+      message: message,
+      to_email: 'bmbmlk27@gmail.com'
+    };
+
+    try {
+      if (typeof emailjs !== 'undefined') {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+      } else {
+        throw new Error('EmailJS non chargé');
+      }
+
+      status.textContent = '✅ Message envoyé avec succès ! Je vous répondrai rapidement.';
+      status.style.color = '#2ecc71';
+      form.reset();
+    } catch (error) {
+      console.error('Erreur envoi:', error);
+      status.textContent = '❌ Une erreur est survenue. Veuillez réessayer.';
+      status.style.color = '#ff4757';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span>Envoyer le message</span> <i class="fa-solid fa-paper-plane"></i>';
+    }
   });
 }

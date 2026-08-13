@@ -97,75 +97,42 @@ i,
   transition: none;
 }
 
-/* ---------- Optimisations mobiles ---------- */
+/* ===== OPTIMISATION THÈME MOBILE (instantané) ===== */
 @media (max-width: 768px) {
-  /* Réduire encore la durée des transitions pour fluidité */
-  body,
-  .navbar__capsule,
-  .footer,
-  .hero,
-  .services-page,
-  .pronostics-section,
-  .about-section,
-  .contact-section,
-  .service-section,
-  .promo-banner,
-  .pronostics-sport,
-  .pronostics-bots,
-  .contact-card,
-  .btn,
-  .chip,
-  .navbar__link,
-  .footer__links a,
-  .service-cta,
-  .footer__social a,
-  .navbar__theme-btn {
-    transition-duration: 0.1s !important;
-  }
-
-  /* Désactiver backdrop-filter sur mobile si performance insuffisante */
-  .navbar__capsule {
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    background: var(--bg-tertiary); /* fallback opaque pour lisibilité */
-  }
-}
-
-/* ===== OPTIMISATION THÈME MOBILE ===== */
-@media (max-width: 768px) {
-  /* Désactive toutes les transitions de couleurs et de fond sur mobile */
+  /* Désactive toutes les transitions de couleurs/fond sur mobile */
+  html,
   body,
   body *,
-  .navbar__capsule,
-  .footer,
-  .hero,
-  .services-page,
-  .pronostics-section,
-  .about-section,
-  .contact-section,
-  .service-section,
-  .promo-banner,
-  .pronostics-sport,
-  .pronostics-bots,
-  .contact-card,
-  .btn,
-  .chip,
-  .navbar__link,
-  .footer__links a,
-  .service-cta,
-  .footer__social a,
-  .navbar__theme-btn {
+  section,
+  footer,
+  nav,
+  a,
+  button,
+  span,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  img {
     transition: none !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
   }
 
-  /* Les animations de flottement ou rotation peuvent rester, mais réduisez-les si nécessaire */
+  /* Désactive le backdrop-filter sur mobile pour fluidité */
+  .navbar__capsule {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    background: var(--bg-tertiary);
+  }
+
+  /* Les animations de flottement ou rotation peuvent rester, mais plus courtes */
   .floating-cube,
   .social-orb,
   .gear-3d,
   .wrench,
   .sport-icon-float {
-    animation-duration: 3s !important; /* accélère l’animation */
+    animation-duration: 3s !important;
   }
 }

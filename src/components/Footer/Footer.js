@@ -5,8 +5,8 @@ export function createFooter() {
         <!-- Marque -->
         <div class="footer__brand">
           <div class="footer__logo">
-            <img src="/images/logo2.jpg" alt="MLK SERVICES" />
-            MLK SERVICES
+            <img src="/images/logo1.jpg" alt="MLK SERVICES" />
+            
           </div>
           <p class="footer__description">
             Solutions digitales modernes pour développer votre présence en ligne, votre visibilité et vos projets.

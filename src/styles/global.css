@@ -124,26 +124,44 @@ html {
   text-size-adjust: 100%;
 }
 
-/* ===== OPTIMISATIONS MOBILES ===== */
+/* ===== OPTIMISATION GLOBALE MOBILE ===== */
 @media (max-width: 768px) {
   /* Réduire la taille de la grille et le bruit pour fluidité */
   body::before {
     background-size: 40px 40px;
   }
   body::after {
-    opacity: calc(var(--noise-opacity) * 0.5); /* bruit plus discret */
+    opacity: calc(var(--noise-opacity) * 0.5);
   }
 
-  /* Accélérer les transitions pour un rendu plus réactif */
-  .btn,
-  .arrow-link {
-    transition-duration: 0.15s;
+  /* Désactiver toutes les transitions sur mobile pour un thème instantané */
+  html,
+  body,
+  body *,
+  section,
+  footer,
+  nav,
+  a,
+  button,
+  span,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  img {
+    transition: none !important;
   }
 
-  /* Éviter les ombres trop lourdes sur mobile */
-  .btn-primary:hover,
-  .btn-secondary:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  /* Accélérer les animations décoratives */
+  .floating-cube,
+  .social-orb,
+  .gear-3d,
+  .wrench,
+  .sport-icon-float {
+    animation-duration: 3s !important;
   }
 }
 
@@ -156,45 +174,5 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-}
-
-
-/* ===== OPTIMISATION THÈME MOBILE ===== */
-@media (max-width: 768px) {
-  /* Désactive toutes les transitions de couleurs et de fond sur mobile */
-  body,
-  body *,
-  .navbar__capsule,
-  .footer,
-  .hero,
-  .services-page,
-  .pronostics-section,
-  .about-section,
-  .contact-section,
-  .service-section,
-  .promo-banner,
-  .pronostics-sport,
-  .pronostics-bots,
-  .contact-card,
-  .btn,
-  .chip,
-  .navbar__link,
-  .footer__links a,
-  .service-cta,
-  .footer__social a,
-  .navbar__theme-btn {
-    transition: none !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-
-  /* Les animations de flottement ou rotation peuvent rester, mais réduisez-les si nécessaire */
-  .floating-cube,
-  .social-orb,
-  .gear-3d,
-  .wrench,
-  .sport-icon-float {
-    animation-duration: 3s !important; /* accélère l’animation */
   }
 }

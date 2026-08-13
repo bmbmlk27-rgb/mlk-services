@@ -5,7 +5,7 @@ export function createNavbar() {
         <!-- Logo -->
         <a href="#hero" class="navbar__logo" aria-label="MLK SERVICES - Accueil">
           <img src="/images/logo1.jpg" alt="MLK SERVICES Logo" />
-          <span class="navbar__logo-text">MLK</span>
+          <span class="navbar__logo-text"></span>
         </a>
 
         <!-- Liens de navigation (ancres) -->

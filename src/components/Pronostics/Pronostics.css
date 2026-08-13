@@ -406,3 +406,43 @@
     font-size: var(--text-xs);
   }
 }
+
+/* ===== OPTIMISATION MOBILE (instantané) ===== */
+@media (max-width: 768px) {
+  .pronostics-header,
+  .pronostics-sport,
+  .pronostics-bots,
+  .promo-banner {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .sport-icon-float {
+    animation-duration: 3s !important;
+  }
+
+  .bot-card,
+  .bot-image,
+  .chip,
+  .promo-code button,
+  .contact-method,
+  .form-input,
+  .form-textarea,
+  .submit-btn {
+    transition: none !important;
+  }
+
+  .bot-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .bot-card:hover .bot-image {
+    transform: none !important;
+  }
+
+  .bot-card::after {
+    display: none;
+  }
+}

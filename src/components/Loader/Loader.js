@@ -30,24 +30,19 @@ export function initIntro() {
   const loaderFinal = document.getElementById('loaderFinal');
   const skipBtn = document.getElementById('skipIntro');
 
-  // Séquençage
-  // 1. Après l'animation de la spirale (1.2s), afficher le message
+  // Séquence
   setTimeout(() => {
     welcomeText.classList.add('visible');
   }, 1200);
 
-  // 2. Après 2s supplémentaires, afficher le loader et masquer le message
   setTimeout(() => {
     welcomeText.classList.remove('visible');
     loaderFinal.classList.add('visible');
   }, 3200);
 
-  // 3. Après encore 2s, masquer tout l'overlay
   const hideOverlay = () => {
     overlay.classList.add('hidden');
-    // Sauvegarder dans localStorage
     localStorage.setItem('mlk-intro-seen', 'true');
-    // Supprimer l'overlay après la transition
     setTimeout(() => {
       if (overlay.parentNode) {
         overlay.parentNode.removeChild(overlay);
@@ -57,7 +52,6 @@ export function initIntro() {
 
   const timeoutHide = setTimeout(hideOverlay, 5200);
 
-  // Skip
   const skipIntro = () => {
     clearTimeout(timeoutHide);
     hideOverlay();
@@ -65,7 +59,6 @@ export function initIntro() {
 
   skipBtn.addEventListener('click', skipIntro);
 
-  // Optionnel : appuyer sur Échap pour passer
   document.addEventListener('keydown', function escHandler(e) {
     if (e.key === 'Escape') {
       skipIntro();

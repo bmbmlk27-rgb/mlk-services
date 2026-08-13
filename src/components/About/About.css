@@ -43,7 +43,7 @@
 /* Contenu texte */
 .about-content {
   max-width: 550px;
-  margin: 0 auto; /* Ajout : centre le bloc texte */
+  margin: 0 auto;
 }
 
 .about-subtitle {
@@ -102,7 +102,7 @@
   margin-bottom: 0.8rem;
   color: var(--text-muted);
   font-size: var(--text-sm);
-  text-align: left; /* Les puces restent alignées à gauche */
+  text-align: left;
 }
 
 .about-values li::before {
@@ -122,7 +122,7 @@
   .about-container {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
-    text-align: center; /* Centre tous les textes dans le conteneur */
+    text-align: center;
   }
 
   .about-image {
@@ -132,8 +132,8 @@
 
   .about-content {
     max-width: 100%;
-    margin: 0 auto; /* Centre horizontalement */
-    text-align: center; /* Centre le texte à l'intérieur */
+    margin: 0 auto;
+    text-align: center;
   }
 
   .about-keywords {
@@ -141,14 +141,14 @@
   }
 
   .about-values {
-    text-align: left; /* La liste reste lisible, mais on peut la centrer si souhaité */
-    display: inline-block; /* Permet de centrer la liste tout en gardant les puces alignées */
+    text-align: left;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
   }
 
   .about-values li {
-    text-align: left; /* Les éléments de liste restent alignés à gauche à l'intérieur du bloc centré */
+    text-align: left;
   }
 }
 
@@ -168,5 +168,17 @@
 
   .about-keywords span {
     font-size: 0.75rem;
+  }
+
+  /* Désactive l'animation d'apparition pour un affichage immédiat */
+  .about-container {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Désactive la transition sur l'image */
+  .about-image {
+    transition: none !important;
   }
 }

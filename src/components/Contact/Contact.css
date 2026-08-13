@@ -21,7 +21,7 @@
   z-index: 0;
 }
 
-/* Lignes décoratives (inspirées design agence) */
+/* Lignes décoratives */
 .contact-section::after {
   content: '';
   position: absolute;
@@ -241,14 +241,36 @@
 
   .contact-form {
     padding: var(--space-lg);
+    /* Désactive le flou d'arrière-plan pour fluidité */
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    background: var(--bg-tertiary);
+    /* Apparition immédiate */
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .contact-info {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 
   .submit-btn {
     padding: 0.9rem;
+    transition: none !important;
   }
 
   .contact-title {
     font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .contact-method,
+  .contact-method-icon,
+  .form-input,
+  .form-textarea {
+    transition: none !important;
   }
 }
 
@@ -261,9 +283,13 @@
   .contact-form {
     padding: var(--space-md);
   }
+
+  .contact-description {
+    font-size: 0.95rem;
+  }
 }
 
-/* Accessibilité : focus visible globalement */
+/* Accessibilité : focus visible */
 :focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 3px;
