@@ -1,8 +1,7 @@
 export function initIntro() {
   // Vérifier si l'intro a déjà été vue
-  if (localStorage.getItem('mlk-intro-seen') === 'true') {
-    return; // Ne rien faire
-  }
+ // Toujours afficher l'intro (décommenter pour tester)
+// return;
 
   // Créer l'overlay
   const overlay = document.createElement('div');
