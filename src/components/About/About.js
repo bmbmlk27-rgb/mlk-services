@@ -3,8 +3,7 @@ export function createAbout() {
     <section class="about-section" id="about">
       <div class="about-container">
         <!-- Grande photo à gauche -->
-        <img src="/src/assets/images/avatar.jpeg" alt="MLK" class="about-image" loading="lazy" />
-
+        <img src="/images/avatar.jpeg" alt="MLK" class="about-image" loading="lazy" /></div>
         <!-- Texte à droite -->
         <div class="about-content">
           <span class="about-subtitle">À PROPOS</span>

@@ -5,7 +5,7 @@ export function createFooter() {
         <!-- Marque -->
         <div class="footer__brand">
           <div class="footer__logo">
-            <img src="/src/assets/images/logo.png" alt="MLK SERVICES" />
+            <img src="/images/logo2.jpg" alt="MLK SERVICES" />
             MLK SERVICES
           </div>
           <p class="footer__description">

@@ -158,3 +158,43 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ===== OPTIMISATION THÈME MOBILE ===== */
+@media (max-width: 768px) {
+  /* Désactive toutes les transitions de couleurs et de fond sur mobile */
+  body,
+  body *,
+  .navbar__capsule,
+  .footer,
+  .hero,
+  .services-page,
+  .pronostics-section,
+  .about-section,
+  .contact-section,
+  .service-section,
+  .promo-banner,
+  .pronostics-sport,
+  .pronostics-bots,
+  .contact-card,
+  .btn,
+  .chip,
+  .navbar__link,
+  .footer__links a,
+  .service-cta,
+  .footer__social a,
+  .navbar__theme-btn {
+    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  /* Les animations de flottement ou rotation peuvent rester, mais réduisez-les si nécessaire */
+  .floating-cube,
+  .social-orb,
+  .gear-3d,
+  .wrench,
+  .sport-icon-float {
+    animation-duration: 3s !important; /* accélère l’animation */
+  }
+}

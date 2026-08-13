@@ -25,12 +25,7 @@ export function createHero() {
 
         <!-- Colonne droite : photo -->
         <div class="hero__image-wrapper">
-          <img 
-            src="/src/assets/images/avatar.jpeg" 
-            alt="MLK" 
-            class="hero__image"
-            loading="eager"
-          />
+          <img src="/images/avatar.jpeg" alt="MLK" class="hero__image" loading="eager" />
           <!-- Logos flottants avec Font Awesome et couleurs officielles -->
           <i class="fa-brands fa-html5 tech-logo html"></i>
           <i class="fa-brands fa-css3-alt tech-logo css"></i>
