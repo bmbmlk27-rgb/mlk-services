@@ -1,17 +1,17 @@
 /* ===== ABOUT SECTION ===== */
 .about-section {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-2xl) 0;
   position: relative;
 }
 
 .about-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-md);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -25,7 +25,7 @@
 /* Photo */
 .about-image {
   width: 100%;
-  max-width: 480px;
+  max-width: 400px;
   aspect-ratio: 4/5;
   object-fit: cover;
   border-radius: var(--radius-lg);
@@ -42,7 +42,8 @@
 
 /* Contenu texte */
 .about-content {
-  max-width: 500px;
+  max-width: 550px;
+  margin: 0 auto; /* Ajout : centre le bloc texte */
 }
 
 .about-subtitle {
@@ -101,6 +102,7 @@
   margin-bottom: 0.8rem;
   color: var(--text-muted);
   font-size: var(--text-sm);
+  text-align: left; /* Les puces restent alignées à gauche */
 }
 
 .about-values li::before {
@@ -115,17 +117,56 @@
   opacity: 0.5;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .about-container {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
+    text-align: center; /* Centre tous les textes dans le conteneur */
   }
+
   .about-image {
-    max-width: 350px;
+    max-width: 280px;
     justify-self: center;
   }
+
   .about-content {
     max-width: 100%;
+    margin: 0 auto; /* Centre horizontalement */
+    text-align: center; /* Centre le texte à l'intérieur */
+  }
+
+  .about-keywords {
+    justify-content: center;
+  }
+
+  .about-values {
+    text-align: left; /* La liste reste lisible, mais on peut la centrer si souhaité */
+    display: inline-block; /* Permet de centrer la liste tout en gardant les puces alignées */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-values li {
+    text-align: left; /* Les éléments de liste restent alignés à gauche à l'intérieur du bloc centré */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-description {
+    font-size: 0.95rem;
+  }
+
+  .about-values li {
+    font-size: 0.9rem;
+    padding-left: 1.5rem;
+  }
+
+  .about-keywords span {
+    font-size: 0.75rem;
   }
 }

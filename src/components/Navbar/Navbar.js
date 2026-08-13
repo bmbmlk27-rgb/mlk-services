@@ -4,7 +4,7 @@ export function createNavbar() {
       <div class="navbar__capsule">
         <!-- Logo -->
         <a href="#hero" class="navbar__logo" aria-label="MLK SERVICES - Accueil">
-          <img src="/images/logo1.jpg" alt="MLK SERVICES" />
+          <img src="/images/logo1.jpg" alt="MLK SERVICES Logo" />
           <span class="navbar__logo-text">MLK</span>
         </a>
 
