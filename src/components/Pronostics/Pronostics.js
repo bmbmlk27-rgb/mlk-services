@@ -45,7 +45,7 @@ export function createPronostics() {
             <div class="bot-cards">
               <!-- Carte 1 : Mines Gems -->
               <div class="bot-card">
-                <img src="/src/assets/images/mines-gems.jpg" alt="Mines Gems" class="bot-image" />
+                <img src="/icons/mines-gems.jpg" alt="Mines Gems" class="bot-image" />
                 <div class="bot-overlay">
                   <span class="bot-name">Mines Gems</span>
                   <span class="bot-desc">Stratégie anti-bombe</span>
@@ -53,7 +53,7 @@ export function createPronostics() {
               </div>
               <!-- Carte 2 : Crash -->
               <div class="bot-card">
-                <img src="/src/assets/images/crash.jpg" alt="Crash" class="bot-image" />
+                <img src="/icons/crash.jpg" alt="Crash" class="bot-image" />
                 <div class="bot-overlay">
                   <span class="bot-name">Crash</span>
                   <span class="bot-desc">Détection de tendance</span>
@@ -61,7 +61,7 @@ export function createPronostics() {
               </div>
               <!-- Carte 3 : Lucky Jet -->
               <div class="bot-card">
-                <img src="/src/assets/images/lucky-jet.jpg" alt="Lucky Jet" class="bot-image" />
+                <img src="/icons/lucky-jet.jpg" alt="Lucky Jet" class="bot-image" />
                 <div class="bot-overlay">
                   <span class="bot-name">Lucky Jet</span>
                   <span class="bot-desc">Multiplicateur sécurisé</span>
@@ -69,7 +69,7 @@ export function createPronostics() {
               </div>
               <!-- Carte 4 : Rocket Queen -->
               <div class="bot-card">
-                <img src="/src/assets/images/rocket-queen.jpg" alt="Rocket Queen" class="bot-image" />
+                <img src="/icons/rocket-queen.jpg" alt="Rocket Queen" class="bot-image" />
                 <div class="bot-overlay">
                   <span class="bot-name">Rocket Queen</span>
                   <span class="bot-desc">Gains progressifs</span>
