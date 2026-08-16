@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="module" src="/src/main.js"></script>
-  <script>
-  (function() {
-    try {
-      var saved = localStorage.getItem('mlk-theme');
-      document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
-    } catch(e) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  })();
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>MLK SERVICES | Création Digitale & Visibilité</title>
   <meta name="description" content="MLK SERVICES - Développement web, visibilité TikTok, pronostics sportifs. Des solutions digitales premium." />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <!-- Polices Google Fonts (Inter + Space Grotesk) -->
+
+  <!-- Script anti-flash pour le thème -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('mlk-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Polices Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
- 
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </head>
 <body>
-  <!-- L'application sera montée ici via les composants JS -->
-  <div id="app">
-    <!-- Navbar, Hero, etc. seront insérés dynamiquement -->
-  </div>
-  
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

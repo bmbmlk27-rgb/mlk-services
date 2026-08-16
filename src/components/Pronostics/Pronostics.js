@@ -1,10 +1,10 @@
-export function createPronostics() {
-  const pronosticsHTML = `
+export default function Pronostics() {
+  return `
     <section class="pronostics-section" id="pronostics">
       <div class="pronostics-container">
         <!-- En-tête -->
         <div class="pronostics-header">
-          <span class="pronostics-subtitle">PRONOSTICS</span>
+          <span class="pronostics-label">Pronostics</span>
           <h2 class="pronostics-title">Performances & Analyses</h2>
           <p class="pronostics-intro">
             Des pronostics sportifs fiables et des outils innovants pour maximiser vos chances.
@@ -12,7 +12,7 @@ export function createPronostics() {
         </div>
 
         <div class="pronostics-grid">
-          <!-- Sports -->
+          <!-- Sport & Pronostics -->
           <div class="pronostics-sport">
             <i class="fa-solid fa-futbol sport-icon-float football"></i>
             <i class="fa-solid fa-basketball sport-icon-float basketball"></i>
@@ -43,7 +43,7 @@ export function createPronostics() {
               Automatisez vos stratégies avec nos bots pour les jeux de casino en ligne. Compatibles avec les principales plateformes.
             </p>
             <div class="bot-cards">
-              <!-- Carte 1 : Mines Gems -->
+              <!-- Carte Mines Gems -->
               <div class="bot-card">
                 <img src="/icons/mines-gems.jpg" alt="Mines Gems" class="bot-image" />
                 <div class="bot-overlay">
@@ -51,7 +51,7 @@ export function createPronostics() {
                   <span class="bot-desc">Stratégie anti-bombe</span>
                 </div>
               </div>
-              <!-- Carte 2 : Crash -->
+              <!-- Carte Crash -->
               <div class="bot-card">
                 <img src="/icons/crash.jpg" alt="Crash" class="bot-image" />
                 <div class="bot-overlay">
@@ -59,7 +59,7 @@ export function createPronostics() {
                   <span class="bot-desc">Détection de tendance</span>
                 </div>
               </div>
-              <!-- Carte 3 : Lucky Jet -->
+              <!-- Carte Lucky Jet -->
               <div class="bot-card">
                 <img src="/icons/lucky-jet.jpg" alt="Lucky Jet" class="bot-image" />
                 <div class="bot-overlay">
@@ -67,7 +67,7 @@ export function createPronostics() {
                   <span class="bot-desc">Multiplicateur sécurisé</span>
                 </div>
               </div>
-              <!-- Carte 4 : Rocket Queen -->
+              <!-- Carte Rocket Queen -->
               <div class="bot-card">
                 <img src="/icons/rocket-queen.jpg" alt="Rocket Queen" class="bot-image" />
                 <div class="bot-overlay">
@@ -109,24 +109,22 @@ export function createPronostics() {
       </div>
     </section>
   `;
-
-  const app = document.getElementById('app');
-  if (app) {
-    app.insertAdjacentHTML('beforeend', pronosticsHTML);
-    initPronosticsReveal();
-  }
 }
 
-function initPronosticsReveal() {
+export function initPronosticsAnimations() {
+  const section = document.querySelector('.pronostics-section');
+  if (!section) return;
+
+  const revealElements = section.querySelectorAll('.pronostics-header, .pronostics-sport, .pronostics-bots, .promo-banner');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
 
-  document.querySelectorAll('.pronostics-header, .pronostics-sport, .pronostics-bots, .promo-banner').forEach(el => {
-    observer.observe(el);
-  });
+  revealElements.forEach(el => observer.observe(el));
+
+  // Optionnel : animation des cartes de jeux au survol déjà gérée en CSS.
 }

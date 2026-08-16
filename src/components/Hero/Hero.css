@@ -43,8 +43,8 @@
   font-family: var(--font-secondary);
   font-size: var(--text-3xl);
   font-weight: 700;
-  line-height: 0.95;
-  margin-bottom: var(--space-md);
+  line-height: 1.05;
+  margin-bottom: var(--space-sm);
   letter-spacing: -0.03em;
 }
 
@@ -57,17 +57,36 @@
 
 .hero__title .line:nth-child(1) { animation-delay: 0.1s; }
 .hero__title .line:nth-child(2) { animation-delay: 0.3s; }
-.hero__title .line:nth-child(3) { animation-delay: 0.5s; }
+
+.hero__tagline {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-md);
+}
+
+.hero__tagline span {
+  font-family: var(--font-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  opacity: 0.9;
+}
 
 .hero__description {
   color: var(--text-muted);
   font-size: var(--text-lg);
-  line-height: var(--leading-relaxed);
-  max-width: 450px;
+  line-height: 1.6;
+  max-width: 500px;
   margin-bottom: var(--space-lg);
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease 0.7s forwards;
+  animation: fadeInUp 0.8s ease 0.5s forwards;
 }
 
 .hero__actions {
@@ -76,85 +95,70 @@
   flex-wrap: wrap;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s ease 0.9s forwards;
+  animation: fadeInUp 0.8s ease 0.7s forwards;
 }
 
-/* ===== PARTIE DROITE : IMAGE ===== */
-.hero__image-wrapper {
+/* ===== PARTIE DROITE : LOGOS FLOTTANTS ===== */
+.hero__logos-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 400px;
   z-index: 2;
 }
 
-.hero__image {
-  width: 100%;
-  max-width: 480px;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  filter: grayscale(100%);
-  transition: filter 0.6s ease, transform 0.6s ease;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+.logos-orbit {
+  position: relative;
+  width: 300px;
+  height: 300px;
 }
 
-.hero__image:hover {
-  filter: grayscale(0%);
-  transform: scale(1.02);
-}
-
-/* ===== LOGOS FLOTTANTS (avec Font Awesome / texte) ===== */
 .tech-logo {
   position: absolute;
-  font-size: 3rem;
-  color: inherit;
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
   z-index: 3;
   pointer-events: none;
-  opacity: 0.9;
-  transition: opacity 0.3s;
+  transition: transform 0.3s ease;
 }
 
-.tech-logo.html { color: #E34F26; }
-.tech-logo.css { color: #1572B6; }
-.tech-logo.js { color: #F7DF1E; }
-.tech-logo.vite {
-  font-family: var(--font-secondary);
-  font-weight: 700;
-  font-size: 2.5rem;
-  color: #646CFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: rgba(100,108,255,0.1);
-  line-height: 1;
-}
-
+/* Positions et animations */
 .tech-logo.html {
   top: 10%;
-  left: -10%;
+  left: 0%;
   animation: float 5s ease-in-out infinite;
 }
 
 .tech-logo.css {
-  bottom: 15%;
-  left: -8%;
+  bottom: 20%;
+  left: 15%;
   animation: float 6s ease-in-out infinite 0.5s;
+  width: 3.8rem;
+  height: 3.8rem;
 }
 
 .tech-logo.js {
   top: 40%;
-  right: -12%;
+  right: 0%;
   animation: float 5.5s ease-in-out infinite 1s;
 }
 
 .tech-logo.vite {
-  bottom: 20%;
-  right: -10%;
+  bottom: 15%;
+  right: 15%;
   animation: float 7s ease-in-out infinite 0.3s;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.tech-logo.gsap {
+  top: 0%;
+  right: 20%;
+  animation: float 6.5s ease-in-out infinite 0.8s;
+  width: 3.2rem;
+  height: 3.2rem;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -175,40 +179,29 @@
     justify-content: center;
   }
 
-  .hero__image {
-    max-width: 350px;
-    margin: 0 auto;
+  .hero__logos-wrapper {
+    min-height: 300px;
+  }
+
+  .logos-orbit {
+    width: 250px;
+    height: 250px;
   }
 
   .tech-logo {
-    font-size: 2.5rem;
+    width: 3rem;
+    height: 3rem;
   }
+  .tech-logo.css { width: 2.8rem; height: 2.8rem; }
+  .tech-logo.vite { width: 2.6rem; height: 2.6rem; }
+  .tech-logo.gsap { width: 2.4rem; height: 2.4rem; }
 
-  .tech-logo.vite {
-    font-size: 2rem;
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .tech-logo.html {
-    top: 5%;
-    left: 5%;
-  }
-
-  .tech-logo.css {
-    bottom: 5%;
-    left: 5%;
-  }
-
-  .tech-logo.js {
-    top: 10%;
-    right: 5%;
-  }
-
-  .tech-logo.vite {
-    bottom: 10%;
-    right: 5%;
-  }
+  /* Repositionnement mobile */
+  .tech-logo.html { top: 2%; left: 5%; }
+  .tech-logo.css { bottom: 5%; left: 5%; }
+  .tech-logo.js { top: 10%; right: 5%; }
+  .tech-logo.vite { bottom: 10%; right: 5%; }
+  .tech-logo.gsap { top: 15%; right: 15%; }
 }
 
 @media (max-width: 640px) {
@@ -217,26 +210,34 @@
   }
 
   .hero__title {
-    font-size: clamp(2.2rem, 10vw, 3.5rem);
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .hero__tagline span {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
   }
 
   .hero__description {
     font-size: var(--text-base);
   }
 
-  .hero__image {
-    max-width: 280px;
+  .hero__logos-wrapper {
+    min-height: 250px;
+  }
+
+  .logos-orbit {
+    width: 200px;
+    height: 200px;
   }
 
   .tech-logo {
-    font-size: 2rem;
-  }
-
-  .tech-logo.vite {
-    font-size: 1.8rem;
     width: 2.2rem;
     height: 2.2rem;
   }
+  .tech-logo.css { width: 2rem; height: 2rem; }
+  .tech-logo.vite { width: 1.9rem; height: 1.9rem; }
+  .tech-logo.gsap { width: 1.8rem; height: 1.8rem; }
 
   /* Désactive les animations d'entrée pour un affichage immédiat */
   .hero__title .line,
@@ -247,16 +248,12 @@
     animation: none !important;
   }
 
-  /* Désactive la transition sur l'image */
-  .hero__image {
-    transition: none !important;
-  }
-
-  /* Raccourcit les animations flottantes */
+  /* Accélère les flottements */
   .tech-logo.html,
   .tech-logo.css,
   .tech-logo.js,
-  .tech-logo.vite {
+  .tech-logo.vite,
+  .tech-logo.gsap {
     animation-duration: 3s !important;
   }
 }

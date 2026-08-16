@@ -1,14 +1,12 @@
 /* ===== PRONOSTICS SECTION ===== */
 .pronostics-section {
   padding: var(--space-3xl) 0;
-  position: relative;
-  overflow: hidden;
-  background: var(--bg-secondary);
-  background-image: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.02) 0%, transparent 50%);
+  background-color: var(--bg-secondary);
+  color: var(--text);
 }
 
 .pronostics-container {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--space-md);
   display: flex;
@@ -19,22 +17,27 @@
 /* ===== En-tête ===== */
 .pronostics-header {
   text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .pronostics-header.revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
-.pronostics-subtitle {
+.pronostics-label {
+  display: inline-block;
   font-family: var(--font-secondary);
   font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-muted);
+  margin-bottom: var(--space-xs);
 }
 
 .pronostics-title {
@@ -47,8 +50,6 @@
 
 .pronostics-intro {
   color: var(--text-muted);
-  max-width: 600px;
-  margin: 0 auto;
   line-height: 1.6;
 }
 
@@ -59,7 +60,7 @@
   gap: var(--space-xl);
 }
 
-/* Colonne Sports */
+/* ===== Colonne Sport ===== */
 .pronostics-sport {
   position: relative;
   background: var(--bg-tertiary);
@@ -69,8 +70,9 @@
   overflow: hidden;
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .pronostics-sport.revealed {
   opacity: 1;
   transform: translateY(0);
@@ -84,6 +86,7 @@
   animation: floatSport 8s ease-in-out infinite;
   pointer-events: none;
 }
+
 .sport-icon-float.football { top: 10%; right: 10%; animation-delay: 0s; }
 .sport-icon-float.basketball { bottom: 15%; left: 10%; animation-delay: -4s; }
 
@@ -111,6 +114,7 @@
   padding: 0;
   margin-bottom: var(--space-md);
 }
+
 .sport-list li {
   display: flex;
   align-items: center;
@@ -119,6 +123,7 @@
   color: var(--text-muted);
   font-size: var(--text-sm);
 }
+
 .sport-list i {
   color: var(--text);
   opacity: 0.6;
@@ -144,14 +149,11 @@
   transition: transform 0.2s, box-shadow 0.2s;
   border: 1px solid transparent;
   color: #fff;
+  text-decoration: none;
 }
 
-.chip.whatsapp {
-  background: #25D366;
-}
-.chip.telegram {
-  background: #0088cc;
-}
+.chip.whatsapp { background: #25D366; }
+.chip.telegram { background: #0088cc; }
 .chip:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
@@ -168,8 +170,9 @@
   gap: var(--space-md);
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s ease 0.2s;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .pronostics-bots.revealed {
   opacity: 1;
   transform: translateY(0);
@@ -186,7 +189,6 @@
   color: var(--text-muted);
   font-size: var(--text-sm);
   line-height: 1.6;
-  margin-bottom: var(--space-sm);
 }
 
 /* ===== Cartes de jeux ===== */
@@ -203,7 +205,7 @@
   overflow: hidden;
   background: var(--bg);
   border: 1px solid var(--border);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
 }
 
@@ -226,7 +228,6 @@
   transform: scale(1.05);
 }
 
-/* Overlay dégradé pour lisibilité */
 .bot-overlay {
   position: absolute;
   bottom: 0;
@@ -289,10 +290,11 @@
   overflow: hidden;
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s ease 0.4s;
+  transition: opacity 0.8s ease, transform 0.8s ease;
   flex-wrap: wrap;
   gap: var(--space-md);
 }
+
 .promo-banner.revealed {
   opacity: 1;
   transform: translateY(0);
@@ -369,6 +371,7 @@
   cursor: pointer;
   transition: background 0.2s;
 }
+
 .promo-code button:hover {
   background: #f0f0f0;
 }
@@ -404,45 +407,5 @@
   }
   .bot-desc {
     font-size: var(--text-xs);
-  }
-}
-
-/* ===== OPTIMISATION MOBILE (instantané) ===== */
-@media (max-width: 768px) {
-  .pronostics-header,
-  .pronostics-sport,
-  .pronostics-bots,
-  .promo-banner {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  .sport-icon-float {
-    animation-duration: 3s !important;
-  }
-
-  .bot-card,
-  .bot-image,
-  .chip,
-  .promo-code button,
-  .contact-method,
-  .form-input,
-  .form-textarea,
-  .submit-btn {
-    transition: none !important;
-  }
-
-  .bot-card:hover {
-    transform: none !important;
-    box-shadow: none !important;
-  }
-
-  .bot-card:hover .bot-image {
-    transform: none !important;
-  }
-
-  .bot-card::after {
-    display: none;
   }
 }

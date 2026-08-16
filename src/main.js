@@ -9,26 +9,27 @@ import './styles/animations.css';
 import { createNavbar } from './components/Navbar/Navbar.js';
 import './components/Navbar/Navbar.css';
 
-import { initIntro } from './components/Loader/Loader.js';
-import './components/Loader/Loader.css';
-
 import { createHero } from './components/Hero/Hero.js';
 import './components/Hero/Hero.css';
 
-import { createServices } from './components/Services/Services.js';
+import Services, { initServicesAnimations } from './components/Services/Services.js';
 import './components/Services/Services.css';
 
-import { createAbout } from './components/About/About.js';
+import About, { initAboutAnimations } from './components/About/About.js';
 import './components/About/About.css';
 
-import { createPronostics } from './components/Pronostics/Pronostics.js';
+import Pronostics, { initPronosticsAnimations } from './components/Pronostics/Pronostics.js';
 import './components/Pronostics/Pronostics.css';
 
-import { createContact } from './components/Contact/Contact.js';
+import Contact, { initContactForm } from './components/Contact/Contact.js';
 import './components/Contact/Contact.css';
 
-import { createFooter } from './components/Footer/Footer.js';
+import Footer from './components/Footer/Footer.js';
 import './components/Footer/Footer.css';
+
+// Loader / Intro (première visite)
+import { initIntro } from './components/Loader/Loader.js';
+import './components/Loader/Loader.css';
 
 // ----- GESTION DU THÈME -----
 function initTheme() {
@@ -44,25 +45,39 @@ function toggleTheme() {
 }
 window.toggleTheme = toggleTheme;
 
-// ----- INITIALISATION UNIQUE -----
-let initialized = false;
-
+// ----- INITIALISATION -----
 document.addEventListener('DOMContentLoaded', () => {
-  if (initialized) {
-    console.warn('MLK Services déjà initialisé.');
-    return;
-  }
-  initialized = true;
-
   initTheme();
-  createNavbar();
+
+  // Afficher le loader si première visite
   initIntro();
+  initIntro();
+  createNavbar();
   createHero();
-  createServices();
-  createAbout();
-  createPronostics();
-  createContact();
-  createFooter();
+
+  const app = document.getElementById('app');
+  if (app) {
+    // Services
+    app.insertAdjacentHTML('beforeend', Services());
+    initServicesAnimations();
+
+    // À propos
+    app.insertAdjacentHTML('beforeend', About());
+    initAboutAnimations();
+
+    // Pronostics
+    app.insertAdjacentHTML('beforeend', Pronostics());
+    initPronosticsAnimations();
+
+    // Contact
+    app.insertAdjacentHTML('beforeend', Contact());
+    initContactForm();
+
+    // Footer
+    app.insertAdjacentHTML('beforeend', Footer());
+  }
+
+  console.log('Site complet affiché');
 });
 
 // ----- HMR VITE -----

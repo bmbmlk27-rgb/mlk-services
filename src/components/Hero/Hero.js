@@ -2,35 +2,40 @@ export function createHero() {
   const heroHTML = `
     <section class="hero" id="hero">
       <div class="hero__container">
-        <!-- Colonne gauche -->
+        <!-- Colonne gauche : texte -->
         <div class="hero__content">
           <p class="hero__subtitle">MLK SERVICES</p>
           <h1 class="hero__title">
-            <span class="line">CRÉEZ.</span>
-            <span class="line">DÉVELOPPEZ.</span>
-            <span class="line">DOMINEZ.</span>
+            <span class="line">Étudiant passionné,</span>
+            <span class="line">à votre service.</span>
           </h1>
+          <div class="hero__tagline">
+            <span>CRÉEZ.</span>
+            <span>DÉVELOPPEZ.</span>
+            <span>DOMINEZ.</span>
+          </div>
           <p class="hero__description">
-            Des solutions digitales modernes pour développer votre présence en ligne, votre visibilité et vos projets.
+            Je suis étudiant en informatique, passionné par le digital. Je mets mes compétences à la disposition des entrepreneurs, étudiants et particuliers : création de sites web, visibilité sur les réseaux sociaux, services digitaux personnalisés. Ensemble, donnons vie à vos projets.
           </p>
           <div class="hero__actions">
-            <a href="/services" class="btn btn-primary">
-              Découvrir nos services <i class="fa-solid fa-arrow-right"></i>
+            <a href="#services" class="btn btn-primary">
+              Découvrir mes services <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href="/contact" class="btn btn-secondary">
-              Nous contacter
+            <a href="#contact" class="btn btn-secondary">
+              Me contacter
             </a>
           </div>
         </div>
 
-        <!-- Colonne droite : photo -->
-        <div class="hero__image-wrapper">
-          <img src="/images/avatar.jpeg" alt="MLK" class="hero__image" loading="eager" />
-          <!-- Logos flottants avec Font Awesome et couleurs officielles -->
-          <i class="fa-brands fa-html5 tech-logo html"></i>
-          <i class="fa-brands fa-css3-alt tech-logo css"></i>
-          <i class="fa-brands fa-js tech-logo js"></i>
-          <span class="tech-logo vite">V</span>
+        <!-- Colonne droite : logos flottants (sans photo) -->
+        <div class="hero__logos-wrapper">
+          <div class="logos-orbit">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="tech-logo html" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="tech-logo css" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-logo js" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" alt="Vite" class="tech-logo vite" />
+            <img src="https://cdn.simpleicons.org/greensock/88CE02" alt="GSAP" class="tech-logo gsap" />
+          </div>
         </div>
       </div>
     </section>
