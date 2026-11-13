@@ -27,21 +27,31 @@ import './components/Contact/Contact.css';
 import Footer from './components/Footer/Footer.js';
 import './components/Footer/Footer.css';
 
+// Fond animé en pointillés + animations fluides
+import 'lenis/dist/lenis.css';
+import { initDotBackground } from './components/DotBackground/DotBackground.js';
+import { initMotion } from './animations/motion.js';
+
 // Loader / Intro (première visite)
 import { initIntro } from './components/Loader/Loader.js';
 import './components/Loader/Loader.css';
 
 // ----- GESTION DU THÈME -----
 function initTheme() {
-  const saved = localStorage.getItem('mlk-theme');
+  let saved = null;
+  try { saved = localStorage.getItem('mlk-theme'); } catch (e) {}
   document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
 }
 
 function toggleTheme() {
   const current = document.documentElement.getAttribute('data-theme');
   const next = current === 'light' ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('mlk-theme', next);
+  const root = document.documentElement;
+  // Bascule instantanée, sans transitions saccadées
+  root.classList.add('theme-switching');
+  root.setAttribute('data-theme', next);
+  try { localStorage.setItem('mlk-theme', next); } catch (e) {}
+  requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('theme-switching')));
 }
 window.toggleTheme = toggleTheme;
 
@@ -49,8 +59,10 @@ window.toggleTheme = toggleTheme;
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
 
+  // Fond en pointillés animé (derrière tout le site)
+  initDotBackground();
+
   // Afficher le loader si première visite
-  initIntro();
   initIntro();
   createNavbar();
   createHero();
@@ -75,9 +87,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Footer
     app.insertAdjacentHTML('beforeend', Footer());
+
+    // Séparateurs pointillés animés entre les sections
+    app.querySelectorAll('section + section').forEach((section) => {
+      section.insertAdjacentHTML('beforebegin', '<div class="dotted-divider" aria-hidden="true"></div>');
+    });
+
+    const year = document.getElementById('footerYear');
+    if (year) year.textContent = new Date().getFullYear();
   }
 
-  console.log('Site complet affiché');
+  // Apparitions au défilement, défilement doux, barre de progression…
+  initMotion();
 });
 
 // ----- HMR VITE -----

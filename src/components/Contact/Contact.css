@@ -1,7 +1,7 @@
 /* ===== CONTACT PAGE ===== */
 .contact-page {
   padding: var(--space-3xl) 0;
-  background-color: var(--bg);
+  background-color: transparent;
   color: var(--text);
 }
 
@@ -98,7 +98,9 @@
 
 /* ===== Colonne droite : formulaire ===== */
 .contact-form {
-  background: var(--bg-secondary);
+  background: color-mix(in srgb, var(--bg-secondary) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
@@ -200,3 +202,31 @@
     padding: 0.9rem;
   }
 }
+
+/* ===== Ajouts ===== */
+.contact-text strong { color: var(--text); font-weight: 600; }
+.contact-form-head { margin-bottom: var(--space-md); }
+.contact-form-head h3 {
+  font-family: var(--font-secondary);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+.contact-form-head p { font-size: var(--text-xs); color: var(--text-muted); }
+.req { color: var(--accent); }
+
+.form-input,
+.form-textarea {
+  transition: border-color 0.25s ease, box-shadow 0.3s ease, transform 0.3s var(--ease-out) !important;
+}
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 4px var(--accent-soft);
+  outline: none;
+}
+.contact-method {
+  transition: transform 0.35s var(--ease-out), border-color 0.3s ease, background-color 0.3s ease;
+}
+.contact-method:hover { transform: translateX(6px); }

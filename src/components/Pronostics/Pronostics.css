@@ -1,7 +1,7 @@
 /* ===== PRONOSTICS SECTION ===== */
 .pronostics-section {
   padding: var(--space-3xl) 0;
-  background-color: var(--bg-secondary);
+  background-color: color-mix(in srgb, var(--bg-secondary) 55%, transparent);
   color: var(--text);
 }
 
@@ -352,7 +352,7 @@
   z-index: 1;
 }
 
-.promo-code span {
+.promo-code > span {
   font-family: 'Courier New', monospace;
   font-size: 1.5rem;
   font-weight: 700;
@@ -409,3 +409,54 @@
     font-size: var(--text-xs);
   }
 }
+
+/* ===== Notes et retours ===== */
+.pronostics-sport p strong { color: var(--text); }
+.gamble-note {
+  margin-top: var(--space-md);
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+.gamble-note i { color: var(--accent); margin-top: 0.15rem; }
+
+.responsible-note {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 760px;
+  margin: calc(var(--space-md) * -1) auto 0;
+}
+.responsible-note strong {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.promo-code button.copied {
+  background: #2ecc71;
+  color: #fff;
+}
+
+/* Animation d'entrée plus douce */
+.pronostics-header,
+.pronostics-sport,
+.pronostics-bots,
+.promo-banner {
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out), border-color 0.3s ease !important;
+}
+.pronostics-bots { transition-delay: 0.12s; }
+.pronostics-sport,
+.pronostics-bots {
+  background: color-mix(in srgb, var(--bg-tertiary) 80%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.pronostics-header.revealed .split-word > span { transform: translateY(0); }

@@ -1,4 +1,10 @@
 /* ===== ANIMATIONS GLOBALES ===== */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --accent: #ff8c1a;
+  --accent-soft: rgba(255, 140, 26, 0.16);
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
@@ -10,14 +16,8 @@
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -26,19 +26,208 @@
 }
 
 @keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.animate-float {
-  animation: float 5s ease-in-out infinite;
+@keyframes shimmer {
+  0% { background-position: 200% 50%; }
+  100% { background-position: -200% 50%; }
 }
-.animate-float-slow {
-  animation: float-slow 7s ease-in-out infinite;
+
+@keyframes dash-flow {
+  to { background-position: 40px 0; }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(255, 140, 26, 0.45); }
+  70% { box-shadow: 0 0 0 12px rgba(255, 140, 26, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 140, 26, 0); }
+}
+
+@keyframes word-up {
+  from { transform: translateY(110%); }
+  to { transform: translateY(0); }
+}
+
+.animate-float { animation: float 5s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+/* ===== FOND EN POINTILLÉS ===== */
+.dot-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Halo radial doux qui assombrit les bords pour la lisibilité */
+.dot-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 40%, transparent 30%, var(--bg) 95%);
+  opacity: 0.85;
+}
+
+/* ===== APPARITION AU DÉFILEMENT ===== */
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 0.9s var(--ease-out),
+    filter 0.9s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  filter: blur(6px);
+  will-change: opacity, transform;
+}
+[data-reveal="left"] { transform: translate3d(-48px, 0, 0); }
+[data-reveal="right"] { transform: translate3d(48px, 0, 0); }
+[data-reveal="zoom"] { transform: scale(0.92); }
+[data-reveal="fade"] { transform: none; }
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* ===== TITRES MOT PAR MOT ===== */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.split-word > span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.9s var(--ease-out);
+  transition-delay: calc(var(--word-index, 0) * 55ms + var(--reveal-delay, 0ms));
+}
+.is-visible .split-word > span,
+.is-visible.split-word > span,
+[data-split].is-visible .split-word > span {
+  transform: translateY(0);
+}
+/* Titre du hero : animé dès le chargement */
+.hero .split-word > span {
+  animation: word-up 1s var(--ease-out) both;
+  animation-delay: calc(var(--word-index, 0) * 70ms + 150ms);
+}
+
+/* ===== TEXTE EN DÉGRADÉ ANIMÉ ===== */
+.text-gradient {
+  background: linear-gradient(100deg, #ff7a00 0%, #ff9d2e 30%, #ffd08a 50%, #ff9d2e 70%, #ff7a00 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 7s linear infinite;
+}
+/* Le dégradé s'applique à chaque mot découpé */
+.text-gradient:has(.split-word) {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  animation: none;
+}
+.text-gradient .split-word > span {
+  background: linear-gradient(100deg, #ff7a00 0%, #ff9d2e 30%, #ffd08a 50%, #ff9d2e 70%, #ff7a00 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero .text-gradient .split-word > span {
+  animation:
+    word-up 1s var(--ease-out) calc(var(--word-index, 0) * 70ms + 150ms) both,
+    shimmer 7s linear infinite;
+}
+
+/* Thème clair : orange plus foncé pour garder un bon contraste */
+[data-theme="light"] .text-gradient .split-word > span,
+[data-theme="light"] .text-gradient:not(:has(.split-word)) {
+  background-image: linear-gradient(100deg, #c2410c 0%, #ea6a00 35%, #ff9d2e 50%, #ea6a00 65%, #c2410c 100%);
+}
+
+/* ===== LIGNE POINTILLÉE ANIMÉE (séparateurs) ===== */
+.dotted-divider {
+  height: 2px;
+  width: min(90%, 1200px);
+  margin: 0 auto;
+  background-image: radial-gradient(circle, var(--accent) 1px, transparent 1.6px);
+  background-size: 10px 2px;
+  background-repeat: repeat-x;
+  opacity: 0.55;
+  animation: dash-flow 1.6s linear infinite;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+}
+
+/* ===== BARRE DE PROGRESSION ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1100;
+  background: linear-gradient(90deg, var(--accent), #ffc070);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* ===== HALO SUR LES CARTES ===== */
+[data-spotlight] {
+  position: relative;
+  isolation: isolate;
+}
+[data-spotlight]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), var(--accent-soft), transparent 65%);
+  z-index: -1;
+}
+[data-spotlight]:hover::after { opacity: 1; }
+
+[data-magnetic] {
+  transition: transform 0.35s var(--ease-out), background-color 0.2s ease, box-shadow 0.3s ease !important;
+}
+
+/* ===== ÉTIQUETTES DE SECTION (pastille animée) ===== */
+.section-tag,
+span.section-tag,
+p.section-tag {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.55rem;
+}
+.section-tag::before {
+  content: '';
+  flex: 0 0 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-ring 2.2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  .split-word > span {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }

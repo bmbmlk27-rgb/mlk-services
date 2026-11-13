@@ -1,6 +1,9 @@
 /* ===== FOOTER ===== */
 .footer {
-  background-color: var(--bg-secondary);
+  position: relative;
+  background-color: color-mix(in srgb, var(--bg-secondary) 80%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-top: 1px solid var(--border);
   padding: var(--space-2xl) 0 var(--space-lg);
   margin-top: var(--space-3xl);
@@ -138,4 +141,11 @@
     flex-direction: column;
     text-align: center;
   }
+}
+
+.footer__divider {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
 }

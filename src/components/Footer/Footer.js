@@ -1,6 +1,7 @@
 export default function Footer() {
   return `
     <footer class="footer">
+      <div class="dotted-divider footer__divider" aria-hidden="true"></div>
       <div class="footer__container">
         <div class="footer__brand">
           <a href="#hero" class="footer__logo">
@@ -8,7 +9,8 @@ export default function Footer() {
             <span>MLK SERVICES</span>
           </a>
           <p class="footer__description">
-            Solutions digitales modernes pour développer votre présence en ligne, votre visibilité et vos projets.
+            Sites web, croissance sur les réseaux sociaux et outils sur mesure pour aider entrepreneurs, commerçants
+            et particuliers à être visibles et à trouver plus de clients en ligne.
           </p>
           <div class="footer__social">
             <a href="https://tiktok.com/@mlkservices" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
@@ -35,7 +37,8 @@ export default function Footer() {
             <li><a href="#services">Création web</a></li>
             <li><a href="#services">TikTok & Réseaux sociaux</a></li>
             <li><a href="#pronostics">Pronostics</a></li>
-            <li><a href="#contact">Sur mesure</a></li>
+            <li><a href="#services">Outils sur mesure</a></li>
+            <li><a href="#process">Comment ça marche</a></li>
           </ul>
         </div>
 
@@ -51,7 +54,7 @@ export default function Footer() {
       </div>
 
       <div class="footer__bottom">
-        <span>&copy; 2026 MLK SERVICES. Tous droits réservés.</span>
+        <span>&copy; <span id="footerYear">2026</span> MLK SERVICES. Tous droits réservés.</span>
         <span>Développé avec <i class="fa-solid fa-heart"></i> par MLK</span>
       </div>
     </footer>

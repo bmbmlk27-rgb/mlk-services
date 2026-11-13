@@ -4,31 +4,36 @@ export function createHero() {
       <div class="hero__container">
         <!-- Colonne gauche : texte -->
         <div class="hero__content">
-          <p class="hero__subtitle">MLK SERVICES</p>
-          <h1 class="hero__title">
-            <span class="line">Étudiant passionné,</span>
-            <span class="line">à votre service.</span>
+          <p class="hero__subtitle section-tag">MLK SERVICES<span class="hero__location">&nbsp;· Abidjan, Côte d'Ivoire</span></p>
+          <h1 class="hero__title" data-split>
+            <span class="line">Votre activité mérite</span>
+            <span class="line text-gradient">d'être vue en ligne.</span>
           </h1>
           <div class="hero__tagline">
-            <span>CRÉEZ.</span>
-            <span>DÉVELOPPEZ.</span>
-            <span>DOMINEZ.</span>
+            <span><i class="fa-solid fa-laptop-code"></i> Sites web</span>
+            <span><i class="fa-brands fa-tiktok"></i> Réseaux sociaux</span>
+            <span><i class="fa-solid fa-gears"></i> Outils sur mesure</span>
           </div>
           <p class="hero__description">
-            Je suis étudiant en informatique, passionné par le digital. Je mets mes compétences à la disposition des entrepreneurs, étudiants et particuliers : création de sites web, visibilité sur les réseaux sociaux, services digitaux personnalisés. Ensemble, donnons vie à vos projets.
+            Je crée des <strong>sites web modernes</strong>, je fais <strong>grandir vos comptes TikTok, Instagram et Facebook</strong>
+            et je développe des <strong>outils digitaux sur mesure</strong> pour les entrepreneurs, commerçants, étudiants et particuliers.
+            Vous m'expliquez votre besoin, je vous propose une solution claire et je vous accompagne jusqu'au résultat.
           </p>
           <div class="hero__actions">
-            <a href="#services" class="btn btn-primary">
-              Découvrir mes services <i class="fa-solid fa-arrow-right"></i>
+            <a href="#services" class="btn btn-primary" data-magnetic>
+              Voir ce que je propose <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href="#contact" class="btn btn-secondary">
-              Me contacter
+            <a href="#contact" class="btn btn-secondary" data-magnetic>
+              <i class="fa-brands fa-whatsapp"></i> Demander un devis
             </a>
           </div>
         </div>
 
-        <!-- Colonne droite : logos flottants (sans photo) -->
+        <!-- Colonne droite : logos flottants -->
         <div class="hero__logos-wrapper">
+          <div class="hero__rings" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
           <div class="logos-orbit">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="tech-logo html" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="tech-logo css" />
@@ -38,6 +43,11 @@ export function createHero() {
           </div>
         </div>
       </div>
+
+      <a href="#services" class="hero__scroll" aria-label="Descendre vers les services">
+        <span class="hero__scroll-mouse"><span></span></span>
+        <span class="hero__scroll-text">Découvrir</span>
+      </a>
     </section>
   `;
 

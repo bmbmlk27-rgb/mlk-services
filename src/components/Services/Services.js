@@ -3,34 +3,37 @@ export default function Services() {
     <section class="services-page" id="services">
       <div class="services-container">
         <!-- Introduction -->
-        <div class="services-intro">
-          <span class="services-label">Nos services</span>
-          <h2 class="services-title">Des solutions adaptées à vos besoins.</h2>
+        <div class="services-intro" data-reveal>
+          <span class="services-label section-tag">Services</span>
+          <h2 class="services-title" data-split>Trois façons de faire grandir votre activité en ligne.</h2>
           <p class="services-description">
-            Chaque projet est différent. MLK Services adapte ses prestations à votre demande, vos objectifs et votre budget.
+            Un site pour être trouvé, des réseaux sociaux pour être suivi, des outils sur mesure pour gagner du temps.
+            Choisissez ce dont vous avez besoin : chaque prestation est adaptée à vos objectifs et à votre budget.
           </p>
         </div>
 
         <!-- ========== SERVICE 01 : WEB ========== -->
         <div class="service-section">
-          <div class="service-content">
+          <div class="service-content" data-reveal="left">
             <span class="service-number">01</span>
-            <h3 class="service-heading">WEB <span>Création digitale</span></h3>
+            <h3 class="service-heading">CRÉATION DE SITES WEB <span>Un site professionnel qui inspire confiance</span></h3>
             <p class="service-text">
-              Nous concevons des sites modernes, rapides, responsives et adaptés aux objectifs de chaque projet. De la vitrine professionnelle à la boutique en ligne, chaque réalisation est pensée selon vos besoins.
+              Aujourd'hui, vos clients vous cherchent sur Internet avant de vous contacter. Je crée des sites
+              <strong>rapides</strong>, <strong>beaux sur téléphone comme sur ordinateur</strong> et pensés pour transformer
+              les visiteurs en clients : présentation de votre activité, vos prix, vos contacts et un bouton WhatsApp en un clic.
             </p>
             <ul class="service-list">
-              <li>Sites vitrines</li>
-              <li>Sites professionnels</li>
-              <li>E-commerce</li>
-              <li>Landing pages</li>
-              <li>Refonte de sites</li>
-              <li>Solutions personnalisées</li>
+              <li>Site vitrine pour présenter votre activité</li>
+              <li>Boutique en ligne pour vendre vos produits</li>
+              <li>Page de vente pour une offre ou un événement</li>
+              <li>Portfolio ou CV en ligne</li>
+              <li>Refonte d'un site ancien ou lent</li>
+              <li>Mise en ligne et nom de domaine</li>
             </ul>
-            <p class="service-price">Tarif sur demande</p>
-            <a href="#contact" class="service-link">Demander un devis <i class="fa-solid fa-arrow-right"></i></a>
+            <p class="service-price"><i class="fa-solid fa-tag"></i> Prix selon le projet — devis avant de commencer</p>
+            <a href="#contact" class="service-link" data-magnetic>Demander un devis pour mon site <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-          <div class="service-visual web-visual">
+          <div class="service-visual web-visual" data-reveal="zoom">
             <div class="scene">
               <div class="laptop">
                 <div class="laptop__screen">
@@ -52,7 +55,7 @@ export default function Services() {
 
         <!-- ========== SERVICE 02 : TIKTOK & RÉSEAUX SOCIAUX ========== -->
         <div class="service-section reverse">
-          <div class="service-visual social-visual">
+          <div class="service-visual social-visual" data-reveal="zoom">
             <div class="growth-panel">
               <div class="growth-chart-wrap">
                 <svg viewBox="0 0 520 240" class="growth-svg">
@@ -94,46 +97,50 @@ export default function Services() {
               </div>
             </div>
           </div>
-          <div class="service-content">
+          <div class="service-content" data-reveal="right">
             <span class="service-number">02</span>
-            <h3 class="service-heading">TIKTOK & RÉSEAUX SOCIAUX <span>Développez votre visibilité</span></h3>
+            <h3 class="service-heading">TIKTOK & RÉSEAUX SOCIAUX <span>Plus de vues, plus d'abonnés, plus de clients</span></h3>
             <p class="service-text">
-              Nous vous accompagnons dans le développement de votre présence sur TikTok et les réseaux sociaux afin d'améliorer votre visibilité et votre présence digitale.
+              Publier sans stratégie, c'est parler dans le vide. Je vous aide à <strong>créer ou relancer vos comptes</strong>
+              TikTok, Instagram et Facebook, à <strong>trouver les bons formats de contenu</strong> et à publier régulièrement
+              pour attirer une audience qui s'intéresse vraiment à ce que vous proposez.
             </p>
             <ul class="service-list">
-              <li>Création de comptes</li>
-              <li>Développement de visibilité</li>
-              <li>TikTok</li>
-              <li>Instagram</li>
-              <li>Facebook</li>
-              <li>Accompagnement personnalisé</li>
+              <li>Création et optimisation de profils</li>
+              <li>Idées de vidéos et calendrier de publication</li>
+              <li>Croissance TikTok</li>
+              <li>Instagram et Facebook</li>
+              <li>Conseils pour vendre via les réseaux</li>
+              <li>Suivi et conseils personnalisés</li>
             </ul>
-            <p class="service-price">Tarif sur demande</p>
-            <a href="#contact" class="service-link">Discuter de votre projet <i class="fa-solid fa-arrow-right"></i></a>
+            <p class="service-price"><i class="fa-solid fa-tag"></i> Formule adaptée à votre compte — devis avant de commencer</p>
+            <a href="#contact" class="service-link" data-magnetic>Booster mes réseaux sociaux <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
         <!-- ========== SERVICE 03 : SUR MESURE ========== -->
         <div class="service-section">
-          <div class="service-content">
+          <div class="service-content" data-reveal="left">
             <span class="service-number">03</span>
-            <h3 class="service-heading">SUR MESURE <span>Votre projet, notre expertise</span></h3>
+            <h3 class="service-heading">SOLUTIONS SUR MESURE <span>Un outil pensé pour votre problème</span></h3>
             <p class="service-text">
-              Vous avez une idée spécifique ? Un besoin particulier ? Nous concevons des solutions adaptées à vos besoins, même lorsqu'elles sortent des prestations classiques.
+              Vous perdez du temps sur des tâches répétitives ? Vous avez une idée d'application mais ne savez pas par où commencer ?
+              Je conçois des <strong>outils digitaux faits pour vous</strong> : ils automatisent ce qui peut l'être et
+              simplifient votre quotidien, même si votre besoin ne rentre dans aucune case.
             </p>
             <ul class="service-list">
               <li>Applications web</li>
-              <li>Automatisations</li>
-              <li>Intégrations API</li>
-              <li>Chatbots</li>
-              <li>Outils personnalisés</li>
-              <li>Maintenance</li>
-              <li>Accompagnement technique</li>
+              <li>Automatisation de tâches</li>
+              <li>Connexion entre vos outils (API)</li>
+              <li>Chatbots WhatsApp / site web</li>
+              <li>Formulaires et tableaux de bord</li>
+              <li>Maintenance et dépannage</li>
+              <li>Conseils techniques</li>
             </ul>
-            <p class="service-price">Tarif sur demande</p>
-            <a href="#contact" class="service-link">Parlons de votre besoin <i class="fa-solid fa-arrow-right"></i></a>
+            <p class="service-price"><i class="fa-solid fa-tag"></i> Prix selon la complexité — devis avant de commencer</p>
+            <a href="#contact" class="service-link" data-magnetic>Expliquer mon besoin <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-          <div class="service-visual custom-visual">
+          <div class="service-visual custom-visual" data-reveal="zoom">
             <div class="mech-scene" id="mechScene">
               <div class="mech-tools" id="mechTools">
                 <div class="wrench">
@@ -155,11 +162,45 @@ export default function Services() {
           </div>
         </div>
 
+        <!-- Comment ça marche -->
+        <div class="process" id="process">
+          <div class="process-head" data-reveal>
+            <span class="services-label section-tag">Comment ça marche</span>
+            <h3 class="process-title" data-split>De votre idée au résultat, en 4 étapes simples.</h3>
+          </div>
+          <ol class="process-steps" data-reveal-group="120">
+            <li class="process-step" data-reveal data-spotlight>
+              <span class="process-num">1</span>
+              <i class="fa-regular fa-comments process-icon"></i>
+              <h4>Vous me décrivez votre besoin</h4>
+              <p>Par le formulaire, WhatsApp ou téléphone. Expliquez simplement ce que vous voulez, même si ce n'est pas encore très précis.</p>
+            </li>
+            <li class="process-step" data-reveal data-spotlight>
+              <span class="process-num">2</span>
+              <i class="fa-regular fa-file-lines process-icon"></i>
+              <h4>Je vous propose une solution</h4>
+              <p>Vous recevez une proposition claire : ce qui sera fait, le délai et le prix. Rien ne commence sans votre accord.</p>
+            </li>
+            <li class="process-step" data-reveal data-spotlight>
+              <span class="process-num">3</span>
+              <i class="fa-solid fa-code process-icon"></i>
+              <h4>Je réalise le projet</h4>
+              <p>Je vous montre l'avancement régulièrement et j'ajuste selon vos retours, pour que le résultat vous ressemble.</p>
+            </li>
+            <li class="process-step" data-reveal data-spotlight>
+              <span class="process-num">4</span>
+              <i class="fa-solid fa-rocket process-icon"></i>
+              <h4>Livraison et suivi</h4>
+              <p>Votre projet est mis en ligne et je reste disponible pour les questions, les modifications et la maintenance.</p>
+            </li>
+          </ol>
+        </div>
+
         <!-- CTA final -->
-        <div class="services-final">
-          <h3>Un projet en tête ?</h3>
-          <p>Parlons-en. Chaque demande est étudiée individuellement.</p>
-          <a href="#contact" class="service-link">Demander un devis <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="services-final" data-reveal="zoom" data-spotlight>
+          <h3>Vous avez un projet ? Parlons-en.</h3>
+          <p>Décrivez votre besoin en quelques lignes : je vous réponds avec une proposition adaptée à votre budget.</p>
+          <a href="#contact" class="service-link" data-magnetic>Obtenir ma proposition <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </section>

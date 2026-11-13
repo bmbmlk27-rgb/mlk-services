@@ -9,76 +9,82 @@ export default function Contact() {
     <section class="contact-page" id="contact">
       <div class="contact-container">
         <!-- Colonne gauche : informations -->
-        <div class="contact-info">
-          <span class="contact-label">Contact</span>
-          <h2 class="contact-title">Parlons de votre projet</h2>
+        <div class="contact-info" data-reveal="left">
+          <span class="contact-label section-tag">Contact</span>
+          <h2 class="contact-title" data-split>Parlons de votre projet.</h2>
           <p class="contact-text">
-            Une question, un devis, une collaboration ? Remplissez le formulaire ou contactez-moi directement.
+            Besoin d'un site, de plus de visibilité sur les réseaux ou d'un outil sur mesure ? Remplissez le formulaire
+            en expliquant votre besoin avec vos mots : je vous recontacte pour en discuter et vous proposer une solution.
+            Vous préférez aller plus vite ? <strong>Écrivez-moi directement sur WhatsApp.</strong>
           </p>
 
-          <div class="contact-methods">
-            <a href="mailto:${TO_EMAIL}" class="contact-method">
+          <div class="contact-methods" data-reveal-group="80">
+            <a href="mailto:${TO_EMAIL}" class="contact-method" data-reveal>
               <i class="fa-solid fa-envelope contact-method-icon"></i>
               <div class="contact-method-text">
                 <strong>Email</strong>
                 <span>${TO_EMAIL}</span>
               </div>
             </a>
-            <a href="tel:+2250787913032" class="contact-method">
+            <a href="tel:+2250787913032" class="contact-method" data-reveal>
               <i class="fa-solid fa-phone contact-method-icon"></i>
               <div class="contact-method-text">
                 <strong>Téléphone</strong>
                 <span>+225 07 87 91 30 32</span>
               </div>
             </a>
-            <a href="https://wa.me/2250787913032" target="_blank" rel="noopener" class="contact-method">
+            <a href="https://wa.me/2250787913032" target="_blank" rel="noopener" class="contact-method" data-reveal>
               <i class="fa-brands fa-whatsapp contact-method-icon"></i>
               <div class="contact-method-text">
-                <strong>WhatsApp</strong>
+                <strong>WhatsApp — le plus rapide</strong>
                 <span>+225 07 87 91 30 32</span>
               </div>
             </a>
-            <div class="contact-method">
+            <div class="contact-method" data-reveal>
               <i class="fa-solid fa-location-dot contact-method-icon"></i>
               <div class="contact-method-text">
                 <strong>Localisation</strong>
-                <span>Abidjan, Côte d'Ivoire</span>
+                <span>Abidjan, Côte d'Ivoire · projets à distance partout</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Colonne droite : formulaire -->
-        <div class="contact-form">
+        <div class="contact-form" data-reveal="right" data-spotlight>
+          <div class="contact-form-head">
+            <h3>Envoyez votre demande</h3>
+            <p>Les champs marqués d'une <span class="req">*</span> sont obligatoires.</p>
+          </div>
           <form id="formContact">
             <div class="form-group">
-              <label for="name" class="form-label">Nom complet</label>
-              <input type="text" id="name" name="name" class="form-input" required placeholder="Votre nom" />
+              <label for="name" class="form-label">Nom complet <span class="req">*</span></label>
+              <input type="text" id="name" name="name" class="form-input" required placeholder="Ex. : Aïcha Koné" />
             </div>
             <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" id="email" name="email" class="form-input" required placeholder="Votre email" />
+              <label for="email" class="form-label">Adresse email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" class="form-input" required placeholder="vous@exemple.com" />
             </div>
             <div class="form-group">
-              <label for="phone" class="form-label">Téléphone</label>
-              <input type="tel" id="phone" name="phone" class="form-input" placeholder="Votre numéro (optionnel)" />
+              <label for="phone" class="form-label">Téléphone / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="Optionnel — pour vous répondre plus vite" />
             </div>
             <div class="form-group">
-              <label for="project" class="form-label">Type de projet</label>
+              <label for="project" class="form-label">De quoi avez-vous besoin ?</label>
               <select id="project" name="project" class="form-input">
                 <option value="Web">Création de site web</option>
                 <option value="TikTok / Réseaux sociaux">TikTok / Réseaux sociaux</option>
-                <option value="Pronostics / Sport">Pronostics / Sport</option>
-                <option value="Sur mesure">Sur mesure</option>
+                <option value="Pronostics / Sport">Pronostics / Bots de jeux</option>
+                <option value="Sur mesure">Outil ou application sur mesure</option>
                 <option value="Autre">Autre demande</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" class="form-textarea" required placeholder="Décrivez votre projet..."></textarea>
+              <label for="message" class="form-label">Votre message <span class="req">*</span></label>
+              <textarea id="message" name="message" class="form-textarea" required placeholder="Décrivez votre activité, ce que vous voulez obtenir, votre délai et, si possible, votre budget."></textarea>
             </div>
             <button type="submit" class="submit-btn" id="submitBtn">
-              <span>Envoyer le message</span>
+              <span>Envoyer ma demande</span>
               <i class="fa-solid fa-paper-plane"></i>
             </button>
             <p id="formStatus" class="form-status"></p>
@@ -113,7 +119,7 @@ export function initContactForm() {
     const message = document.getElementById('message').value.trim();
 
     if (!name || !email || !message) {
-      status.textContent = 'Veuillez remplir tous les champs obligatoires.';
+      status.textContent = 'Merci de remplir votre nom, votre email et votre message.';
       status.style.color = '#ff4757';
       return;
     }
@@ -132,7 +138,7 @@ export function initContactForm() {
 
     try {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-      status.textContent = '✅ Message envoyé avec succès ! Je vous répondrai rapidement.';
+      status.textContent = '✅ Merci ! Votre demande a bien été envoyée. Je vous recontacte très vite.';
       status.style.color = '#2ecc71';
       form.reset();
     } catch (error) {
@@ -140,11 +146,11 @@ export function initContactForm() {
       let detail = '';
       if (error.text) detail = ' - ' + error.text;
       else if (error.message) detail = ' - ' + error.message;
-      status.textContent = '❌ Erreur lors de l\'envoi : ' + error.status + detail;
+      status.textContent = '❌ L\'envoi a échoué (' + error.status + detail + '). Réessayez ou écrivez-moi sur WhatsApp.';
       status.style.color = '#ff4757';
     } finally {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = '<span>Envoyer le message</span> <i class="fa-solid fa-paper-plane"></i>';
+      submitBtn.innerHTML = '<span>Envoyer ma demande</span> <i class="fa-solid fa-paper-plane"></i>';
     }
   });
 }
