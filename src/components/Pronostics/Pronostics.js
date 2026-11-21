@@ -132,22 +132,32 @@ export default function Pronostics() {
 
           <!-- Bannière WinWin -->
           <div class="promo-banner">
-            <div class="promo-content">
-              <div class="winwin-logo">WINWINBET</div>
-              <div class="promo-text">
-                <h4>Offre exclusive MLK SERVICES</h4>
-                <p>Utilisez le code promo ci-dessous et bénéficiez d’un bonus de bienvenue sur WinWinBet.</p>
+            <div class="promo-brand">
+              <img src="/images/winwin-logo.png" alt="WinWin Bet" class="winwin-logo" width="496" height="95" loading="lazy" />
+              <div class="promo-sports" aria-hidden="true">
+                <i class="fa-solid fa-futbol"></i>
+                <i class="fa-solid fa-basketball"></i>
+                <i class="fa-solid fa-baseball"></i>
+                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                <i class="fa-solid fa-volleyball"></i>
+                <span></span><span></span><span></span>
               </div>
             </div>
-            <div class="promo-code">
-              <span>MLK225</span>
-              <button onclick="navigator.clipboard.writeText('MLK225')" title="Copier le code">
-                <i class="fa-solid fa-copy"></i> Copier
-              </button>
+            <div class="promo-text">
+              <h4>Offre exclusive MLK SERVICES</h4>
+              <p>Utilisez le code promo ci-dessous et bénéficiez d’un bonus de bienvenue sur WinWinBet.</p>
             </div>
-            <a href="https://winwinbet.com" target="_blank" rel="noopener" class="btn btn-primary" style="background:white; color:#0f2538; z-index:1;">
-              S'inscrire <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <div class="promo-actions">
+              <div class="promo-code">
+                <span class="promo-code__value">MLK225</span>
+                <button type="button" class="promo-copy" data-code="MLK225" title="Copier le code">
+                  <i class="fa-solid fa-copy"></i> <span>Copier</span>
+                </button>
+              </div>
+              <a href="https://winwinbet.com" target="_blank" rel="noopener" class="promo-cta">
+                S'inscrire <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -170,5 +180,19 @@ export function initPronosticsAnimations() {
 
   revealElements.forEach(el => observer.observe(el));
 
-  // Optionnel : animation des cartes de jeux au survol déjà gérée en CSS.
+  // Bouton « Copier » du code promo
+  const copyBtn = section.querySelector('.promo-copy');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const label = copyBtn.querySelector('span');
+      try {
+        await navigator.clipboard.writeText(copyBtn.dataset.code);
+        label.textContent = 'Copié !';
+      } catch (e) {
+        label.textContent = 'MLK225';
+      }
+      copyBtn.classList.add('is-copied');
+      setTimeout(() => { label.textContent = 'Copier'; copyBtn.classList.remove('is-copied'); }, 1800);
+    });
+  }
 }
