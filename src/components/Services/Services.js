@@ -99,13 +99,13 @@ export default function Services() {
                 </svg>
 
                 <div class="floating-logo logo--tiktok" aria-label="TikTok" title="TikTok">
-                  <svg viewBox="0 0 48 48" width="26" height="26"><path d="M29 6c1 4 4 7 8 7.5V19c-3 0-6-1-8-3v13a11 11 0 1 1-11-11c.7 0 1.3 0 2 .2v5.6a5.4 5.4 0 1 0 3.8 5.2V6h5.2z" fill="#fff"/></svg>
+                  <svg viewBox="0 0 48 48" width="26" height="26"><path d="M29 6c1 4 4 7 8 7.5V19c-3 0-6-1-8-3v13a11 11 0 1 1-11-11c.7 0 1.3 0 2 .2v5.6a5.4 5.4 0 1 0 3.8 5.2V6h5.2z" fill="currentColor"/></svg>
                 </div>
                 <div class="floating-logo logo--ig" aria-label="Instagram" title="Instagram">
-                  <svg viewBox="0 0 48 48" width="24" height="24"><rect x="8" y="8" width="32" height="32" rx="10" fill="none" stroke="#fff" stroke-width="3"/><circle cx="24" cy="24" r="8" fill="none" stroke="#fff" stroke-width="3"/><circle cx="33" cy="15" r="2.2" fill="#fff"/></svg>
+                  <svg viewBox="0 0 48 48" width="24" height="24"><rect x="8" y="8" width="32" height="32" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="24" cy="24" r="8" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="33" cy="15" r="2.2" fill="currentColor"/></svg>
                 </div>
                 <div class="floating-logo logo--fb" aria-label="Facebook" title="Facebook">
-                  <svg viewBox="0 0 48 48" width="22" height="22"><circle cx="24" cy="24" r="19" fill="none" stroke="#fff" stroke-width="3"/><path d="M28 15h-3.2c-2.6 0-3.3 1.3-3.3 3v3.2h-3v4h3V33h4.3V25.2h3.3l.5-4h-3.8v-2.6c0-1 .3-1.6 1.7-1.6H29v-4z" fill="#fff"/></svg>
+                  <svg viewBox="0 0 48 48" width="22" height="22"><circle cx="24" cy="24" r="19" fill="none" stroke="currentColor" stroke-width="3"/><path d="M28 15h-3.2c-2.6 0-3.3 1.3-3.3 3v3.2h-3v4h3V33h4.3V25.2h3.3l.5-4h-3.8v-2.6c0-1 .3-1.6 1.7-1.6H29v-4z" fill="currentColor"/></svg>
                 </div>
               </div>
 

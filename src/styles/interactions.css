@@ -25,11 +25,6 @@
   transform: none;
   filter: none;
 }
-/* Une fois visibles, les cartes retrouvent leurs transitions rapides */
-.reveal-ready .service-card[data-reveal].is-visible {
-  transition: opacity 0.8s var(--ease-out) var(--reveal-delay, 0ms),
-              transform 0.35s var(--ease-out), border-color 0.25s ease, box-shadow 0.35s ease;
-}
 
 /* ---------- Barre de progression ---------- */
 .scroll-progress {
@@ -107,17 +102,80 @@
 }
 .has-spotlight:hover > .spotlight { opacity: 1; }
 
-/* ---------- Inclinaison 3D ---------- */
+/* ---------- Inclinaison 3D (portrait de l'accueil) ---------- */
 .has-tilt {
   transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-  transition: transform 0.35s var(--ease-out), border-color 0.25s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s var(--ease-out);
   will-change: transform;
 }
-.service-card.has-tilt:hover,
-.bot-card.has-tilt:hover {
-  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-6px);
+.has-tilt:hover { transition-duration: 0.12s; }
+
+/* ---------- Style « verre » commun à toutes les cartes ---------- */
+:root {
+  --card-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
+  --card-glass-border: rgba(255, 255, 255, 0.09);
+  --card-glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --card-glass-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
-.has-tilt:hover { transition-duration: 0.12s, 0.25s, 0.35s; }
+[data-theme="light"] {
+  --card-glass: linear-gradient(180deg, rgba(0, 0, 0, 0.022), rgba(0, 0, 0, 0.008));
+  --card-glass-border: rgba(0, 0, 0, 0.09);
+  --card-glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --card-glass-shadow: 0 24px 50px rgba(0, 0, 0, 0.08);
+}
+
+.service-card,
+.pronostics-sport,
+.pronostics-bots,
+.growth-chart-wrap {
+  background: var(--card-glass), var(--bg);
+  border: 1px solid var(--card-glass-border);
+  box-shadow: var(--card-glass-highlight);
+  border-radius: 1.4rem;
+}
+.bot-card {
+  border: 1px solid var(--card-glass-border);
+  box-shadow: var(--card-glass-highlight);
+}
+
+.service-card {
+  transition: transform 0.4s var(--ease-out), border-color 0.3s ease, box-shadow 0.4s ease;
+}
+.service-card:hover,
+.bot-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--text-muted);
+  box-shadow: var(--card-glass-highlight), var(--card-glass-shadow);
+}
+.pronostics-sport:hover,
+.pronostics-bots:hover,
+.growth-chart-wrap:hover {
+  border-color: var(--border);
+}
+.pronostics-sport,
+.pronostics-bots,
+.growth-chart-wrap {
+  transition: opacity 0.8s ease, transform 0.8s ease, border-color 0.3s ease;
+}
+
+/* Flèche des cartes de services : même pastille ronde que dans Contact */
+.service-card__footer i {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--card-glass-border);
+  font-size: 0.75rem;
+  transform: rotate(-45deg);
+  transition: transform 0.35s var(--ease-out), background-color 0.3s ease, color 0.3s ease;
+}
+.service-card:hover .service-card__footer i {
+  transform: rotate(0deg);
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
 
 /* ---------- Boutons aimantés ---------- */
 .is-magnetic {

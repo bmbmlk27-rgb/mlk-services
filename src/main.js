@@ -4,7 +4,6 @@ import './styles/reset.css';
 import './styles/themes.css';
 import './styles/global.css';
 import './styles/animations.css';
-import './styles/interactions.css';
 import { initInteractions } from './animations/interactions.js';
 
 // ===== COMPOSANTS =====
@@ -32,6 +31,9 @@ import './components/Footer/Footer.css';
 // Loader / Intro (première visite)
 import { initIntro } from './components/Loader/Loader.js';
 import './components/Loader/Loader.css';
+
+// Styles d'interaction en dernier : ils priment sur ceux des composants
+import './styles/interactions.css';
 
 // ----- GESTION DU THÈME -----
 function initTheme() {

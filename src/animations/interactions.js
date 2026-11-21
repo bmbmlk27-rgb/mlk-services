@@ -45,8 +45,15 @@ function initReveal() {
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
+        const el = entry.target;
+        el.classList.add('is-visible');
+        io.unobserve(el);
+        // Une fois l'apparition terminée, l'élément retrouve ses propres transitions (survol réactif)
+        const delay = parseInt(el.style.getPropertyValue('--reveal-delay'), 10) || 0;
+        setTimeout(() => {
+          el.removeAttribute('data-reveal');
+          el.style.removeProperty('--reveal-delay');
+        }, delay + 900);
       }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
@@ -109,7 +116,7 @@ function initScrollSpy() {
 }
 
 /* ---------- 4. Halo lumineux qui suit le pointeur ---------- */
-const SPOTLIGHT = '.service-card, .pronostics-sport, .pronostics-bots, .contact-form, .growth-panel';
+const SPOTLIGHT = '.service-card, .pronostics-sport, .pronostics-bots, .contact-form, .contact-method, .growth-chart-wrap';
 
 function initSpotlight() {
   document.querySelectorAll(SPOTLIGHT).forEach((el) => {
@@ -128,8 +135,9 @@ function initSpotlight() {
 
 /* ---------- 5. Inclinaison 3D au survol ---------- */
 function initTilt() {
-  document.querySelectorAll('.service-card, .hero__portrait, .bot-card').forEach((el) => {
-    const max = el.classList.contains('bot-card') ? 6 : 8;
+  // Réservé au portrait : les cartes utilisent une élévation douce
+  document.querySelectorAll('.hero__portrait').forEach((el) => {
+    const max = 8;
     el.classList.add('has-tilt');
     el.addEventListener('pointermove', (e) => {
       const r = el.getBoundingClientRect();
@@ -163,7 +171,7 @@ function initMagnetic() {
 /* ---------- 7. Effet d'onde au clic / toucher ---------- */
 function initRipple() {
   document.addEventListener('pointerdown', (e) => {
-    const el = e.target.closest('.btn, .submit-btn, .chip, .service-card');
+    const el = e.target.closest('.btn, .submit-btn, .chip, .service-card, .contact-method');
     if (!el) return;
     const r = el.getBoundingClientRect();
     const size = Math.max(r.width, r.height) * 2;
