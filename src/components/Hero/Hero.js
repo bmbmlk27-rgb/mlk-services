@@ -25,17 +25,22 @@ export function createHero() {
               Me contacter
             </a>
           </div>
+          <ul class="hero__stats">
+            <li><strong>+200K</strong><span>vues générées</span></li>
+            <li><strong>+2K</strong><span>abonnés gagnés</span></li>
+            <li><strong>3</strong><span>expertises</span></li>
+          </ul>
         </div>
 
-        <!-- Colonne droite : logos flottants (sans photo) -->
-        <div class="hero__logos-wrapper">
-          <div class="logos-orbit">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="tech-logo html" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="tech-logo css" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-logo js" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" alt="Vite" class="tech-logo vite" />
-            <img src="https://cdn.simpleicons.org/greensock/88CE02" alt="GSAP" class="tech-logo gsap" />
+        <!-- Colonne droite : portrait + badges -->
+        <div class="hero__visual">
+          <div class="hero__portrait">
+            <img src="/images/avatar.jpeg" alt="MLK, fondateur de MLK Services" width="420" height="520" fetchpriority="high" />
+            <span class="hero__status"><span class="hero__status-dot"></span>Disponible pour vos projets</span>
           </div>
+          <div class="hero__badge hero__badge--web"><i class="fa-solid fa-code"></i> Sites web</div>
+          <div class="hero__badge hero__badge--social"><i class="fa-brands fa-tiktok"></i> TikTok &amp; réseaux</div>
+          <div class="hero__badge hero__badge--custom"><i class="fa-solid fa-gears"></i> Sur mesure</div>
         </div>
       </div>
     </section>
