@@ -98,27 +98,6 @@
   animation: fadeInUp 0.8s ease 0.7s forwards;
 }
 
-/* ===== STATS ===== */
-.hero__stats {
-  list-style: none;
-  display: flex;
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
-  padding-top: var(--space-md);
-  border-top: 1px solid var(--border);
-  max-width: 500px;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease 0.9s forwards;
-}
-.hero__stats li { display: flex; flex-direction: column; gap: 0.2rem; }
-.hero__stats strong {
-  font-family: var(--font-secondary);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  line-height: 1;
-}
-.hero__stats span { font-size: var(--text-xs); color: var(--text-muted); }
-
 /* ===== PARTIE DROITE : PORTRAIT ===== */
 .hero__visual {
   position: relative;
@@ -216,7 +195,6 @@
   }
 
   .hero__visual { width: min(80%, 340px); }
-  .hero__stats { justify-content: center; margin-left: auto; margin-right: auto; }
 }
 
 @media (max-width: 640px) {
@@ -242,13 +220,11 @@
   .hero__badge--web { left: -18%; }
   .hero__badge--social { right: -20%; }
   .hero__badge--custom { left: -16%; }
-  .hero__stats { gap: var(--space-md); }
 
   /* Désactive les animations d'entrée pour un affichage immédiat */
   .hero__title .line,
   .hero__description,
   .hero__actions,
-  .hero__stats,
   .hero__visual {
     opacity: 1 !important;
     transform: none !important;

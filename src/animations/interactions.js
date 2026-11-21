@@ -184,34 +184,11 @@ function initRipple() {
   });
 }
 
-/* ---------- 8. Compteurs des chiffres clés ---------- */
-function initHeroCounters() {
-  const nums = document.querySelectorAll('.hero__stats strong');
-  if (!nums.length || reduceMotion) return;
-  nums.forEach((el) => {
-    const m = el.textContent.trim().match(/^(\+?)(\d+)(K?)$/);
-    if (!m) return;
-    const [, prefix, value, suffix] = m;
-    const target = Number(value);
-    const start = performance.now() + 900;
-    const duration = 1600;
-    el.textContent = `${prefix}0${suffix}`;
-    function frame(now) {
-      const p = Math.max(0, Math.min((now - start) / duration, 1));
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = `${prefix}${Math.round(target * eased)}${suffix}`;
-      if (p < 1) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  });
-}
-
 export function initInteractions() {
   initScrollUI();
   initScrollSpy();
   initReveal();
   initRipple();
-  initHeroCounters();
   if (finePointer && !reduceMotion) {
     initSpotlight();
     initTilt();
