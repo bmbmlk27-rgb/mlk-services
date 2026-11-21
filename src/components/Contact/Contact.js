@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser';
 // Paramètres EmailJS
 const EMAILJS_PUBLIC_KEY = "Jg4ZhfTuanTdO04FP";
 const EMAILJS_SERVICE_ID = "service_4lh8o9u";
