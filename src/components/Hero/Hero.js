@@ -25,11 +25,6 @@ export function createHero() {
               Me contacter
             </a>
           </div>
-          <ul class="hero__stats">
-            <li><strong>+200K</strong><span>vues générées</span></li>
-            <li><strong>+2K</strong><span>abonnés gagnés</span></li>
-            <li><strong>3</strong><span>expertises</span></li>
-          </ul>
         </div>
 
         <!-- Colonne droite : portrait + badges -->

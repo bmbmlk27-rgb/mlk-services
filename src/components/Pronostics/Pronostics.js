@@ -14,17 +14,61 @@ export default function Pronostics() {
         <div class="pronostics-grid">
           <!-- Sport & Pronostics -->
           <div class="pronostics-sport">
-            <i class="fa-solid fa-futbol sport-icon-float football"></i>
-            <i class="fa-solid fa-basketball sport-icon-float basketball"></i>
-            <h3><i class="fa-solid fa-futbol" style="margin-right:0.5rem;"></i> Football & Basket</h3>
+            <!-- Terrains animés -->
+            <div class="sport-arena" aria-hidden="true">
+              <div class="arena-tile arena-tile--foot">
+                <svg class="arena-lines" viewBox="0 0 200 120" preserveAspectRatio="none" fill="none">
+                  <rect x="6" y="6" width="188" height="108" rx="2" />
+                  <line x1="100" y1="6" x2="100" y2="114" />
+                  <circle cx="100" cy="60" r="16" />
+                  <rect x="6" y="34" width="26" height="52" />
+                  <rect x="168" y="34" width="26" height="52" />
+                  <rect x="6" y="48" width="9" height="24" />
+                  <rect x="185" y="48" width="9" height="24" />
+                </svg>
+                <span class="player player--a1"></span><span class="player player--a2"></span><span class="player player--a3"></span>
+                <span class="player player--b1"></span><span class="player player--b2"></span><span class="player player--b3"></span>
+                <span class="foot-ball"><i class="fa-solid fa-futbol"></i></span>
+                <span class="arena-tag"><i class="fa-solid fa-futbol"></i> Football</span>
+              </div>
+              <div class="arena-tile arena-tile--basket">
+                <svg class="arena-lines" viewBox="0 0 200 120" preserveAspectRatio="none" fill="none">
+                  <rect x="6" y="6" width="188" height="108" rx="2" />
+                  <line x1="100" y1="6" x2="100" y2="114" />
+                  <circle cx="100" cy="60" r="14" />
+                  <path d="M194 22 A46 46 0 0 0 194 98" />
+                  <rect x="160" y="42" width="34" height="36" />
+                  <path d="M6 22 A46 46 0 0 1 6 98" />
+                  <rect x="6" y="42" width="34" height="36" />
+                </svg>
+                <span class="hoop"></span>
+                <span class="basket-ball-x"><span class="basket-ball-y"><i class="fa-solid fa-basketball"></i></span></span>
+                <span class="arena-tag"><i class="fa-solid fa-basketball"></i> Basketball</span>
+              </div>
+            </div>
+
+            <span class="sport-live"><span class="sport-live__dot"></span> Analyses quotidiennes</span>
+            <h3 class="sport-title">Football &amp; Basket</h3>
             <p>
               Analyses approfondies, statistiques clés et pronostics quotidiens sur les plus grands championnats.
               Profitez de nos conseils pour améliorer vos résultats.
             </p>
+
+            <!-- Défilement des championnats -->
+            <div class="league-marquee" aria-label="Championnats suivis">
+              <div class="league-track"><span>Premier League</span><span>LaLiga</span><span>Ligue 1</span><span>Serie A</span><span>Bundesliga</span><span>Ligue des champions</span><span>NBA</span><span>EuroLeague</span><span aria-hidden="true">Premier League</span><span aria-hidden="true">LaLiga</span><span aria-hidden="true">Ligue 1</span><span aria-hidden="true">Serie A</span><span aria-hidden="true">Bundesliga</span><span aria-hidden="true">Ligue des champions</span><span aria-hidden="true">NBA</span><span aria-hidden="true">EuroLeague</span></div>
+            </div>
+
+            <!-- Types de pronostics -->
+            <div class="bet-types">
+              <div class="bet-type"><strong>1X2</strong><span>Résultat du match</span></div>
+              <div class="bet-type"><strong>+/−</strong><span>Over / Under</span></div>
+              <div class="bet-type"><strong><i class="fa-solid fa-futbol"></i></strong><span>Buteur</span></div>
+            </div>
+
             <ul class="sport-list">
-              <li><i class="fa-solid fa-check"></i> Pronostics 1X2, Over/Under, Buteur</li>
-              <li><i class="fa-solid fa-check"></i> Analyses vidéo et rapports détaillés</li>
-              <li><i class="fa-solid fa-check"></i> Suivi personnalisé sur Telegram/WhatsApp</li>
+              <li><i class="fa-solid fa-chart-line"></i> Analyses vidéo et rapports détaillés</li>
+              <li><i class="fa-solid fa-bell"></i> Suivi personnalisé sur Telegram/WhatsApp</li>
             </ul>
             <div class="channel-buttons">
               <a href="https://t.me/" target="_blank" rel="noopener" class="chip telegram">
