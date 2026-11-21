@@ -71,10 +71,10 @@ export default function Pronostics() {
               <li><i class="fa-solid fa-bell"></i> Suivi personnalisé sur Telegram/WhatsApp</li>
             </ul>
             <div class="channel-buttons">
-              <a href="https://t.me/" target="_blank" rel="noopener" class="chip telegram">
+              <a href="https://t.me/MLKprono225" target="_blank" rel="noopener" class="chip telegram">
                 <i class="fa-brands fa-telegram"></i> Canal Telegram
               </a>
-              <a href="https://wa.me/" target="_blank" rel="noopener" class="chip whatsapp">
+              <a href="https://chat.whatsapp.com/BMq6raXG2hJBsbcWVZSOVK" target="_blank" rel="noopener" class="chip whatsapp">
                 <i class="fa-brands fa-whatsapp"></i> Groupe WhatsApp
               </a>
             </div>
@@ -121,10 +121,10 @@ export default function Pronostics() {
               </div>
             </div>
             <div class="channel-buttons">
-              <a href="https://wa.me/" target="_blank" rel="noopener" class="chip whatsapp">
+              <a href="https://wa.me/2250787913032" target="_blank" rel="noopener" class="chip whatsapp">
                 <i class="fa-brands fa-whatsapp"></i> Demander un bot
               </a>
-              <a href="https://t.me/" target="_blank" rel="noopener" class="chip telegram">
+              <a href="https://t.me/MLKprono225" target="_blank" rel="noopener" class="chip telegram">
                 <i class="fa-brands fa-telegram"></i> Support Telegram
               </a>
             </div>
