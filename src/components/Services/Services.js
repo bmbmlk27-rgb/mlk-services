@@ -11,8 +11,37 @@ export default function Services() {
           </p>
         </div>
 
+        <!-- Cartes récapitulatives -->
+        <div class="service-cards">
+          <a href="#service-web" class="service-card">
+            <span class="service-card__icon"><i class="fa-solid fa-code"></i></span>
+            <span class="service-card__num">01</span>
+            <h3 class="service-card__title">Création web</h3>
+            <p class="service-card__text">Sites vitrines, e-commerce et landing pages rapides, modernes et adaptés au mobile.</p>
+            <ul class="service-card__tags"><li>Vitrine</li><li>E-commerce</li><li>Refonte</li></ul>
+            <span class="service-card__footer">Tarif sur demande <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+          <a href="#service-social" class="service-card service-card--featured">
+            <span class="service-card__badge">Populaire</span>
+            <span class="service-card__icon"><i class="fa-brands fa-tiktok"></i></span>
+            <span class="service-card__num">02</span>
+            <h3 class="service-card__title">TikTok &amp; réseaux sociaux</h3>
+            <p class="service-card__text">Création de comptes et stratégie pour développer votre visibilité et votre communauté.</p>
+            <ul class="service-card__tags"><li>TikTok</li><li>Instagram</li><li>Facebook</li></ul>
+            <span class="service-card__footer">Tarif sur demande <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+          <a href="#service-custom" class="service-card">
+            <span class="service-card__icon"><i class="fa-solid fa-gears"></i></span>
+            <span class="service-card__num">03</span>
+            <h3 class="service-card__title">Sur mesure</h3>
+            <p class="service-card__text">Applications web, automatisations, chatbots et outils pensés pour votre besoin précis.</p>
+            <ul class="service-card__tags"><li>Apps web</li><li>API</li><li>Chatbots</li></ul>
+            <span class="service-card__footer">Tarif sur demande <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+
         <!-- ========== SERVICE 01 : WEB ========== -->
-        <div class="service-section">
+        <div class="service-section" id="service-web">
           <div class="service-content">
             <span class="service-number">01</span>
             <h3 class="service-heading">WEB <span>Création digitale</span></h3>
@@ -51,7 +80,7 @@ export default function Services() {
         </div>
 
         <!-- ========== SERVICE 02 : TIKTOK & RÉSEAUX SOCIAUX ========== -->
-        <div class="service-section reverse">
+        <div class="service-section reverse" id="service-social">
           <div class="service-visual social-visual">
             <div class="growth-panel">
               <div class="growth-chart-wrap">
@@ -114,7 +143,7 @@ export default function Services() {
         </div>
 
         <!-- ========== SERVICE 03 : SUR MESURE ========== -->
-        <div class="service-section">
+        <div class="service-section" id="service-custom">
           <div class="service-content">
             <span class="service-number">03</span>
             <h3 class="service-heading">SUR MESURE <span>Votre projet, notre expertise</span></h3>

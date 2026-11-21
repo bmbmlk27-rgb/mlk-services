@@ -1,6 +1,6 @@
 /* ===== CONTACT PAGE ===== */
 .contact-page {
-  padding: var(--space-3xl) 0;
+  padding: var(--section-pad) 0;
   background-color: var(--bg);
   color: var(--text);
 }

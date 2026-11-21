@@ -1,6 +1,6 @@
 /* ===== PRONOSTICS SECTION ===== */
 .pronostics-section {
-  padding: var(--space-3xl) 0;
+  padding: var(--section-pad) 0;
   background-color: var(--bg-secondary);
   color: var(--text);
 }

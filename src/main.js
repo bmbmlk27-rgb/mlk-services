@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Afficher le loader si première visite
   initIntro();
-  initIntro();
   createNavbar();
   createHero();
 
