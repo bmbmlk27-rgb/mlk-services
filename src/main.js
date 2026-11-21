@@ -4,6 +4,8 @@ import './styles/reset.css';
 import './styles/themes.css';
 import './styles/global.css';
 import './styles/animations.css';
+import './styles/interactions.css';
+import { initInteractions } from './animations/interactions.js';
 
 // ===== COMPOSANTS =====
 import { createNavbar } from './components/Navbar/Navbar.js';
@@ -76,7 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     app.insertAdjacentHTML('beforeend', Footer());
   }
 
-  console.log('Site complet affiché');
+  // Animations et interactions modernes
+  initInteractions();
 });
 
 // ----- HMR VITE -----
