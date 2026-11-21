@@ -559,102 +559,195 @@
 
 /* ===== Bannière WinWin ===== */
 .promo-banner {
+  --ww-green: #8edc00;
+  --ww-bg: #18181a;
   grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(135deg, #1b3a5c, #0f2538);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg) var(--space-xl);
-  color: white;
   position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: 1.4rem;
+  background:
+    radial-gradient(ellipse 60% 120% at 0% 50%, rgba(142, 220, 0, 0.16), transparent 70%),
+    radial-gradient(ellipse 40% 100% at 100% 0%, rgba(142, 220, 0, 0.08), transparent 70%),
+    var(--ww-bg);
+  border: 1px solid rgba(142, 220, 0, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 24px 60px rgba(0, 0, 0, 0.35);
+  color: #fff;
   overflow: hidden;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  flex-wrap: wrap;
-  gap: var(--space-md);
+  transition: opacity 0.8s ease, transform 0.8s ease, border-color 0.3s ease;
 }
-
 .promo-banner.revealed {
   opacity: 1;
   transform: translateY(0);
 }
+.promo-banner:hover { border-color: rgba(142, 220, 0, 0.5); }
 
+/* Reflet qui traverse la bannière */
 .promo-banner::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -30%;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%);
+  inset: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(142, 220, 0, 0.10) 50%, transparent 65%);
+  transform: translateX(-100%);
+  animation: promoSweep 5s ease-in-out infinite;
   pointer-events: none;
 }
+@keyframes promoSweep {
+  0%, 55% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
 
-.promo-content {
+.promo-brand {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+.winwin-logo {
+  width: clamp(170px, 18vw, 230px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 18px rgba(142, 220, 0, 0.25));
+}
+
+/* Icônes de sports qui s'allument tour à tour (comme l'écran de chargement de l'appli) */
+.promo-sports {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
-  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+.promo-sports > * {
+  width: 1.05rem;
+  height: 1.05rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+  color: #fff;
+  opacity: 0.25;
+  animation: sportBlink 2.4s ease-in-out infinite;
+}
+.promo-sports > span {
+  border-radius: 50%;
+  background: #4a4a4e;
+  width: 0.95rem;
+  height: 0.95rem;
+}
+.promo-sports > :nth-child(1) { animation-delay: 0s; }
+.promo-sports > :nth-child(2) { animation-delay: 0.15s; }
+.promo-sports > :nth-child(3) { animation-delay: 0.3s; }
+.promo-sports > :nth-child(4) { animation-delay: 0.45s; }
+.promo-sports > :nth-child(5) { animation-delay: 0.6s; }
+.promo-sports > :nth-child(6) { animation-delay: 0.75s; }
+.promo-sports > :nth-child(7) { animation-delay: 0.9s; }
+.promo-sports > :nth-child(8) { animation-delay: 1.05s; }
+@keyframes sportBlink {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  20% { opacity: 1; transform: scale(1.15); }
+  40% { opacity: 1; transform: scale(1); }
+}
+
+.promo-text {
+  position: relative;
   z-index: 1;
 }
-
-.winwin-logo {
-  font-family: var(--font-secondary);
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  background: linear-gradient(to right, #FFD700, #FFA500);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .promo-text h4 {
+  font-family: var(--font-secondary);
   font-size: var(--text-lg);
-  font-weight: 600;
-  margin-bottom: 0.3rem;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.promo-text p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  max-width: 420px;
 }
 
-.promo-text p {
-  opacity: 0.9;
-  font-size: var(--text-sm);
+.promo-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.6rem;
 }
 
 .promo-code {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  background: rgba(255,255,255,0.15);
-  padding: 0.8rem 1.5rem;
-  border-radius: var(--radius-full);
-  border: 1px dashed rgba(255,255,255,0.5);
-  z-index: 1;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.45rem 0.45rem 0.45rem 1.1rem;
+  border-radius: 0.9rem;
+  border: 1.5px dashed rgba(142, 220, 0, 0.6);
+  background: rgba(142, 220, 0, 0.06);
 }
-
-.promo-code span {
-  font-family: 'Courier New', monospace;
-  font-size: 1.5rem;
+.promo-code__value {
+  font-family: var(--font-secondary);
+  font-size: 1.45rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  color: #FFD700;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: var(--ww-green);
 }
-
-.promo-code button {
-  background: white;
-  color: #0f2538;
+.promo-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
   border: none;
-  padding: 0.4rem 1rem;
-  border-radius: var(--radius-full);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
   font-weight: 600;
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.promo-copy:hover { background: rgba(255, 255, 255, 0.18); }
+.promo-copy.is-copied {
+  background: var(--ww-green);
+  color: #0b0b0b;
+  transform: scale(1.04);
 }
 
-.promo-code button:hover {
-  background: #f0f0f0;
+.promo-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 0.9rem;
+  background: var(--ww-green);
+  color: #0b0b0b;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(142, 220, 0, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.2s ease;
+}
+.promo-cta:hover {
+  color: #0b0b0b;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(142, 220, 0, 0.45);
+  filter: brightness(1.05);
+}
+.promo-cta i { transition: transform 0.25s ease; }
+.promo-cta:hover i { transform: translateX(4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-banner::before, .promo-sports > * { animation: none; opacity: 1; }
 }
 
 /* ===== Responsive ===== */
@@ -663,13 +756,13 @@
     grid-template-columns: 1fr;
   }
   .promo-banner {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     text-align: center;
-    justify-content: center;
+    justify-items: center;
+    padding: var(--space-lg) var(--space-md);
   }
-  .promo-content {
-    justify-content: center;
-  }
+  .promo-text p { margin: 0 auto; }
+  .promo-actions { width: 100%; max-width: 360px; }
   .bot-cards {
     grid-template-columns: 1fr;
     gap: var(--space-sm);

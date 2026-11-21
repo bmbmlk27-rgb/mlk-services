@@ -4,6 +4,62 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+/* ---------- 0. Textes qui apparaissent mot par mot ---------- */
+const SPLIT_TITLES = [
+  '.services-title', '.service-heading', '.service-card__title', '.services-final h3',
+  '.about-title', '.about-subtitle', '.pronostics-title', '.sport-title', '.pronostics-bots h3',
+  '.promo-text h4', '.contact-title',
+].join(',');
+const SPLIT_TEXTS = [
+  '.services-description', '.service-text', '.service-card__text', '.services-final p',
+  '.about-text', '.pronostics-intro', '.pronostics-sport > p', '.bots-intro',
+  '.promo-text p', '.contact-text', '.footer__description',
+].join(',');
+
+function splitWords(el, mode) {
+  let index = 0;
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach((node) => {
+    if (!node.nodeValue.trim()) return;
+    const frag = document.createDocumentFragment();
+    node.nodeValue.split(/(\s+)/).forEach((part) => {
+      if (!part) return;
+      if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+      const outer = document.createElement('span');
+      outer.className = 'sw';
+      const inner = document.createElement('span');
+      inner.className = 'sw-i';
+      inner.style.setProperty('--i', index++);
+      inner.textContent = part;
+      outer.appendChild(inner);
+      frag.appendChild(outer);
+    });
+    node.replaceWith(frag);
+  });
+  el.setAttribute('data-split', mode);
+}
+
+function initSplitText() {
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+  const targets = [];
+  document.querySelectorAll(SPLIT_TITLES).forEach((el) => { splitWords(el, 'title'); targets.push(el); });
+  document.querySelectorAll(SPLIT_TEXTS).forEach((el) => {
+    if (el.hasAttribute('data-split')) return;
+    splitWords(el, 'text');
+    targets.push(el);
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-split-visible');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.2, rootMargin: '0px 0px -6% 0px' });
+  targets.forEach((el) => io.observe(el));
+}
+
 /* ---------- 1. Apparition au défilement ---------- */
 const REVEAL_GROUPS = [
   // [sélecteur, variante, décalage entre éléments (ms)]
@@ -27,7 +83,7 @@ function initReveal() {
     // Le décalage repart de zéro pour chaque parent
     const counters = new Map();
     document.querySelectorAll(selector).forEach((el) => {
-      if (el.hasAttribute('data-reveal')) return;
+      if (el.hasAttribute('data-reveal') || el.hasAttribute('data-split')) return;
       const i = counters.get(el.parentElement) || 0;
       counters.set(el.parentElement, i + 1);
       el.setAttribute('data-reveal', variant);
@@ -187,6 +243,7 @@ function initRipple() {
 export function initInteractions() {
   initScrollUI();
   initScrollSpy();
+  initSplitText();
   initReveal();
   initRipple();
   if (finePointer && !reduceMotion) {

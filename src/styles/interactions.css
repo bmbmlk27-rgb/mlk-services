@@ -274,3 +274,41 @@
 [data-theme="light"] .navbar.is-scrolled .navbar__capsule {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
+
+/* ---------- Textes qui apparaissent mot par mot ---------- */
+[data-split] .sw {
+  display: inline-block;
+}
+[data-split] .sw-i {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Titres : chaque mot glisse depuis le bas, derrière un masque */
+[data-split="title"] .sw {
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0 0.08em 0.12em 0;
+  margin: 0 -0.08em -0.12em 0;
+}
+[data-split="title"] .sw-i {
+  transform: translateY(110%) rotate(4deg);
+  transform-origin: left bottom;
+  transition: transform 0.9s var(--ease-out);
+  transition-delay: min(calc(var(--i) * 70ms), 700ms);
+}
+
+/* Paragraphes : les mots apparaissent en fondu, en remontant légèrement */
+[data-split="text"] .sw-i {
+  opacity: 0;
+  transform: translateY(0.45em);
+  filter: blur(4px);
+  transition: opacity 0.6s ease, transform 0.6s var(--ease-out), filter 0.6s ease;
+  transition-delay: min(calc(var(--i) * 18ms + 150ms), 1100ms);
+}
+
+[data-split].is-split-visible .sw-i {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
