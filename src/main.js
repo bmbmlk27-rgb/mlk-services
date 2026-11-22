@@ -7,6 +7,7 @@ import './styles/animations.css';
 import { initInteractions } from './animations/interactions.js';
 
 // ===== COMPOSANTS =====
+import './components/Logo3D/Logo3D.css';
 import { createNavbar } from './components/Navbar/Navbar.js';
 import './components/Navbar/Navbar.css';
 

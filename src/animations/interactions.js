@@ -8,7 +8,7 @@ const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matc
 const SPLIT_TITLES = [
   '.services-title', '.service-heading', '.service-card__title', '.services-final h3',
   '.about-title', '.about-subtitle', '.pronostics-title', '.sport-title', '.pronostics-bots h3',
-  '.promo-text h4', '.contact-title',
+  '.promo-text h4', '.contact-title', '.footer__cta h3',
 ].join(',');
 const SPLIT_TEXTS = [
   '.services-description', '.service-text', '.service-card__text', '.services-final p',

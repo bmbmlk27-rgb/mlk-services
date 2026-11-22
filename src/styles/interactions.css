@@ -312,3 +312,8 @@
   transform: none;
   filter: none;
 }
+
+/* Sur mobile, le bouton « retour en haut » passe au-dessus de la barre d'onglets */
+@media (max-width: 768px) {
+  .to-top { bottom: calc(6rem + var(--safe-bottom)); right: 1rem; width: 2.7rem; height: 2.7rem; }
+}
