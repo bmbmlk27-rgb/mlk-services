@@ -1,0 +1,77 @@
+/* ===== LOGO MLK SERVICES EN 3D (réutilisable) ===== */
+.mlk-logo3d {
+  --logo-color: var(--text);
+  --logo-base: var(--bg);
+  --logo-step: 0.9px;
+  --rx: 10deg;
+  --ry: -18deg;
+  position: relative;
+  display: inline-block;
+  aspect-ratio: 454 / 296;
+  width: 3rem;
+  perspective: 500px;
+  flex-shrink: 0;
+}
+
+.mlk-logo3d__inner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: mlkLogoSway 5s ease-in-out infinite alternate;
+}
+
+@keyframes mlkLogoSway {
+  from { transform: rotateX(var(--rx)) rotateY(var(--ry)); }
+  to { transform: rotateX(calc(var(--rx) * 0.5)) rotateY(calc(var(--ry) * -1)); }
+}
+
+/* Au survol, le logo se redresse face à l'utilisateur */
+a:hover > .mlk-logo3d .mlk-logo3d__inner,
+.mlk-logo3d:hover .mlk-logo3d__inner {
+  animation-play-state: paused;
+  transform: rotateX(0deg) rotateY(0deg) scale(1.06);
+}
+
+.mlk-logo3d__layer,
+.mlk-logo3d__face,
+.mlk-logo3d__shine {
+  position: absolute;
+  inset: 0;
+  -webkit-mask: url('/images/logo-mask.png') center / contain no-repeat;
+  mask: url('/images/logo-mask.png') center / contain no-repeat;
+}
+
+.mlk-logo3d__layer {
+  transform: translateZ(calc(var(--z) * var(--logo-step) * -1));
+  background: color-mix(in srgb, var(--logo-color) calc(60% - var(--z) * 5%), var(--logo-base));
+}
+
+.mlk-logo3d__face {
+  transform: translateZ(0.6px);
+  background: linear-gradient(160deg,
+    var(--logo-color) 0%,
+    color-mix(in srgb, var(--logo-color) 78%, var(--logo-base)) 55%,
+    var(--logo-color) 100%);
+}
+
+.mlk-logo3d__shine {
+  transform: translateZ(1px);
+  background: linear-gradient(105deg,
+    transparent 30%,
+    color-mix(in srgb, var(--logo-base) 55%, transparent) 46%,
+    transparent 60%);
+  background-size: 250% 100%;
+  background-position: 130% 0;
+  animation: mlkLogoShine 4.5s ease-in-out 1s infinite;
+}
+
+@keyframes mlkLogoShine {
+  0% { background-position: 130% 0; }
+  40%, 100% { background-position: -30% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mlk-logo3d__inner, .mlk-logo3d__shine { animation: none; }
+}
